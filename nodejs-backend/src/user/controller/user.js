@@ -2,7 +2,12 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Band = require('../../../models/Band');
 const Musician = require('../../../models/Musician');
+const User = require('../../../models/User');
+const jwt = require('jsonwebtoken');
 
+const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
+
+//register API
 async function register(req,res){
     try{
         console.log(req.body); //body is a raw JSON file
@@ -18,7 +23,7 @@ async function register(req,res){
                 genre_id,
             } = req.body;
 
-            console.log("this is genre id" + genre_id);
+            //console.log("this is genre id" + genre_id);
 
             //encrypt the password and add salt
             const salt = await bcrypt.genSalt(10);
@@ -30,7 +35,7 @@ async function register(req,res){
                 email,
                 password: hashPassword,
                 user_type,
-                genres: new mongoose.Types.ObjectId(genre_id),
+                genres: new mongoose.Types.ObjectId(genre_id), //if genre_id was not provided, ObjectID generates a random id
             });
 
         //if user_type is a musician
@@ -44,7 +49,7 @@ async function register(req,res){
                 instrument_id,
             } = req.body;
 
-            console.log("this is instrument id" + instrument_id);
+            //console.log("this is instrument id" + instrument_id);
 
             //encrypt the password and add salt
             const salt = await bcrypt.genSalt(10);
@@ -57,7 +62,7 @@ async function register(req,res){
                 email,
                 password: hashPassword,
                 user_type,
-                instruments: new mongoose.Types.ObjectId(instrument_id),
+                instruments: new mongoose.Types.ObjectId(instrument_id), 
             });
         }
         
@@ -69,9 +74,43 @@ async function register(req,res){
         
     }catch(error){
         console.log(error);
+        res.status(500).send(error);
     }   
+}
+
+//login API
+async function login(req,res){
+    try{
+        const {
+            email,
+            password
+        } = req.body;
+
+        //check if email exists
+        const user = await User.findOne({email});
+        if (!user) return res.status(400).send("Incorrect Email");
+
+        //check if password matches
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) return res.status(400).send("Incorrect Password");
+
+        //create jwt token and send it in response
+        const token = jwt.sign(
+            {_id:user._id, name: user.name, email: user.email}, TOKEN_SECRET
+        );
+
+        return res.header('auth-token',token).send({
+            token: token,
+            id: user._id
+        });
+
+    } catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
 }
 
 module.exports = {
     register,
+    login
   };
