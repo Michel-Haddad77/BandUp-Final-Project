@@ -5,6 +5,7 @@ const cors = require('cors');
 
 
 const userRouter = require('./src/user/index');
+const bandsRouter = require('./src/bands/index');
 
 //establish connection to Mongodb
 const DB_CONNECT = process.env.DB_CONNECT || "";
@@ -20,6 +21,7 @@ app.use(express.json());
 
 
 app.use('/api/user', userRouter);
+app.use('/api/bands', bandsRouter);
 
 //change port to 8080
 app.listen(8080, () => console.log('Server running on 8080'));
