@@ -1,6 +1,7 @@
 const User = require("./User");
+const mongoose = require('mongoose');
 
-const Musician = User.discriminator('Musician', new Schema({
+const Musician = User.discriminator('Musician', new mongoose.Schema({
     last_name: {
         type: String,
         required: true,
@@ -13,6 +14,6 @@ const Musician = User.discriminator('Musician', new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Band'
     }]
-}, options));
+}));
 
 module.exports = Musician;
