@@ -6,7 +6,7 @@ const Musician = User.discriminator('Musician', new mongoose.Schema({
         type: String,
         required: true,
     },
-    instruments:{
+    instrument:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Instrument'
     },

@@ -2,7 +2,7 @@ const User = require("./User");
 const mongoose = require('mongoose');
 
 const Band = User.discriminator('Band', new mongoose.Schema({
-    genres:{
+    genre:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Genre'
     },

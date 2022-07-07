@@ -1,6 +1,8 @@
 const Band = require('../../../models/Band');
 const Musician = require('../../../models/Musician');
+const mongoose = require('mongoose');
 
+//API that get all bands
 async function getAllBands(req,res){
     try{
         const bands = await Band.find();
@@ -11,9 +13,10 @@ async function getAllBands(req,res){
     }
 }
 
+//API that gets the recently registered bands
 async function getRecentBands(req,res){
     try{
-        //get the 2 last added bands
+        //get the 2 last registered bands
         const bands = await Band.find().sort('-date').limit(2);
         return res.send(bands);
     } catch(error){
@@ -22,6 +25,7 @@ async function getRecentBands(req,res){
     }
 }
 
+//API called when the band requests the musician to apply
 async function requestToApply(req,res){
     try{
         const {
@@ -50,8 +54,22 @@ async function requestToApply(req,res){
     }
 }
 
+//API that gets all the bands of the same genre
+//expected request contains genre_id
+async function getByGenre(req,res){
+    try{
+        const bands = await Band.find({genres: new mongoose.Types.ObjectId(req.body.genre_id)});
+        return res.send(bands);
+
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     getAllBands,
     getRecentBands,
     requestToApply,
+    getByGenre,
 }

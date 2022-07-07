@@ -1,6 +1,7 @@
 const Band = require('../../../models/Band');
 const Musician = require('../../../models/Musician');
 
+//API that gets all musicians
 async function getAllMusicians(req,res){
     try{
         const musicians = await Musician.find();
@@ -11,6 +12,7 @@ async function getAllMusicians(req,res){
     }
 }
 
+//API that gets the recently registered musicians
 async function getRecentMusicians(req,res){
     try{
         //get the last 2 added musicians
@@ -22,6 +24,7 @@ async function getRecentMusicians(req,res){
     }
 }
 
+//API called when the musician applies for a band
 async function apply(req,res){
     try{
         const {

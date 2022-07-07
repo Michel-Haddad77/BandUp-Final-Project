@@ -35,7 +35,7 @@ async function register(req,res){
                 email,
                 password: hashPassword,
                 user_type,
-                genres: new mongoose.Types.ObjectId(genre_id), //if genre_id was not provided, ObjectID generates a random id
+                genre: new mongoose.Types.ObjectId(genre_id), //if genre_id was not provided, ObjectID generates a random id
             });
 
         //if user_type is a musician
