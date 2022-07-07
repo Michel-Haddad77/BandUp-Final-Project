@@ -1,6 +1,7 @@
 const Band = require('../../../models/Band');
 const Musician = require('../../../models/Musician');
 const mongoose = require('mongoose');
+const Genre = require('../../../models/Genre');
 
 //API that get all bands
 async function getAllBands(req,res){
@@ -67,9 +68,23 @@ async function getByGenre(req,res){
     }
 }
 
+//API to get all the band genres
+async function getAllGenres(req,res){
+    try{
+        const genres = await Genre.find();
+        return res.send(genres);
+
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+
+};
+
 module.exports = {
     getAllBands,
     getRecentBands,
     requestToApply,
     getByGenre,
+    getAllGenres
 }
