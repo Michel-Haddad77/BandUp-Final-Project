@@ -58,7 +58,7 @@ async function requestToApply(req,res){
 //expected request contains genre_id
 async function getByGenre(req,res){
     try{
-        const bands = await Band.find({genres: new mongoose.Types.ObjectId(req.body.genre_id)});
+        const bands = await Band.find({genre: new mongoose.Types.ObjectId(req.body.genre_id)});
         return res.send(bands);
 
     }catch(error){

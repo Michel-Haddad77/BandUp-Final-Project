@@ -62,7 +62,7 @@ async function register(req,res){
                 email,
                 password: hashPassword,
                 user_type,
-                instruments: new mongoose.Types.ObjectId(instrument_id), 
+                instrument: new mongoose.Types.ObjectId(instrument_id), 
             });
         }
         
