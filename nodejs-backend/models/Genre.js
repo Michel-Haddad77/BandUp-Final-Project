@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const instrumentSchema = new mongoose.Schema({
-    instrument_name: {
+const genreSchema = new mongoose.Schema({
+    genre_name: {
       type: String,
       required: true,
     },
@@ -11,4 +11,4 @@ const instrumentSchema = new mongoose.Schema({
     },
 }, { strict: false });
 
-module.exports = mongoose.model('Instrument', instrumentSchema);
+module.exports = mongoose.model('Genre', genreSchema);
