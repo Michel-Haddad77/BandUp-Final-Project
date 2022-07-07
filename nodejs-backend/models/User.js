@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
   },
   picture: {
     type: String,
+    default: "",
   },
   video: {
     type: String,
@@ -43,7 +44,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+},  { strict: false });
 
 
 module.exports = mongoose.model('User', userSchema);
