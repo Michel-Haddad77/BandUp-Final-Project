@@ -5,29 +5,29 @@ export default function TopBar(){
         <View style={styles.container}>
             <TextInput style={styles.searchbar} placeholder='Search' />
             <Image style={styles.profile} source={require('../assets/profile2.png')}/>
-
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flex: 0.08,
       height:50,
       flexDirection: 'row',
-      backgroundColor: 'blue',
+      backgroundColor: '#5271FF',
+      alignItems: 'center',
+      justifyContent: 'space-evenly'
     },
     profile: {
         width: 40,
         height: 40,
         borderRadius: 50,
-        marginTop: 10,
+   
     },
     searchbar:{
         backgroundColor: 'white',
-        height: 40,
+        height: 30,
         width: 300,
-        margin: 10,
         padding: 5
     }
   });
