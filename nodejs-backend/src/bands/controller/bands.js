@@ -18,7 +18,7 @@ async function getAllBands(req,res){
 async function getRecentBands(req,res){
     try{
         //get the 2 last registered bands
-        const bands = await Band.find().sort('-date').limit(2);
+        const bands = await Band.find().populate('genre').sort('-date').limit(2);
         return res.send(bands);
     } catch(error){
         console.log(error);

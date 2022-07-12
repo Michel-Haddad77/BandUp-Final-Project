@@ -25,8 +25,8 @@ export default function Genres(){
                 {recentBands.map((band,index)=>
                     <BandCard key={index} 
                         name={band.name} 
-                        picture = {band.picture} 
-                        genre={band.genre}
+                        picture = {band.picture}
+                        genre={band.genre.genre_name}
                     />
                 )}
 
