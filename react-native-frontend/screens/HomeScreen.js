@@ -6,8 +6,8 @@ import NewBands from '../components/NewBands';
 export default function Home(){
     return (
         <>
+            <TopBar/>
             <ScrollView>
-                <TopBar/>
                 <Genres/>
                 <NewBands/>
             </ScrollView>
