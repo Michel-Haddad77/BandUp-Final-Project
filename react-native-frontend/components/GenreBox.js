@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View, Image, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableHighlight} from 'react-native';
 
-export default function GenreBox({name, picture}){
+export default function GenreBox({navigation, name, picture, genre_id}){
     return(
-        <View style={styles.container}>
-            <ImageBackground source={{uri: `data:image;base64,${picture}`}} style={styles.image}>
-                {/* the below view is for adding color overlay to the background image */}
-                <View style={styles.overlayView}/>
-                <Text style={styles.title}>{name}</Text>
-            </ImageBackground>
-        </View>
+        <TouchableHighlight style={styles.container}
+            onPress={() => navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
+        >
+            <View style={{flex:1}}>
+                <ImageBackground source={{uri: `data:image;base64,${picture}`}} style={styles.image}>
+                    {/* the below view is for adding color overlay to the background image */}
+                    <View style={styles.overlayView}/>
+                    <Text style={styles.title}>{name}</Text>
+                </ImageBackground>
+            </View>
+        </TouchableHighlight>
     )
 }
 

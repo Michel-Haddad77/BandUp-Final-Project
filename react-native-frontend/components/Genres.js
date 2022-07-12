@@ -3,7 +3,7 @@ import GenreBox from './GenreBox';
 import axios from 'axios';
 import { useState,useEffect } from "react";
 
-export default function Genres(){
+export default function Genres({navigation}){
 
     const [genres, setGenres] = useState([]);
 
@@ -24,9 +24,13 @@ export default function Genres(){
             <Text style={styles.title}>Band Genres</Text>
             <View style= {styles.container}>
                 {genres.map((genre, index)=> 
-                    <GenreBox  key = {index} name={genre.genre_name} picture={genre.picture}/>
-                )}
-                
+                    <GenreBox  key = {index} 
+                        name={genre.genre_name} 
+                        picture={genre.picture}
+                        genre_id = {genre._id} 
+                        navigation={navigation} 
+                    />
+                )}  
             </View>
         </>
     )

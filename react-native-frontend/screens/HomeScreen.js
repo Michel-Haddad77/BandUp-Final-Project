@@ -1,15 +1,15 @@
-import { ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView} from 'react-native';
 import Genres from '../components/Genres';
 import TopBar from '../components/TopBar';
 import NewBands from '../components/NewBands';
 
-export default function Home(){
+export default function HomeScreen({navigation}){
     return (
         <>
             <TopBar/>
             <ScrollView>
-                <Genres/>
-                <NewBands/>
+                <Genres navigation={navigation}/>
+                <NewBands navigation={navigation}/>
             </ScrollView>
         </>
     )
