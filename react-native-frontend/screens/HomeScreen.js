@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View} from 'react-native';
 import Genres from '../components/Genres';
 import TopBar from '../components/TopBar';
 import NewBands from '../components/NewBands';
@@ -6,9 +6,11 @@ import NewBands from '../components/NewBands';
 export default function Home(){
     return (
         <>
-            <TopBar/>
-            <Genres/>
-            <NewBands/>
+            <ScrollView>
+                <TopBar/>
+                <Genres/>
+                <NewBands/>
+            </ScrollView>
         </>
     )
 }
