@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Image} from 'react-native';
 
-export default function GenreBox({name, picture}){
+export default function GenreBox({name, genre, picture}){
     return(
         <View style={styles.container}>
-                <Image style={styles.image} source={require('../assets/profile2.png')} />
-                <Text style={styles.name}>Michel Haddad</Text>
-                <Text>Band Genre</Text>
+                <Image style={styles.image} source={{uri: `data:image;base64,${picture}`}} />
+                <Text style={styles.name}>{name}</Text>
+                <Text>{genre}</Text>
         </View>
     )
 }
