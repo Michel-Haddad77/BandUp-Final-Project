@@ -23,8 +23,8 @@ export default function Genres(){
         <>
             <Text style={styles.title}>Band Genres</Text>
             <View style= {styles.container}>
-                {genres.map((genre)=> 
-                    <GenreBox name={genre.genre_name} picture={genre.picture}/>
+                {genres.map((genre, index)=> 
+                    <GenreBox  key = {index} name={genre.genre_name} picture={genre.picture}/>
                 )}
                 
             </View>

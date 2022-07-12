@@ -11,7 +11,7 @@ export default function TopBar(){
 
 const styles = StyleSheet.create({
     container: {
-      flex: 0.08,
+      //flex: 0.2,
       height:50,
       flexDirection: 'row',
       backgroundColor: '#5271FF',
