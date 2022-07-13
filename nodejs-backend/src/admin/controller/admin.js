@@ -1,5 +1,7 @@
 const Instrument = require('../../../models/Instrument');
 const Genre = require('../../../models/Genre');
+const Musician = require('../../../models/Musician');
+const User = require('../../../models/User');
 
 //API when admin adds a new genre
 async function addGenre(req,res){
@@ -57,7 +59,31 @@ async function addInstrument(req,res){
     }
 }
 
+//delete user API
+async function deleteUser(req,res){
+    try{
+        //fetch the user to be deleted
+        const deletedUser = await User.deleteOne({ _id: req.query.user_id });
+
+        console.log(deletedUser);
+        //delete band id from the 'applied' array in the musician (and vice versa)
+        // if (deletedUser.__t === "Band"){
+        //     await Musician.update({},{ $pull: { applied:{$in: [deletedUser._id]} } }, { multi: true }).exec();
+        // }
+        
+        return res.send({
+            msg:"User removed",
+            deleted: deletedUser
+        });
+
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     addGenre,
-    addInstrument
+    addInstrument,
+    deleteUser,
   };
