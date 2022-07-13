@@ -1,10 +1,13 @@
-import { ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image} from 'react-native';
+import BandCardHorizontal from '../components/BandCardHorizontal';
 
 export default function BandsScreen({route}) {
-    console.log("this is gerne" , route.params);
+    //console.log("Route params: " , route.params);
+
     return (
-        <View>
-            <Text>Testtt: {route.params.id}</Text>
-        </View>
+        <ScrollView>
+            <BandCardHorizontal/>
+        </ScrollView>
     )
 }
+

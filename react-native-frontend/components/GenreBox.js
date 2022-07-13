@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, Image, ImageBackground, TouchableHighlight} fro
 export default function GenreBox({navigation, name, picture, genre_id}){
     return(
         <TouchableHighlight style={styles.container}
-            onPress={() => navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
+            onPress={() => 
+                //sending params to bands screen 
+                navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
         >
             <View style={{flex:1}}>
                 <ImageBackground source={{uri: `data:image;base64,${picture}`}} style={styles.image}>
