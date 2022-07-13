@@ -66,10 +66,9 @@ async function deleteUser(req,res){
         const deletedUser = await User.deleteOne({ _id: req.query.user_id });
 
         console.log(deletedUser);
-        //delete band id from the 'applied' array in the musician (and vice versa)
-        // if (deletedUser.__t === "Band"){
-        //     await Musician.update({},{ $pull: { applied:{$in: [deletedUser._id]} } }, { multi: true }).exec();
-        // }
+        // delete band id from the 'applied' array in the musician (and vice versa)
+        //const updated = await User.updateMany({},{ $pull: { applied: req.query.user_id} });
+        //console.log(updated);
         
         return res.send({
             msg:"User removed",
