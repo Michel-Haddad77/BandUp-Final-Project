@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import colors from '../colors/colors';
 
 export default function TopBar(){
     return (
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
       //flex: 0.2,
       height:50,
       flexDirection: 'row',
-      backgroundColor: '#5271FF',
+      backgroundColor: colors.primary,
       alignItems: 'center',
       justifyContent: 'space-evenly'
     },

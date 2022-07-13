@@ -10,16 +10,31 @@ export default function BandsScreen({route}) {
 
     //get all genres
     useEffect(()=>{
-        axios({
-            method: 'get',
-            url: 'http://192.168.1.75:8080/api/bands/bygenre',
-            params: { genre_id: route.params.id},
-        }).then(function (response) {
-            setBands(response.data);
-            console.log(bands);
-        }).catch(function (error){
-            console.log(error);
-        })
+
+        //if Bands page was called by pressing on a genre
+        if(route.params.id){
+            axios({
+                method: 'get',
+                url: 'http://192.168.1.75:8080/api/bands/bygenre',
+                params: { genre_id: route.params.id},
+            }).then(function (response) {
+                setBands(response.data);
+                console.log(bands);
+            }).catch(function (error){
+                console.log(error);
+            })
+        }else{ //if band page was called by pressing on all bands button
+            axios({
+                method: 'get',
+                url: 'http://192.168.1.75:8080/api/bands/all',
+            }).then(function (response) {
+                setBands(response.data);
+                console.log(bands);
+            }).catch(function (error){
+                console.log(error);
+            })
+        }
+        
     },[]);
 
     return (
