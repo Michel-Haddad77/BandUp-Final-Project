@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import BandCard from '../components/BandCard';
+import BandCard from './BandCard';
 import axios from 'axios';
 
-export default function Genres(){
+export default function NewBandsSection(){
     const [recentBands,setRecentBands] = useState([]);
 
     //get the recently registered bands

@@ -3,7 +3,7 @@ import GenreBox from './GenreBox';
 import axios from 'axios';
 import { useState,useEffect } from "react";
 
-export default function Genres({navigation}){
+export default function GenresSection({navigation}){
 
     const [genres, setGenres] = useState([]);
 
