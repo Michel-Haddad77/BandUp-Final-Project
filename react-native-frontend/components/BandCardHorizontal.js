@@ -1,10 +1,10 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 
-function BandCardHorizontal() {
+function BandCardHorizontal({name, picture}) {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require('../assets/profile2.png')} />
-            <Text style={styles.title}>Linkin Park</Text>
+            <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
+            <Text style={styles.title}>{name}</Text>
         </View>
     );
 }
