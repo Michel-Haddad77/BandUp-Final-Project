@@ -27,7 +27,14 @@ export default function App() {
                 headerTintColor: '#fff',
               })}
             />
-            <Stack.Screen name="Profile" component={ProfileScreen}/>
+            <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => (
+              { 
+                title: route.params.name,
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+              })}
+
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

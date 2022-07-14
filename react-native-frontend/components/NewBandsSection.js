@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import BandCard from './BandCard';
 import axios from 'axios';
 
-export default function NewBandsSection(){
+export default function NewBandsSection({navigation}){
     const [recentBands,setRecentBands] = useState([]);
 
     //get the recently registered bands
@@ -25,9 +25,8 @@ export default function NewBandsSection(){
                 <ScrollView horizontal={true} style={styles.bandContainer} >
                     {recentBands.map((band,index)=>
                         <BandCard key={index} 
-                            name={band.name} 
-                            picture = {band.picture}
-                            genre={band.genre.genre_name}
+                            navigation = {navigation}
+                            band_info={band} 
                         />
                     )}
                 </ScrollView> : <Text style={styles.placeholder}>No Bands Yet</Text>
