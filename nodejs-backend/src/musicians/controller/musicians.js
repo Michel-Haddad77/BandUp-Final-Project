@@ -59,7 +59,7 @@ async function apply(req,res){
 //expected request contains instrument_id
 async function getByInstrument(req,res){
     try{
-        const musicians = await Musician.find({instrument: new mongoose.Types.ObjectId(req.body.instrument_id)});
+        const musicians = await Musician.find({instrument: new mongoose.Types.ObjectId(req.query.instrument_id)});
         return res.send(musicians);
 
     }catch(error){
