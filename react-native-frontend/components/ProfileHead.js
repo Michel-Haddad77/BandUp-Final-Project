@@ -1,6 +1,7 @@
 import { View, StyleSheet, Button, Image, Text } from "react-native";
 
 function ProfileHead({route}) {
+    //band info to be displayed
     let {
         name,
         genre, 
