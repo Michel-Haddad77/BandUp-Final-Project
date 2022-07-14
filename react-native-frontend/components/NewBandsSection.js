@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import BandCard from './BandCard';
+import NewBandCard from './NewBandCard';
 import axios from 'axios';
 
 export default function NewBandsSection({navigation}){
@@ -24,7 +24,7 @@ export default function NewBandsSection({navigation}){
             {recentBands.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
                     {recentBands.map((band,index)=>
-                        <BandCard key={index} 
+                        <NewBandCard key={index} 
                             navigation = {navigation}
                             band_info={band} 
                         />
