@@ -3,7 +3,8 @@ import BandCardHorizontal from '../components/BandCardHorizontal';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function BandsScreen({route}) {
+//route contains the genre id
+export default function BandsScreen({navigation, route}) {
     const [bands, setBands] = useState([]);
 
     console.log("Route params: " , route.params.id);
@@ -41,12 +42,10 @@ export default function BandsScreen({route}) {
         <ScrollView>
             {bands.map((band, index)=> 
                 <BandCardHorizontal  key = {index} 
-                    name={band.name} 
-                    picture={band.picture}
+                    navigation = {navigation}
+                    band_info = {band}
                 />
-            )}
-
-            
+            )}  
         </ScrollView>
     )
 }

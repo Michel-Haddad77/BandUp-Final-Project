@@ -1,19 +1,25 @@
-import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
 export default function NewBandCard({navigation, band_info}){
+    let {
+        name,
+        genre,
+        picture
+    } = band_info;
+
     return(
-        <TouchableHighlight style={styles.container}
+        <TouchableOpacity style={styles.container}
             onPress={() => 
                 //sending params to profile screen 
-                navigation.navigate('Profile', {name: band_info.name, band_info: band_info})}
+                navigation.navigate('Profile', {name: name, band_info: band_info})}
         >   
             <View>
-                    <Image style={styles.image} source={band_info.picture? {uri: `data:image;base64,${band_info.picture}`}: require('../assets/profile.png')} />
-                    <Text style={styles.name}>{band_info.name}</Text>
-                    <Text>{band_info.genre.genre_name}</Text>
+                    <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
+                    <Text style={styles.name}>{name}</Text>
+                    <Text>{genre.genre_name}</Text>
             </View>
 
-        </TouchableHighlight>
+        </TouchableOpacity>
     )
 }
 
