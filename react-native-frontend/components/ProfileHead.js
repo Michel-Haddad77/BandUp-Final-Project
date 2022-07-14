@@ -12,7 +12,7 @@ function ProfileHead() {
                     <Text style={styles.subTitle}>Location</Text>
                 </View>
             </View>
-            <Text style = {styles.description}> Lorem ipsum test test dshkja sajdhkja klasdlas</Text>
+            <Text style = {styles.description}> Lorem ipsum test test dsfsdfdf dsfsdfds dsfsdfdsfds dfgdfg fdgdf dshkja sajdhkja klasdlas</Text>
         </View>
     );
 }
@@ -21,13 +21,13 @@ export default ProfileHead;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 0.8,
+        margin: 10
     },
 
     container2: {
-        flex: 1,
         flexDirection: 'row',
-        margin: 20,
+        margin: 10,
     },
     image: {
         height:120,
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     description: {
-        flex: 1,
+        fontSize: 16,
     }
 })
