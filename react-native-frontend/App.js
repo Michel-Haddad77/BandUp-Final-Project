@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import BandsScreen from './screens/BandsScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import colors from './colors/colors';
 
 const Stack = createNativeStackNavigator();
@@ -18,13 +19,15 @@ export default function App() {
 
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+            <Stack.Screen name="Home" component={ProfileScreen} options={{headerShown: false}}/>
             <Stack.Screen name="Bands" component={BandsScreen} options={({ route }) => (
               { 
                 title: route.params.name ,
                 headerStyle: {backgroundColor: colors.primary},
                 headerTintColor: '#fff',
-              })}/>
+              })}
+            />
+            <Stack.Screen name="Profile" component={ProfileScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
