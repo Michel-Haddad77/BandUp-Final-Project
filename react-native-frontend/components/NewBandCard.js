@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
 
-export default function GenreBox({navigation, band_info}){
+export default function NewBandCard({navigation, band_info}){
     return(
         <TouchableHighlight style={styles.container}
             onPress={() => 

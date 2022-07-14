@@ -7,7 +7,7 @@ export default function ProfileScreen({route}) {
     console.log(route);
     return (
         <>
-            <ProfileHead/>
+            <ProfileHead route={route}/>
             <ButtonsSection/>
             <VideoSection/>
         </>

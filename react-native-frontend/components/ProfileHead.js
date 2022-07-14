@@ -1,18 +1,24 @@
 import { View, StyleSheet, Button, Image, Text } from "react-native";
-import { styleProps } from "react-native-web/dist/cjs/modules/forwardedProps";
 
-function ProfileHead() {
+function ProfileHead({route}) {
+    let {
+        name,
+        genre, 
+        picture,
+        description,
+    } = route.params.band_info;
+
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Image style = {styles.image} source={require('../assets/profile2.png')}/>
+                <Image style = {styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}/>
                 <View style={styles.textContainer}>
-                    <Text style={styles.title}>Full Name </Text>
-                    <Text style={styles.subTitle}>Genre</Text>
+                    <Text style={styles.title}>{name}</Text>
+                    <Text style={styles.subTitle}>{genre.genre_name}</Text>
                     <Text style={styles.subTitle}>Location</Text>
                 </View>
             </View>
-            <Text style = {styles.description}> Lorem ipsum test test dsfsdfdf dsfsdfds dsfsdfdsfds dfgdfg fdgdf dshkja sajdhkja klasdlas</Text>
+            <Text style = {styles.description}> {description}</Text>
         </View>
     );
 }
