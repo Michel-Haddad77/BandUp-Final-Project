@@ -21,19 +21,18 @@ export default function NewBandsSection(){
     return(
         <View style={styles.container}>
             <Text style={styles.title}>New Bands</Text>
-            <ScrollView horizontal={true} style={styles.bandContainer} >
-                {recentBands.map((band,index)=>
-                    <BandCard key={index} 
-                        name={band.name} 
-                        picture = {band.picture}
-                        genre={band.genre.genre_name}
-                    />
-                )}
-
-            </ScrollView>
-
+            {recentBands.length? 
+                <ScrollView horizontal={true} style={styles.bandContainer} >
+                    {recentBands.map((band,index)=>
+                        <BandCard key={index} 
+                            name={band.name} 
+                            picture = {band.picture}
+                            genre={band.genre.genre_name}
+                        />
+                    )}
+                </ScrollView> : <Text style={styles.placeholder}>No Bands Yet</Text>
+            }
         </View>
-
     )
 }
 
@@ -47,8 +46,11 @@ const styles = StyleSheet.create({
         fontWeight: '500'
     },
     bandContainer: {
-        margin: 10,
-
-      
+        margin: 10,  
+    },
+    placeholder:{
+        fontSize: 20,
+        alignSelf:'center', 
+        margin:20
     }
 });
