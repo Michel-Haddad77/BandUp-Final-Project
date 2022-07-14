@@ -1,21 +1,25 @@
 import { View, StyleSheet, Button, Image, Text } from "react-native";
 
-function ProfileHead({route}) {
-    //band info to be displayed
-    let {
-        name,
-        genre, 
-        picture,
-        description,
-    } = route.params.band_info;
+function ProfileHead({route, is_user}) {
+    if(!is_user){
+        //band info to be displayed
+        var {
+            name,
+            genre, 
+            picture,
+            description,
+        } = route.params.band_info;
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.container2}>
-                <Image style = {styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}/>
+                <Image style = {styles.image} 
+                    source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}
+                />
                 <View style={styles.textContainer}>
-                    <Text style={styles.title}>{name}</Text>
-                    <Text style={styles.subTitle}>{genre.genre_name}</Text>
+                    <Text style={styles.title}>{is_user? "User Name":name}</Text>
+                    <Text style={styles.subTitle}>{is_user? "Genre":genre.genre_name}</Text>
                     <Text style={styles.subTitle}>Location</Text>
                 </View>
             </View>

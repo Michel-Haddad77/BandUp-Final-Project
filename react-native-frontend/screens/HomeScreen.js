@@ -7,7 +7,7 @@ import colors from '../colors/colors';
 export default function HomeScreen({navigation}){
     return (
         <>
-            <TopBar/>
+            <TopBar navigation={navigation}/>
             <ScrollView>
                 <GenresSection navigation={navigation}/>
                 <NewBandsSection navigation={navigation}/>

@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
 import colors from '../colors/colors';
 
-export default function TopBar(){
+export default function TopBar({navigation}){
     return (
         <View style={styles.container}>
             <TextInput style={styles.searchbar} placeholder='Search' />
-            <Image style={styles.profile} source={require('../assets/profile2.png')}/>
+            <TouchableOpacity onPress={()=>
+                navigation.navigate('UserProfile')
+            }>
+                <Image style={styles.profile} source={require('../assets/profile2.png')}/>
+            </TouchableOpacity>
+            
         </View>
     )
 }
