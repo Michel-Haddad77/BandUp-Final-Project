@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
-import colors from '../colors/colors';
+import colors from '../constants/colors';
 
 export default function TopBar({navigation}){
     return (

@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, Text, View, Image} from 'react-native';
 import BandCardHorizontal from '../components/BandCardHorizontal';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import url from '../constants/url';
 
 //route contains the genre id
 export default function BandsScreen({navigation, route}) {
@@ -16,7 +17,7 @@ export default function BandsScreen({navigation, route}) {
         if(route.params.id){
             axios({
                 method: 'get',
-                url: 'http://192.168.1.75:8080/api/bands/bygenre',
+                url: url + 'bands/bygenre',
                 params: { genre_id: route.params.id},
             }).then(function (response) {
                 setBands(response.data);
@@ -27,7 +28,7 @@ export default function BandsScreen({navigation, route}) {
         }else{ //if band page was called by pressing on all bands button
             axios({
                 method: 'get',
-                url: 'http://192.168.1.75:8080/api/bands/all',
+                url: url + 'bands/all',
             }).then(function (response) {
                 setBands(response.data);
                 console.log(bands);

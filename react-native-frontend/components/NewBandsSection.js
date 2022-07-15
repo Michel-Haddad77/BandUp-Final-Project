@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import NewBandCard from './NewBandCard';
 import axios from 'axios';
+import url from "../constants/url";
 
 export default function NewBandsSection({navigation}){
     const [recentBands,setRecentBands] = useState([]);
@@ -10,7 +11,7 @@ export default function NewBandsSection({navigation}){
     useEffect(()=>{
         axios({
             method: 'get',
-            url: 'http://192.168.1.75:8080/api/bands/recent',
+            url: url + 'bands/recent',
         }).then(function (response) {
             setRecentBands(response.data);
         }).catch(function (error){

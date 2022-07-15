@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import GenreBox from './GenreBox';
 import axios from 'axios';
 import { useState,useEffect } from "react";
+import url from '../constants/url';
 
 export default function GenresSection({navigation}){
 
@@ -11,10 +12,9 @@ export default function GenresSection({navigation}){
     useEffect(()=>{
         axios({
             method: 'get',
-            url: 'http://192.168.1.75:8080/api/bands/allgenres',
+            url: url + 'bands/allgenres',
         }).then(function (response) {
             setGenres(response.data);
-            
         }).catch(function (error){
             console.log(error);
             console.log(genres);

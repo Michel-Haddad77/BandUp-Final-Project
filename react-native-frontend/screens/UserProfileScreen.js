@@ -1,5 +1,5 @@
 import { View, Button, StyleSheet } from "react-native";
-import colors from "../colors/colors";
+import colors from "../constants/colors";
 import ProfileHead from "../components/ProfileHead";
 import VideoSection from "../components/VideoSection";
 

@@ -7,7 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import BandsScreen from './screens/BandsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
-import colors from './colors/colors';
+import colors from './constants/colors';
 
 const Stack = createNativeStackNavigator();
 

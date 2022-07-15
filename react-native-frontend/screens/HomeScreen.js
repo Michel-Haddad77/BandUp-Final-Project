@@ -2,7 +2,7 @@ import { StyleSheet, Button, ScrollView, View} from 'react-native';
 import GenresSection from '../components/GenresSection';
 import TopBar from '../components/TopBar';
 import NewBandsSection from '../components/NewBandsSection';
-import colors from '../colors/colors';
+import colors from '../constants/colors';
 
 export default function HomeScreen({navigation}){
     return (

@@ -1,5 +1,5 @@
 import { StyleSheet, Button, View } from "react-native";
-import colors from "../colors/colors";
+import colors from "../constants/colors";
 
 function ButtonsSection(props) {
     return (
