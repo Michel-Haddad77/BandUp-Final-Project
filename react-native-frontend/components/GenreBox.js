@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, Image, ImageBackground, TouchableHighlight} fro
 export default function GenreBox({navigation, name, picture, genre_id}){
     return(
         <TouchableHighlight style={styles.container}
-            onPress={() => 
-                //sending params to bands screen 
-                navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
-        >
+                onPress={() => 
+                    //sending params to bands screen 
+                    navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
+            >
             <View style={{flex:1}}>
                 <ImageBackground source={{uri: `data:image;base64,${picture}`}} style={styles.image}>
                     {/* the below view is for adding color overlay to the background image */}
@@ -15,6 +15,7 @@ export default function GenreBox({navigation, name, picture, genre_id}){
                 </ImageBackground>
             </View>
         </TouchableHighlight>
+
     )
 }
 
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
         maxWidth: 130,
         margin: 10,
         flexBasis: '45%',
+        elevation:50
     },  
     image: {
         flex: 1,
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: '100%',
         height: '100%',
-
+        // borderRadius: 10,
+        // overflow: 'hidden'
     },
     //color overlay for background image
     overlayView: {
@@ -45,6 +48,5 @@ const styles = StyleSheet.create({
         width: "100%",
         position: 'absolute',
         backgroundColor: 'rgba(27, 27, 27, 0.35)',
-
     }
 });

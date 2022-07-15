@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         margin: 10,
+        borderRadius: 40,
+        backgroundColor: 'white', 
     },
     image:{
-        height: 90,
-        width: 90,
-        borderRadius: 50,
+        height: 80,
+        width: 80,
+        borderRadius: 40,
         marginRight:10,
     },
     title: {
