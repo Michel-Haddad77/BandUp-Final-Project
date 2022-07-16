@@ -10,6 +10,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 import colors from './constants/colors';
 import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,12 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
               <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
+              <Stack.Screen name="Register" component={RegisterScreen} options={
+                    { 
+                    headerStyle: {backgroundColor: colors.primary},
+                    headerTintColor: '#fff',
+                    }}
+              />
           </Stack.Navigator>
         </NavigationContainer>
 

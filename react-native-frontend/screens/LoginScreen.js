@@ -5,7 +5,7 @@ import axios from 'axios';
 import url from "../constants/url";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function LoginScreen() {
+function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -24,7 +24,8 @@ function LoginScreen() {
             console.log(response.data);
             //store user token in async storage
             try {
-                await AsyncStorage.setItem('token', token);
+                await AsyncStorage.setItem('token', response.data.token);
+                await AsyncStorage.setItem('user_id', response.data.id);
             } catch(error) {
                 console.log(error);
             }
@@ -63,6 +64,7 @@ function LoginScreen() {
                 title="Sign Up" 
                 text_style={styles.button_text} 
                 style={styles.button}
+                onPress={()=>{navigation.navigate('Register')}}
             />
         </View>
     );
