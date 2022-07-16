@@ -3,13 +3,15 @@ import { StyleSheet, View, Image, Text, TextInput, } from "react-native";
 import StyledButton from "../components/StyledButton";
 import axios from 'axios';
 import url from "../constants/url";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function LoginScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
     //when user presses on Login button
-    function login(){
+    async function login(){
+
         //linking with login api
         axios({
             method: 'post',
@@ -18,10 +20,16 @@ function LoginScreen() {
                 email, 
                 password
             }
-        }).then(function (response) {
+        }).then(async function (response) {
             console.log(response.data);
+            //store user token in async storage
+            try {
+                await AsyncStorage.setItem('token', token);
+            } catch(error) {
+                console.log(error);
+            }
         }).catch(function (error){
-            console.log(error.response.data);
+            console.log(error);
         })
     }
     
