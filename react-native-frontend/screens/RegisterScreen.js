@@ -2,13 +2,21 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import StyledButton from '../components/StyledButton'
 
-export default function RegisterScreen() {
+export default function RegisterScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Are you a?</Text>
       <View style={styles.button_container}>
-        <StyledButton title="Musician" style={styles.button}/>
-        <StyledButton title="Band" style={styles.button} />
+        <StyledButton 
+            title="Musician" 
+            style={styles.button}
+            onPress={()=>{navigation.navigate('RegisterMusician')}}
+        />
+        <StyledButton 
+            title="Band" 
+            style={styles.button}
+            onPress={()=>{navigation.navigate('RegisterBand')}}
+        />
       </View>
       
     </View>
