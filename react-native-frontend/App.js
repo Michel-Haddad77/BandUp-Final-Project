@@ -35,7 +35,7 @@ export default function App() {
 
             <Stack.Screen name="RegisterMusician" component={RegisterMusicianScreen} options={
               {
-                name:"Register as a Musician", 
+                title:"Register as a Musician", 
                 headerStyle: {backgroundColor: colors.primary},
                 headerTintColor: '#fff',
               }}
@@ -43,7 +43,7 @@ export default function App() {
 
             <Stack.Screen name="RegisterBand" component={RegisterBandScreen} options={
               {
-                name:"Register as a Band", 
+                title:"Register as a Band", 
                 headerStyle: {backgroundColor: colors.primary},
                 headerTintColor: '#fff',
               }}
