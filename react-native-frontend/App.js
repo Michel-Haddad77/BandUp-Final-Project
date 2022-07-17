@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View} from 'react-native';
@@ -33,7 +33,8 @@ export default function App() {
             />
 
             <Stack.Screen name="RegisterMusician" component={RegisterMusicianScreen} options={
-                  { 
+                  {
+                  name:"Register as a Musician", 
                   headerStyle: {backgroundColor: colors.primary},
                   headerTintColor: '#fff',
                   }}

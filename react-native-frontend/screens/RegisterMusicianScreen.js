@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View , TextInput, Image} from 'react-native';
+import { StyleSheet, Text, View , TextInput, Image, ToastAndroid} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import { useNavigation } from '@react-navigation/native';
 import StyledButton from '../components/StyledButton';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
@@ -8,6 +9,8 @@ import * as ImagePicker from 'expo-image-picker';
 import url from '../constants/url';
 
 export default function RegisterMusicianScreen() {
+    const navigation = useNavigation();
+
     //states
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,18 +21,47 @@ export default function RegisterMusicianScreen() {
     const [last_name, setLastName] = useState("");
     const [picture, setPicture] = useState("");
 
+    //fetch all instruments from server for the dropdown list
     useEffect(() => {
         axios({
             method: 'get',
             url: url + 'musicians/allinstruments',
         }).then(function (response) {
             setInstruments(response.data);
-
-            console.log(instruments);
+            //console.log(instruments);
         }).catch(function (error){
             console.log(error);
         })
     },[])
+
+    //function called when user signs up
+    function onSignUp(){
+        let data = {
+            name,
+            last_name,
+            email,
+            password,
+            user_type: 2, //user is a musician
+            picture,
+            instrument_id: instrument,
+        };
+
+        //linking with register api
+        axios({
+            method: 'post',
+            url: url + 'user/register',
+            data: data,
+        })
+        .then(function (response) {
+            //console.log(response.data);
+            ToastAndroid.show('Welcome To The Party! Please Login', ToastAndroid.SHORT);
+            navigation.navigate('Login');
+        })
+        .catch(function (error){
+            console.log(error);
+            ToastAndroid.show('Email Already Taken', ToastAndroid.SHORT);
+        })
+    }
 
     //function called when the user wants to upload an image
     async function handleUpload(){
@@ -81,7 +113,7 @@ export default function RegisterMusicianScreen() {
                 />
 
             <Text style={styles.label}>Description</Text>
-            <TextInput secureTextEntry={true} 
+            <TextInput 
                 style={styles.input} 
                 placeholder="a small bio"
                 onChangeText={description => setDescription(description)}
@@ -113,7 +145,9 @@ export default function RegisterMusicianScreen() {
             
             <StyledButton 
                 title="Sign Up" 
-                onPress={()=>{navigation.navigate('Register')}}
+                onPress={()=>{
+                    onSignUp();
+                }}
             /> 
         </View>
     )
