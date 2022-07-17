@@ -19,8 +19,10 @@ async function register(req,res){
             const {
                 name,
                 email,
+                description,
                 user_type,
                 genre_id,
+                picture,
             } = req.body;
 
             //console.log("this is genre id" + genre_id);
@@ -34,7 +36,9 @@ async function register(req,res){
                 name,
                 email,
                 password: hashPassword,
+                description,
                 user_type,
+                picture,
                 genre: new mongoose.Types.ObjectId(genre_id), //if genre_id was not provided, ObjectID generates a random id
             });
 
@@ -45,6 +49,7 @@ async function register(req,res){
                 name,
                 last_name,
                 email,
+                description,
                 user_type,
                 picture,
                 instrument_id,
@@ -61,6 +66,7 @@ async function register(req,res){
                 name,
                 last_name,
                 email,
+                description,
                 password: hashPassword,
                 user_type,
                 picture,

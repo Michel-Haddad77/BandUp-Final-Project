@@ -8,27 +8,26 @@ import * as ImagePicker from 'expo-image-picker';
 
 import url from '../constants/url';
 
-export default function RegisterMusicianScreen() {
+export default function RegisterBandScreen() {
     const navigation = useNavigation();
 
     //states
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [instrument, setInstrument] = useState("");
+    const [genre, setGenre] = useState("");
     const [description, setDescription] = useState("");
-    const [instruments, setInstruments] = useState([]);
+    const [genres, setGenres] = useState([]); //to display all genres in dropdown
     const [name, setName] = useState("");
-    const [last_name, setLastName] = useState("");
     const [picture, setPicture] = useState("");
 
-    //fetch all instruments from server for the dropdown list
+    //fetch all genres from server for the dropdown list
     useEffect(() => {
         axios({
             method: 'get',
-            url: url + 'musicians/allinstruments',
+            url: url + 'bands/allgenres',
         }).then(function (response) {
-            setInstruments(response.data);
-            //console.log(instruments);
+            setGenres(response.data);
+            console.log(genres);
         }).catch(function (error){
             console.log(error);
         })
@@ -38,13 +37,12 @@ export default function RegisterMusicianScreen() {
     function onSignUp(){
         let data = {
             name,
-            last_name,
             email,
             password,
             description,
-            user_type: 2, //user is a musician
+            user_type: 1, //user is a band
             picture,
-            instrument_id: instrument,
+            genre_id: genre,
         };
 
         //linking with register api
@@ -55,7 +53,7 @@ export default function RegisterMusicianScreen() {
         })
         .then(function (response) {
             //console.log(response.data);
-            ToastAndroid.show('Welcome To The Party! Please Login', ToastAndroid.SHORT);
+            ToastAndroid.show('Welcome To The Party! Please Login', ToastAndroid.LONG);
             navigation.navigate('Login');
         })
         .catch(function (error){
@@ -85,24 +83,17 @@ export default function RegisterMusicianScreen() {
     
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>First Name</Text>
+            <Text style={styles.label}>Band Name</Text>
             <TextInput 
                 style={styles.input} 
-                placeholder="Jon"
+                placeholder="Metallica"
                 onChangeText={name => setName(name)}
-            />
-
-            <Text style={styles.label}>Last Name</Text>
-            <TextInput 
-                style={styles.input} 
-                placeholder="Doe"
-                onChangeText={last_name => setLastName(last_name)}
             />
 
             <Text style={styles.label}>Email</Text>
             <TextInput 
                 style={styles.input} 
-                placeholder="jon@example.com"
+                placeholder="metallica@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
@@ -120,24 +111,24 @@ export default function RegisterMusicianScreen() {
                 onChangeText={description => setDescription(description)}
             />
 
-            <Text style={styles.label}>What do you play?</Text>
+            <Text style={styles.label}>Band Genre</Text>
             <Picker
                 style={styles.input}
-                selectedValue={instrument}
-                onValueChange={(value,index) =>
-                    setInstrument(value)
+                selectedValue={genre}
+                onValueChange={(value) =>
+                    setGenre(value)
                 }
             >
                 {   //fill dropdown list according to number of instruments
-                    instruments.map((inst, index)=>
-                    <Picker.Item key = {index} label={inst.instrument_name} value={inst._id} />
+                    genres.map((genre, index)=>
+                    <Picker.Item key = {index} label={genre.genre_name} value={genre._id} />
                 )}   
             </Picker>
 
             <View style={styles.upload_container}>
                 {picture? (<Image source={{uri: `data:image;base64,${picture}`}} style={styles.image}/>): null}
                 <StyledButton 
-                    title="Upload Profile Picture" 
+                    title="Upload Band Picture" 
                     text_style={styles.upload_button_text} 
                     style={styles.upload_button}
                     onPress={handleUpload}

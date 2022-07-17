@@ -12,6 +12,7 @@ import colors from './constants/colors';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import RegisterMusicianScreen from './screens/RegisterMusicianScreen';
+import RegisterBandScreen from './screens/RegisterBandScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,25 +20,33 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style='auto'/>
+      <StatusBar style={{backgroundColor:colors.primary}}/>
 
       <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
 
             <Stack.Screen name="Register" component={RegisterScreen} options={
-                  { 
-                  headerStyle: {backgroundColor: colors.primary},
-                  headerTintColor: '#fff',
-                  }}
+              { 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+              }}
             />
 
             <Stack.Screen name="RegisterMusician" component={RegisterMusicianScreen} options={
-                  {
-                  name:"Register as a Musician", 
-                  headerStyle: {backgroundColor: colors.primary},
-                  headerTintColor: '#fff',
-                  }}
+              {
+                name:"Register as a Musician", 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+              }}
+            />
+
+            <Stack.Screen name="RegisterBand" component={RegisterBandScreen} options={
+              {
+                name:"Register as a Band", 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+              }}
             />
         </Stack.Navigator>
       </NavigationContainer>
