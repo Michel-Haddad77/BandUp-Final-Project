@@ -109,7 +109,7 @@ async function login(req,res){
 
         return res.header('auth-token',token).send({
             token: token,
-            id: user._id
+            user_info: user
         });
 
     } catch(error){

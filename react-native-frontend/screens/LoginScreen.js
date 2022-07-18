@@ -23,10 +23,10 @@ function LoginScreen({navigation}) {
             }
         }).then(async function (response) {
             console.log(response.data);
-            //store user token in async storage
+            //store user token and info in async storage
             try {
                 await AsyncStorage.setItem('token', response.data.token);
-                await AsyncStorage.setItem('user_id', response.data.id);
+                await AsyncStorage.setItem('user_info', JSON.stringify(response.data.user_info));
             } catch(error) {
                 console.log(error);
             }
