@@ -4,8 +4,15 @@ import TopBar from '../components/TopBar';
 import NewBandsSection from '../components/NewBandsSection';
 import colors from '../constants/colors';
 import StyledButton from '../components/StyledButton';
+import { useContext} from 'react';
+import { UserContext } from '../context/user';
 
 export default function HomeScreen({navigation}){
+
+    const {user, token} = useContext(UserContext);
+
+    console.log("from context: ", token);
+
     return (
         <>
             <TopBar navigation={navigation}/>

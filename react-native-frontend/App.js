@@ -13,6 +13,7 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import RegisterMusicianScreen from './screens/RegisterMusicianScreen';
 import RegisterBandScreen from './screens/RegisterBandScreen';
+import UserProvider from './context/user';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,10 +22,10 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={colors.primary}/>
-
-      <NavigationContainer>
+      <UserProvider>
+        <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={LoginScreen} options={{headerShown: false}}/>
+                <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
 
                 <Stack.Screen name="Bands" component={BandsScreen} options={({ route }) => (
                     { 
@@ -50,8 +51,8 @@ export default function App() {
                     })}
                 />
             </Stack.Navigator>
-        </NavigationContainer>
-
+          </NavigationContainer>
+      </UserProvider>
     </SafeAreaView>
 
     
