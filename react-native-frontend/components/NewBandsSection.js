@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import NewBandCard from './NewBandCard';
 import axios from 'axios';
 import url from "../constants/url";
+import colors from '../constants/colors';
 
 export default function NewBandsSection({navigation}){
     const [recentBands,setRecentBands] = useState([]);
@@ -42,8 +43,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     title: {
-        fontSize: 25,
-        fontWeight: '500'
+        fontSize: 21,
+        fontWeight: '500',
+        color: colors.secondary,
+
     },
     bandContainer: {
         margin: 10,  

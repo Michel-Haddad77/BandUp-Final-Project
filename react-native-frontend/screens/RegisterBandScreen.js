@@ -7,6 +7,7 @@ import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
 
 import url from '../constants/url';
+import colors from '../constants/colors';
 
 export default function RegisterBandScreen() {
     const navigation = useNavigation();
@@ -151,7 +152,8 @@ const styles = StyleSheet.create({
     },
     label:{
         fontSize: 20,
-        marginLeft: 10
+        marginLeft: 10,
+        color: colors.secondary,
     },
     input:{
         borderWidth: 1,

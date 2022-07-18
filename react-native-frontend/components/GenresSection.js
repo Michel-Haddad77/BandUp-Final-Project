@@ -3,6 +3,7 @@ import GenreBox from './GenreBox';
 import axios from 'axios';
 import { useState,useEffect } from "react";
 import url from '../constants/url';
+import colors from '../constants/colors';
 
 export default function GenresSection({navigation}){
 
@@ -50,7 +51,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
     },
     title: {
-        fontSize: 25,
-        fontWeight: '500'
+        fontSize: 21,
+        fontWeight: '500',
+        color: colors.secondary,
     }
 });

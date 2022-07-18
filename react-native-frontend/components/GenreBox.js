@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: '100%',
         height: '100%',
-        // borderRadius: 10,
-        // overflow: 'hidden'
+        borderRadius: 8,
+        overflow: 'hidden'
     },
     //color overlay for background image
     overlayView: {

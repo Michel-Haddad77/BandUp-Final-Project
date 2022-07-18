@@ -1,4 +1,5 @@
 import { View, StyleSheet, Button, Image, Text } from "react-native";
+import colors from "../constants/colors";
 
 function ProfileHead({route, is_user}) {
     if(!is_user){
@@ -32,7 +33,6 @@ export default ProfileHead;
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 0.8,
         margin: 10
     },
 
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         borderRadius: 60,
     },
     title: {
-        fontSize: 25,
-        fontWeight: '600',
+        fontSize: 21,
+        fontWeight: '500',
         marginBottom: 10,
     },
     textContainer: {
@@ -56,9 +56,12 @@ const styles = StyleSheet.create({
     },
     subTitle:{
         marginLeft: 5,
-        fontSize: 20
+        fontSize: 18,
+        color: colors.secondary,
     },
     description: {
         fontSize: 16,
+        color: colors.secondary,
+        marginHorizontal: 10
     }
 })

@@ -1,4 +1,5 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import colors from '../constants/colors';
 
 function BandCardHorizontal({navigation, band_info}) {
     let {
@@ -27,18 +28,19 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        margin: 10,
-        borderRadius: 40,
+        margin: 5,
+        borderRadius: 10,
         backgroundColor: 'white', 
     },
     image:{
-        height: 80,
-        width: 80,
+        height: 70,
+        width: 70,
         borderRadius: 40,
         marginRight:10,
     },
     title: {
-        fontSize: 25,
-        fontWeight: '500'
+        fontSize: 18,
+        fontWeight: '500',
+        color: colors.secondary,
     }
 });

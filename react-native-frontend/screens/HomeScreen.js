@@ -3,6 +3,7 @@ import GenresSection from '../components/GenresSection';
 import TopBar from '../components/TopBar';
 import NewBandsSection from '../components/NewBandsSection';
 import colors from '../constants/colors';
+import StyledButton from '../components/StyledButton';
 
 export default function HomeScreen({navigation}){
     return (
@@ -12,12 +13,11 @@ export default function HomeScreen({navigation}){
                 <GenresSection navigation={navigation}/>
                 <NewBandsSection navigation={navigation}/>
                 <View style={styles.container}>
-                    <Button title="Show All Bands" 
-                        color={colors.primary} 
+                    <StyledButton 
+                        title="Show All Bands" 
                         onPress={() => navigation.navigate('Bands', { name: 'All Bands'})}
                     />
                 </View>
-                
             </ScrollView>
         </>
     )

@@ -20,36 +20,37 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style={{backgroundColor:colors.primary}}/>
+      <StatusBar backgroundColor={colors.primary} style={'auto'}/>
 
       <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
+            <Stack.Navigator>
+                <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
 
-            <Stack.Screen name="Register" component={RegisterScreen} options={
-              { 
-                headerStyle: {backgroundColor: colors.primary},
-                headerTintColor: '#fff',
-              }}
-            />
+                <Stack.Screen name="Bands" component={BandsScreen} options={({ route }) => (
+                    { 
+                    title: route.params.name ,
+                    headerStyle: {backgroundColor: colors.primary},
+                    headerTintColor: '#fff',
+                    })}
+                />
 
-            <Stack.Screen name="RegisterMusician" component={RegisterMusicianScreen} options={
-              {
-                title:"Register as a Musician", 
-                headerStyle: {backgroundColor: colors.primary},
-                headerTintColor: '#fff',
-              }}
-            />
+                <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => (
+                    { 
+                    title: route.params.name,
+                    headerStyle: {backgroundColor: colors.primary},
+                    headerTintColor: '#fff',
+                    })}
+                />
 
-            <Stack.Screen name="RegisterBand" component={RegisterBandScreen} options={
-              {
-                title:"Register as a Band", 
-                headerStyle: {backgroundColor: colors.primary},
-                headerTintColor: '#fff',
-              }}
-            />
-        </Stack.Navigator>
-      </NavigationContainer>
+                <Stack.Screen name="UserProfile" component={UserProfileScreen} options={({ route }) => (
+                    { 
+                    title: "User Name",
+                    headerStyle: {backgroundColor: colors.primary},
+                    headerTintColor: '#fff',
+                    })}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
 
     </SafeAreaView>
 

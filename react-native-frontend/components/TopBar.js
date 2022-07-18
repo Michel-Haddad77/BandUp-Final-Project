@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     searchbar:{
         backgroundColor: 'white',
         height: 30,
-        width: 300,
-        padding: 5
+        width: 250,
+        padding: 5,
+        borderRadius: 8,
     }
   });

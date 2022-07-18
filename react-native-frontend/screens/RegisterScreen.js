@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import StyledButton from '../components/StyledButton'
+import colors from '../constants/colors'
 
 export default function RegisterScreen({navigation}) {
   return (
@@ -32,7 +33,8 @@ const styles = StyleSheet.create({
     title:{
         alignSelf: 'center',
         marginBottom: 15,
-        fontSize: 20
+        fontSize: 20,
+        color: colors.secondary,
     },
     button_container:{
         flexDirection: 'row',  

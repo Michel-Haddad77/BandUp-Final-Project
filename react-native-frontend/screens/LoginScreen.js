@@ -4,6 +4,7 @@ import StyledButton from "../components/StyledButton";
 import axios from 'axios';
 import url from "../constants/url";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import colors from "../constants/colors";
 
 function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
@@ -78,7 +79,8 @@ const styles = StyleSheet.create({
     },
     label:{
         fontSize: 20,
-        marginLeft: 10
+        marginLeft: 10,
+        color: colors.secondary,
     },
     input:{
         borderWidth: 1,
@@ -100,6 +102,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         alignSelf: 'center',
         marginVertical: 20,
+        color: colors.secondary,
     },
     button_text:{
         textTransform: "uppercase",

@@ -8,7 +8,7 @@ export default function ProfileScreen({route}) {
         <>
             <ProfileHead route={route} is_user={false}/>
             <ButtonsSection/>
-            <VideoSection/>
+            <VideoSection is_user={false}/>
         </>
     );
 }
