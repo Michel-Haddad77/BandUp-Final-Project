@@ -2,16 +2,21 @@ import { StyleSheet, Button, View } from "react-native";
 import colors from "../constants/colors";
 import StyledButton from "./StyledButton";
 
-function ButtonsSection(props) {
+function ButtonsSection({route}) {
+    console.log("route in buttons: " , route);
+    const type = route.params.displayed_user.user_type;
+
     return (
         <View style={styles.container}>
+
             <StyledButton 
-                    title="Edit Profile" 
-                    text_style={styles.edit_button_text} 
-                    style={styles.edit_button}
-                />
+                title={ //if the displayed user is a musician => Request to apply
+                    type === 2? "Request to Apply": "Apply"} 
+                text_style={styles.edit_button_text} 
+                style={styles.edit_button}
+            />
             <StyledButton 
-                title="Logout" 
+                title="Message" 
                 text_style={styles.edit_button_text} 
                 style={styles.edit_button}
             />
@@ -29,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     edit_button:{
-        width: 100
+        width: 130
     },
     edit_button_text:{
         fontSize: 14,

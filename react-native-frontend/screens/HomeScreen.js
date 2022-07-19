@@ -4,13 +4,24 @@ import TopBar from '../components/TopBar';
 import NewUsersSection from '../components/NewUsersSection';
 import colors from '../constants/colors';
 import StyledButton from '../components/StyledButton';
-import { useContext} from 'react';
-import { UserContext } from '../context/user';
+import { useEffect, useState} from 'react';
+import { useAuthUser } from '../context/user';
 
 export default function HomeScreen({navigation}){
+    const [name,setName]  = useState("");
 
-    // const {user, token} = useContext(UserContext);
-    // console.log("from context: ", token);
+    //get logged in user to check the user_type
+    const {user} = useAuthUser();
+    useEffect(() => {
+        //set the name for the button and page title
+        if (user.user_type === 2){
+            setName("Bands");
+        }else{
+            setName("Musicians");
+        }
+    }, [user])
+    
+
 
     return (
         <>
@@ -20,8 +31,8 @@ export default function HomeScreen({navigation}){
                 <NewUsersSection navigation={navigation}/>
                 <View style={styles.container}>
                     <StyledButton 
-                        title="Show All Bands" 
-                        onPress={() => navigation.navigate('Bands', { name: 'All Bands'})}
+                        title={`Show All ${name}`} 
+                        onPress={() => navigation.navigate('Users', { name: `All ${name}`})}
                     />
                 </View>
             </ScrollView>

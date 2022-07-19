@@ -43,9 +43,14 @@ export default function UsersScreen({navigation, route}) {
             }
             
         }else{ //if users page was called by pressing on the show all button
+            if (user.user_type === 1){
+                var url2 = 'musicians/all';
+            }else if(user.user_type === 2){
+                var url2 = 'bands/all';
+            }
             axios({
                 method: 'get',
-                url: url + 'bands/all',
+                url: url + url2,
             }).then(function (response) {
                 setDisplayedUsers(response.data);
                 console.log(displayed_users);
