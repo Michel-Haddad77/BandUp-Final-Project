@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View, Image} from 'react-native';
-import BandCardHorizontal from '../components/BandCardHorizontal';
+import UserCardHorizontal from '../components/UserCardHorizontal';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import url from '../constants/url';
@@ -58,10 +58,10 @@ export default function UsersScreen({navigation, route}) {
 
     return (
         <ScrollView>
-            {displayed_users.map((band, index)=> 
-                <BandCardHorizontal  key = {index} 
+            {displayed_users.map((displayed, index)=> 
+                <UserCardHorizontal  key = {index} 
                     navigation = {navigation}
-                    band_info = {band}
+                    displayed_user = {displayed}
                 />
             )}  
         </ScrollView>
