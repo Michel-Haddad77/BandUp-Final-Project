@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import NewBandCard from './NewBandCard';
+import NewBandCard from './NewUserCard';
 import axios from 'axios';
 import url from "../constants/url";
 import colors from '../constants/colors';
@@ -26,7 +26,6 @@ export default function NewUsersSection({navigation}){
             method: 'get',
             url: url + url2,
         }).then(function (response) {
-            console.log(response.data)
             setRecentUsers(response.data);
         }).catch(function (error){
             console.log(error);

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
-export default function NewBandCard({navigation, displayed_user}){
+export default function NewUserCard({navigation, displayed_user}){
     let {
         name,
         last_name,
