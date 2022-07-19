@@ -4,34 +4,47 @@ import NewBandCard from './NewBandCard';
 import axios from 'axios';
 import url from "../constants/url";
 import colors from '../constants/colors';
+import { useAuthUser } from '../context/user';
 
-export default function NewBandsSection({navigation}){
-    const [recentBands,setRecentBands] = useState([]);
+export default function NewUsersSection({navigation}){
+    const [recentUsers,setRecentUsers] = useState([]);
 
-    //get the recently registered bands
+    //get logged in user to check the user_type
+    const {user} = useAuthUser();
+    var url2 = '';
+
+    //change api url according to user type
+    if(user.user_type === 2){
+        url2 = 'bands/recent';
+    }else if (user.user_type === 1){
+        url2 = 'musicians/recent'
+    }
+
+    //get the recently registered users
     useEffect(()=>{
         axios({
             method: 'get',
-            url: url + 'bands/recent',
+            url: url + url2,
         }).then(function (response) {
-            setRecentBands(response.data);
+            console.log(response.data)
+            setRecentUsers(response.data);
         }).catch(function (error){
             console.log(error);
         })
-    },[]);
+    },[user]);
 
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>New Bands</Text>
-            {recentBands.length? 
+            <Text style={styles.title}>{user.user_type=== 2? "New Bands" : "New Musicians"}</Text>
+            {recentUsers.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
-                    {recentBands.map((band,index)=>
+                    {recentUsers.map((displayed_user,index)=>
                         <NewBandCard key={index} 
                             navigation = {navigation}
-                            band_info={band} 
+                            displayed_user={displayed_user} 
                         />
                     )}
-                </ScrollView> : <Text style={styles.placeholder}>No Bands Yet</Text>
+                </ScrollView> : <Text style={styles.placeholder}>No Users Yet</Text>
             }
         </View>
     )

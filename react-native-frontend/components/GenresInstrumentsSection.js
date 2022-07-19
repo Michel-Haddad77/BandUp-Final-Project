@@ -10,7 +10,6 @@ export default function GenresInstrumentsSection({navigation}){
 
     const [genres, setGenres] = useState([]);
     const [instruments, setInstruments] = useState([]);
-    const[user_type, setUserType] = useState(0);
 
     //get logged in user to check the user_type
     const {user} = useAuthUser();

@@ -14,7 +14,7 @@ function ProfileHead({route, is_user}) {
             picture,
             description,
             user_type,
-        } = route.params.band_info;
+        } = route.params.displayed_user;
     }else{
         //get logged in user info from storage
         var {user} = useAuthUser();
