@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View, Image, ImageBackground, TouchableHighlight} from 'react-native';
 
-export default function GenreBox({navigation, name, picture, genre_id}){
+export default function GenreInstrumentBox({navigation, name, picture, id}){
+
+
     return(
         <TouchableHighlight style={styles.container}
                 onPress={() => 
                     //sending params to bands screen 
-                    navigation.navigate('Bands', { name: `${name} Bands`, id: genre_id })}
+                    navigation.navigate('Users', { name, id })}
             >
             <View style={{flex:1}}>
                 <ImageBackground source={{uri: `data:image;base64,${picture}`}} style={styles.image}>

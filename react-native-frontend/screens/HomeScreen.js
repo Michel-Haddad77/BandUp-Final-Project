@@ -1,5 +1,5 @@
 import { StyleSheet, Button, ScrollView, View} from 'react-native';
-import GenresSection from '../components/GenresSection';
+import GenresInstrumentsSection from '../components/GenresInstrumentsSection';
 import TopBar from '../components/TopBar';
 import NewBandsSection from '../components/NewBandsSection';
 import colors from '../constants/colors';
@@ -16,7 +16,7 @@ export default function HomeScreen({navigation}){
         <>
             <TopBar navigation={navigation}/>
             <ScrollView>
-                <GenresSection navigation={navigation}/>
+                <GenresInstrumentsSection navigation={navigation}/>
                 <NewBandsSection navigation={navigation}/>
                 <View style={styles.container}>
                     <StyledButton 

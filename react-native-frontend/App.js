@@ -5,7 +5,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import HomeScreen from './screens/HomeScreen';
-import BandsScreen from './screens/BandsScreen';
+import UsersScreen from './screens/UsersScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 import colors from './constants/colors';
@@ -27,7 +27,7 @@ export default function App() {
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
 
-                <Stack.Screen name="Bands" component={BandsScreen} options={({ route }) => (
+                <Stack.Screen name="Users" component={UsersScreen} options={({ route }) => (
                     { 
                     title: route.params.name ,
                     headerStyle: {backgroundColor: colors.primary},
@@ -45,7 +45,7 @@ export default function App() {
 
                 <Stack.Screen name="UserProfile" component={UserProfileScreen} options={({ route }) => (
                     { 
-                    title: "User Name",
+                    title: route.params.name,
                     headerStyle: {backgroundColor: colors.primary},
                     headerTintColor: '#fff',
                     })}
