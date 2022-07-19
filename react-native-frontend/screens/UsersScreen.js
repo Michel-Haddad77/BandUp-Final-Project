@@ -3,35 +3,52 @@ import BandCardHorizontal from '../components/BandCardHorizontal';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import url from '../constants/url';
+import { useAuthUser } from '../context/user';
 
 //route contains the genre id
-export default function BandsScreen({navigation, route}) {
-    const [bands, setBands] = useState([]);
+export default function UsersScreen({navigation, route}) {
+    const [displayed_users, setDisplayedUsers] = useState([]);
 
     console.log("Route params: " , route.params.id);
 
-    //get all genres
+    //get logged in user to check the user_type
+    const {user} = useAuthUser();
+
     useEffect(()=>{
 
-        //if Bands page was called by pressing on a genre
+        //if Users page was called by pressing on a genre/instrument
         if(route.params.id){
-            axios({
-                method: 'get',
-                url: url + 'bands/bygenre',
-                params: { genre_id: route.params.id},
-            }).then(function (response) {
-                setBands(response.data);
-                console.log(bands);
-            }).catch(function (error){
-                console.log(error);
-            })
-        }else{ //if band page was called by pressing on all bands button
+            if (user.user_type === 2){
+                axios({
+                    method: 'get',
+                    url: url + 'bands/bygenre',
+                    params: { genre_id: route.params.id},
+                }).then(function (response) {
+                    setDisplayedUsers(response.data);
+                    console.log(displayed_users);
+                }).catch(function (error){
+                    console.log(error);
+                }) 
+            }else if (user.user_type === 1){
+                axios({
+                    method: 'get',
+                    url: url + 'musicians/byinstrument',
+                    params: { instrument_id: route.params.id},
+                }).then(function (response) {
+                    setDisplayedUsers(response.data);
+                    console.log(displayed_users);
+                }).catch(function (error){
+                    console.log(error);
+                }) 
+            }
+            
+        }else{ //if users page was called by pressing on the show all button
             axios({
                 method: 'get',
                 url: url + 'bands/all',
             }).then(function (response) {
-                setBands(response.data);
-                console.log(bands);
+                setDisplayedUsers(response.data);
+                console.log(displayed_users);
             }).catch(function (error){
                 console.log(error);
             })
@@ -41,7 +58,7 @@ export default function BandsScreen({navigation, route}) {
 
     return (
         <ScrollView>
-            {bands.map((band, index)=> 
+            {displayed_users.map((band, index)=> 
                 <BandCardHorizontal  key = {index} 
                     navigation = {navigation}
                     band_info = {band}

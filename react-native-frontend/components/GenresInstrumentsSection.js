@@ -14,7 +14,6 @@ export default function GenresInstrumentsSection({navigation}){
     //get logged in user to check the user_type
     const {user} = useAuthUser();
     
-    
     useEffect(()=>{
         //if the user is a musician, display all genres
         if (user.user_type === 2){
