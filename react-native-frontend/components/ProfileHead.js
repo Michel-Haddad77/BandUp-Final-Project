@@ -8,8 +8,9 @@ function ProfileHead({route, is_user}) {
         //user info to be displayed
         var {
             name,
+            last_name,
             genre, 
-            //instrument,
+            instrument,
             picture,
             description,
         } = route.params.band_info;
@@ -18,6 +19,7 @@ function ProfileHead({route, is_user}) {
 
         var {
             name,
+            last_name,
             genre,
             instrument, 
             picture,
@@ -33,7 +35,7 @@ function ProfileHead({route, is_user}) {
                 />
                 <View style={styles.textContainer}>
                     <Text style={styles.title}>
-                        {is_user? "User Name":name}
+                        {name}
                     </Text>
                     <Text style={styles.subTitle}>{is_user? "Genre":genre.genre_name}</Text>
                     <Text style={styles.subTitle}>Location</Text>

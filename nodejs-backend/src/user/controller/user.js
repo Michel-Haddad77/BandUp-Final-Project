@@ -95,7 +95,7 @@ async function login(req,res){
         } = req.body;
 
         //check if email exists
-        const user = await User.findOne({email})
+        var user = await User.findOne({email})
         if (!user) return res.status(400).send("Incorrect Email");
 
         //check if password matches
@@ -109,9 +109,9 @@ async function login(req,res){
 
         //populate either the genre or instrument field
         if(user.user_type === 1){
-            user = user.populate('genre');
-        }else{
-            user = user.populate('instrument');
+            user = await user.populate('genre');
+        }else if(user.user_type === 2){
+            user = await user.populate('instrument');
         }
 
         return res.header('auth-token',token).send({
