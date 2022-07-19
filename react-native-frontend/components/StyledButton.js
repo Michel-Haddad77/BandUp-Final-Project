@@ -1,14 +1,15 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import colors from "../constants/colors";
 
-function StyledButton({ onPress, title, size, style, text_style }) {
+function StyledButton({ onPress, title, size, style, text_style, disabled }) {
     return (
     <TouchableOpacity
       onPress={onPress}
-      style={[
-        styles.appButtonContainer,
-        style
-      ]}
+      style={disabled?
+        [styles.disabled_button, style] : [styles.appButtonContainer,style]
+      }
+      // if button is disabled => no functionality
+      disabled = {disabled}
     >
       <Text style={[styles.appButtonText, text_style]}>
         {title}
@@ -25,6 +26,11 @@ const styles = StyleSheet.create({
       backgroundColor: colors.primary,
       borderRadius: 10,
       padding: 10,
+    },
+    disabled_button:{
+      backgroundColor: '#FEDDC9', //light orange
+      borderRadius: 10,
+      padding: 10
     },
     appButtonText: {
       fontSize: 18,
