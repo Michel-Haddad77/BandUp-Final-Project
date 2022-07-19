@@ -1,15 +1,28 @@
 import { View, StyleSheet, Button, Image, Text } from "react-native";
 import colors from "../constants/colors";
+import { useAuthUser } from "../context/user";
 
 function ProfileHead({route, is_user}) {
+    //if the component is not used for the user profile
     if(!is_user){
-        //band info to be displayed
+        //user info to be displayed
         var {
             name,
             genre, 
+            //instrument,
             picture,
             description,
         } = route.params.band_info;
+    }else{
+        var {user} = useAuthUser();
+
+        var {
+            name,
+            genre,
+            instrument, 
+            picture,
+            description, 
+        } = user;
     }
 
     return (
@@ -19,7 +32,9 @@ function ProfileHead({route, is_user}) {
                     source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}
                 />
                 <View style={styles.textContainer}>
-                    <Text style={styles.title}>{is_user? "User Name":name}</Text>
+                    <Text style={styles.title}>
+                        {is_user? "User Name":name}
+                    </Text>
                     <Text style={styles.subTitle}>{is_user? "Genre":genre.genre_name}</Text>
                     <Text style={styles.subTitle}>Location</Text>
                 </View>

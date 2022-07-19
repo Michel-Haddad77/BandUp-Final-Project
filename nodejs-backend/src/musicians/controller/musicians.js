@@ -6,7 +6,7 @@ const Instrument = require('../../../models/Instrument');
 //API that gets all musicians
 async function getAllMusicians(req,res){
     try{
-        const musicians = await Musician.find();
+        const musicians = await Musician.find().populate('instrument');
         return res.send(musicians);
     } catch(error){
         console.log(error);
@@ -18,7 +18,7 @@ async function getAllMusicians(req,res){
 async function getRecentMusicians(req,res){
     try{
         //get the last 2 added musicians
-        const musicians = await Musician.find().sort('-date').limit(2);
+        const musicians = await Musician.find().sort('-date').limit(2).populate('instrument');
         return res.send(musicians);
     } catch(error){
         console.log(error);
@@ -59,7 +59,7 @@ async function apply(req,res){
 //expected request contains instrument_id
 async function getByInstrument(req,res){
     try{
-        const musicians = await Musician.find({instrument: new mongoose.Types.ObjectId(req.query.instrument_id)});
+        const musicians = await Musician.find({instrument: new mongoose.Types.ObjectId(req.query.instrument_id)}).populate('instrument');
         return res.send(musicians);
 
     }catch(error){
@@ -68,7 +68,7 @@ async function getByInstrument(req,res){
     }
 }
 
-//API to get all the band genres
+//API to get all the musician instruments
 async function getAllInstruments(req,res){
     try{
         const instruments = await Instrument.find();

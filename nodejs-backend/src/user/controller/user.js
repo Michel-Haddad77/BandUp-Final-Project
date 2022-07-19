@@ -95,7 +95,7 @@ async function login(req,res){
         } = req.body;
 
         //check if email exists
-        const user = await User.findOne({email});
+        const user = await User.findOne({email})
         if (!user) return res.status(400).send("Incorrect Email");
 
         //check if password matches
@@ -106,6 +106,13 @@ async function login(req,res){
         const token = jwt.sign(
             {_id:user._id, name: user.name, email: user.email}, TOKEN_SECRET
         );
+
+        //populate either the genre or instrument field
+        if(user.user_type === 1){
+            user = user.populate('genre');
+        }else{
+            user = user.populate('instrument');
+        }
 
         return res.header('auth-token',token).send({
             token: token,

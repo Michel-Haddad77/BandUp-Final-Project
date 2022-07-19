@@ -6,7 +6,7 @@ const Genre = require('../../../models/Genre');
 //API that get all bands
 async function getAllBands(req,res){
     try{
-        const bands = await Band.find();
+        const bands = await Band.find().populate('genre');
         return res.send(bands);
     } catch(error){
         console.log(error);
@@ -59,7 +59,7 @@ async function requestToApply(req,res){
 //expected request contains genre_id
 async function getByGenre(req,res){
     try{
-        const bands = await Band.find({genre: new mongoose.Types.ObjectId(req.query.genre_id)});
+        const bands = await Band.find({genre: new mongoose.Types.ObjectId(req.query.genre_id)}).populate('genre');
         return res.send(bands);
 
     }catch(error){
