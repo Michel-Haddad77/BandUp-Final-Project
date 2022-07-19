@@ -30,7 +30,7 @@ export default function NewUsersSection({navigation}){
         }).catch(function (error){
             console.log(error);
         })
-    },[user]);
+    },[user]); //added dependancy to rerender after user variable is fetched from storage
 
     return(
         <View style={styles.container}>
