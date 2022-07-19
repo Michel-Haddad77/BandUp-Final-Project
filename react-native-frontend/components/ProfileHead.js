@@ -5,7 +5,7 @@ import { useAuthUser } from "../context/user";
 function ProfileHead({route, is_user}) {
     //if the component is not used for the user profile
     if(!is_user){
-        //user info to be displayed
+        //get band/musician info from the navigation route params
         var {
             name,
             last_name,
@@ -13,8 +13,10 @@ function ProfileHead({route, is_user}) {
             instrument,
             picture,
             description,
+            user_type,
         } = route.params.band_info;
     }else{
+        //get logged in user info from storage
         var {user} = useAuthUser();
 
         var {
@@ -24,6 +26,7 @@ function ProfileHead({route, is_user}) {
             instrument, 
             picture,
             description, 
+            user_type,
         } = user;
     }
 
@@ -35,9 +38,15 @@ function ProfileHead({route, is_user}) {
                 />
                 <View style={styles.textContainer}>
                     <Text style={styles.title}>
-                        {name}
+                        {   //if the user is musician => add his last name
+                            user_type===2? (name + " " + last_name): name
+                        }
                     </Text>
-                    <Text style={styles.subTitle}>{is_user? "Genre":genre.genre_name}</Text>
+                    <Text style={styles.subTitle}>
+                        {   //if the user is musician => display instrument (and vice versa)
+                            user_type===2? instrument.instrument_name:genre.genre_name
+                        }
+                    </Text>
                     <Text style={styles.subTitle}>Location</Text>
                 </View>
             </View>

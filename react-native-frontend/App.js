@@ -25,7 +25,7 @@ export default function App() {
       <UserProvider>
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={LoginScreen} options={{headerShown: false}}/>
+                <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
 
                 <Stack.Screen name="Bands" component={BandsScreen} options={({ route }) => (
                     { 
