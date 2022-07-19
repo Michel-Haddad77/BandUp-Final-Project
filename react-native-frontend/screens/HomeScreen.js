@@ -9,9 +9,8 @@ import { UserContext } from '../context/user';
 
 export default function HomeScreen({navigation}){
 
-    const {user, token} = useContext(UserContext);
-
-    console.log("from context: ", token);
+    // const {user, token} = useContext(UserContext);
+    // console.log("from context: ", token);
 
     return (
         <>

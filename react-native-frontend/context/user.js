@@ -1,9 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
-//UserProvider and UserContext are exporterd to be used in child components
+//UserContext is exported to be used in child component
 export const UserContext = createContext()
 
+//UserProvider is exported to wrap the child components
 const UserProvider = ({children}) => {
     const [user,setUser] = useState({});
     const [token, setToken] = useState("");
@@ -11,15 +12,23 @@ const UserProvider = ({children}) => {
     //get stored user and token in async storage
     async function getStoredUser(){
         try{
-            let stored_user = await AsyncStorage.getItem("user_info");
+            //the whole user object is stored with key 'user_info'
+            let stored_user = await AsyncStorage.getItem("user_info"); 
             let stored_token = await AsyncStorage.getItem("token");
-            setUser(stored_user);
+
             setToken(stored_token);
+            //Parse the stringified object from storage
+            setUser(JSON.parse(stored_user));
         }catch(error){
             console.log(error);
         }
     }
-    getStoredUser();
+
+    //run the above function once
+    useEffect(()=>{
+        getStoredUser();
+    },[])
+    
     return (
         <UserContext.Provider
             value={{
@@ -32,3 +41,13 @@ const UserProvider = ({children}) => {
 };
 
 export default UserProvider;
+
+//Instead of calling useContext(UserContext)
+//call useAuthUser to get the stored values
+export const useAuthUser = () => {
+    const {user, token} = useContext(UserContext)
+
+    return {
+        user, token
+    }
+}

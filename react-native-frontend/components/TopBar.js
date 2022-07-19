@@ -1,16 +1,19 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors';
+import { useAuthUser } from '../context/user';
 
 export default function TopBar({navigation}){
+    //get user info from custom hook in the user context file
+    const {user} = useAuthUser();
+
     return (
         <View style={styles.container}>
             <TextInput style={styles.searchbar} placeholder='Search' />
             <TouchableOpacity onPress={()=>
                 navigation.navigate('UserProfile')
             }>
-                <Image style={styles.profile} source={require('../assets/profile2.png')}/>
+                <Image style={styles.profile} source={user.picture? {uri: `data:image;base64,${user.picture}`}: require('../assets/profile.png')}/>
             </TouchableOpacity>
-            
         </View>
     )
 }
