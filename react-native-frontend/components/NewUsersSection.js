@@ -14,9 +14,9 @@ export default function NewUsersSection({navigation}){
     var url2 = '';
 
     //change api url according to user type
-    if(user.user_type === 2){
+    if(user?.user_type === 2){
         url2 = 'bands/recent';
-    }else if (user.user_type === 1){
+    }else if (user?.user_type === 1){
         url2 = 'musicians/recent'
     }
 
@@ -34,7 +34,7 @@ export default function NewUsersSection({navigation}){
 
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>{user.user_type=== 2? "New Bands" : "New Musicians"}</Text>
+            <Text style={styles.title}>{user?.user_type=== 2? "New Bands" : "New Musicians"}</Text>
             {recentUsers.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
                     {recentUsers.map((displayed_user,index)=>

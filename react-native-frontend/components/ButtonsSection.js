@@ -19,10 +19,10 @@ function ButtonsSection({route}) {
     //check if the user has already requested/applied to the displayed user
     //if so, disable the button
     useEffect(() => {
-      if(user.requested?.includes(displayed_id)){
+      if(user?.requested?.includes(displayed_id)){
         setDisabled(true);
         console.log('llll');
-      }else if (user.applied?.includes(displayed_id)){
+      }else if (user?.applied?.includes(displayed_id)){
         console.log('qqqq');
         setDisabled(true);
       }
@@ -32,7 +32,7 @@ function ButtonsSection({route}) {
     //function called when musician applies to a band
     function apply(){
         let data = {
-            id: user._id, 
+            id: user?._id, 
             band_id: displayed_id
         };
 
@@ -56,7 +56,7 @@ function ButtonsSection({route}) {
     //function called when a band requests a musician to apply
     function requestToApply(){
         let data = {
-            id: user._id, 
+            id: user?._id, 
             musician_id: route.params.displayed_user._id
         };
 

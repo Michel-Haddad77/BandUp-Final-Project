@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/HomeScreen';
 import UsersScreen from './screens/UsersScreen';
@@ -15,6 +16,8 @@ import RegisterMusicianScreen from './screens/RegisterMusicianScreen';
 import RegisterBandScreen from './screens/RegisterBandScreen';
 import UserProvider from './context/user';
 
+
+//const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {

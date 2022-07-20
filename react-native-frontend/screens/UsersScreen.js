@@ -18,7 +18,7 @@ export default function UsersScreen({navigation, route}) {
 
         //if Users page was called by pressing on a genre/instrument
         if(route.params.id){
-            if (user.user_type === 2){
+            if (user?.user_type === 2){
                 axios({
                     method: 'get',
                     url: url + 'bands/bygenre',
@@ -29,7 +29,7 @@ export default function UsersScreen({navigation, route}) {
                 }).catch(function (error){
                     console.log(error);
                 }) 
-            }else if (user.user_type === 1){
+            }else if (user?.user_type === 1){
                 axios({
                     method: 'get',
                     url: url + 'musicians/byinstrument',
@@ -43,9 +43,9 @@ export default function UsersScreen({navigation, route}) {
             }
             
         }else{ //if users page was called by pressing on the show all button
-            if (user.user_type === 1){
+            if (user?.user_type === 1){
                 var url2 = 'musicians/all';
-            }else if(user.user_type === 2){
+            }else if(user?.user_type === 2){
                 var url2 = 'bands/all';
             }
             axios({

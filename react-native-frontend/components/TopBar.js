@@ -10,10 +10,10 @@ export default function TopBar({navigation}){
         <View style={styles.container}>
             <TextInput style={styles.searchbar} placeholder='Search' />
             <TouchableOpacity onPress={()=>
-                navigation.navigate('UserProfile', {name: user.name})
+                navigation.navigate('UserProfile', {name: user?.name})
                 
             }>
-                <Image style={styles.profile} source={user.picture? {uri: `data:image;base64,${user.picture}`}: require('../assets/profile.png')}/>
+                <Image style={styles.profile} source={user?.picture? {uri: `data:image;base64,${user?.picture}`}: require('../assets/profile.png')}/>
             </TouchableOpacity>
         </View>
     )

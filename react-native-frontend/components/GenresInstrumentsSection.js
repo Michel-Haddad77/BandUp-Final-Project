@@ -16,7 +16,7 @@ export default function GenresInstrumentsSection({navigation}){
     
     useEffect(()=>{
         //if the user is a musician, display all genres
-        if (user.user_type === 2){
+        if (user?.user_type === 2){
             axios({
                 method: 'get',
                 url: url + 'bands/allgenres',
@@ -25,7 +25,7 @@ export default function GenresInstrumentsSection({navigation}){
             }).catch(function (error){
                 console.log(error);
             })
-        }else if(user.user_type === 1){ //user is a band
+        }else if(user?.user_type === 1){ //user is a band
             axios({
                 method: 'get',
                 url: url + 'musicians/allinstruments',
@@ -39,9 +39,9 @@ export default function GenresInstrumentsSection({navigation}){
     
     return (
         <>
-            <Text style={styles.title}>{user.user_type === 2? "Band Genres": "Instruments"}</Text>
+            <Text style={styles.title}>{user?.user_type === 2? "Band Genres": "Instruments"}</Text>
             <View style= {styles.container}>
-                {user.user_type === 2?
+                {user?.user_type === 2?
                     (genres.length? 
                         genres.map((genre, index)=> 
                             <GenreInstrumentBox  key = {index} 
