@@ -1,9 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import colors from '../constants/colors';
+import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+import RegisterMusicianScreen from '../screens/RegisterMusicianScreen';
+import RegisterBandScreen from '../screens/RegisterBandScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function loginNavigation() {
+export default function LoginNavigation() {
     return (
 
         <NavigationContainer>
