@@ -13,7 +13,7 @@ export default function HomeScreen({navigation}){
     //get logged in user to check the user_type
     const {user} = useAuthUser();
     useEffect(() => {
-        //set the name for the button and page title
+        //set the name for the "Show All" button and page title
         if (user.user_type === 2){
             setName("Bands");
         }else{
