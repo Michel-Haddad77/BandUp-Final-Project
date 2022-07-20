@@ -4,7 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 import colors from './constants/colors';
 import LoginScreen from './screens/LoginScreen';
@@ -32,9 +33,27 @@ export default function App() {
               headerShown: false,
             }}
           >
-            <Tab.Screen name="Home" component={HomeStack}/>
-            <Tab.Screen name="Messages" component={LoginScreen} />
-            <Tab.Screen name="Notifications" component={LoginScreen} />
+            <Tab.Screen name="Home" component={HomeStack} 
+              options={{
+                tabBarIcon: ({color}) => (
+                  <Entypo name="home" size={30} color= {color}/>
+                ),
+              }}
+            />
+            <Tab.Screen name="Messages" component={LoginScreen} 
+              options={{
+                tabBarIcon: ({color}) => (
+                  <Entypo name="message" size={30} color= {color}/>
+                ),
+              }}
+            />
+            <Tab.Screen name="Notifications" component={LoginScreen} 
+              options={{
+                tabBarIcon: ({color}) => (
+                  <Entypo name="bell" size={30} color= {color}/>
+                ),
+              }}
+            />
           </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
