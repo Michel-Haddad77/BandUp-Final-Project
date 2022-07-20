@@ -5,19 +5,16 @@ import { StyleSheet, Text, View} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from './screens/HomeScreen';
-import UsersScreen from './screens/UsersScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import UserProfileScreen from './screens/UserProfileScreen';
+
 import colors from './constants/colors';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import RegisterMusicianScreen from './screens/RegisterMusicianScreen';
 import RegisterBandScreen from './screens/RegisterBandScreen';
 import UserProvider from './context/user';
+import HomeStack from './navigation/HomeStack';
 
-
-//const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -25,37 +22,21 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={colors.primary}/>
-      <UserProvider>
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
-
-                <Stack.Screen name="Users" component={UsersScreen} options={({ route }) => (
-                    { 
-                    title: route.params.name ,
-                    headerStyle: {backgroundColor: colors.primary},
-                    headerTintColor: '#fff',
-                    })}
-                />
-
-                <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => (
-                    { 
-                    title: route.params.name,
-                    headerStyle: {backgroundColor: colors.primary},
-                    headerTintColor: '#fff',
-                    })}
-                />
-
-                <Stack.Screen name="UserProfile" component={UserProfileScreen} options={({ route }) => (
-                    { 
-                    title: route.params.name,
-                    headerStyle: {backgroundColor: colors.primary},
-                    headerTintColor: '#fff',
-                    })}
-                />
-            </Stack.Navigator>
-          </NavigationContainer>
-      </UserProvider>
+      
+      <NavigationContainer>
+          <Tab.Navigator screenOptions={{
+              tabBarStyle: styles.tab_bar,
+              tabBarActiveTintColor: 'white',
+              tabBarInactiveTintColor: '#FFCB9B',
+              tabBarHideOnKeyboard: true,
+              headerShown: false,
+            }}
+          >
+            <Tab.Screen name="Home" component={HomeStack}/>
+            <Tab.Screen name="Messages" component={LoginScreen} />
+            <Tab.Screen name="Notifications" component={LoginScreen} />
+          </Tab.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
 
     
@@ -68,4 +49,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'flex-start'
   },
+  tab_bar:{
+    backgroundColor: colors.primary,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16
+  }
 });
