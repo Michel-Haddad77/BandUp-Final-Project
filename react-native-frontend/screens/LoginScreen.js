@@ -5,10 +5,14 @@ import axios from 'axios';
 import url from "../constants/url";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../constants/colors";
+import { useAuthUser } from "../context/user";
 
 function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    //setToken
+    const {setToken} = useAuthUser();
     
     //when user presses on Login button
     async function login(){
@@ -27,6 +31,7 @@ function LoginScreen({navigation}) {
             try {
                 await AsyncStorage.setItem('token', response.data.token);
                 await AsyncStorage.setItem('user_info', JSON.stringify(response.data.user_info));
+                setToken(response.data.token);
             } catch(error) {
                 console.log(error);
             }

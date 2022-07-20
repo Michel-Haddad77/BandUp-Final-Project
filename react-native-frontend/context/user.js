@@ -8,6 +8,7 @@ export const UserContext = createContext()
 const UserProvider = ({children}) => {
     const [user,setUser] = useState({});
     const [token, setToken] = useState("");
+    const [is_logged_in, setIsLoggedIn] = useState(false)
     
     //get stored user and token in async storage
     async function getStoredUser(){
@@ -32,7 +33,7 @@ const UserProvider = ({children}) => {
     return (
         <UserContext.Provider
             value={{
-                user,token
+                user,token, setUser, setToken
             }}
         >
             {children}
@@ -45,9 +46,9 @@ export default UserProvider;
 //Instead of calling useContext(UserContext)
 //call useAuthUser to get the stored values
 export const useAuthUser = () => {
-    const {user, token} = useContext(UserContext)
+    const {user, token, setUser, setToken, is_logged_in, setIsLoggedIn} = useContext(UserContext);
 
     return {
-        user, token
+        user, token, setUser, setToken, is_logged_in, setIsLoggedIn
     }
 }

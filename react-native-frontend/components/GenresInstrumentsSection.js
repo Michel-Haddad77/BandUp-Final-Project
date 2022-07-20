@@ -45,18 +45,18 @@ export default function GenresInstrumentsSection({navigation}){
                     (genres.length? 
                         genres.map((genre, index)=> 
                             <GenreInstrumentBox  key = {index} 
-                                name={genre.genre_name} 
-                                picture={genre.picture}
-                                id = {genre._id} 
+                                name={genre?.genre_name} 
+                                picture={genre?.picture}
+                                id = {genre?._id} 
                                 navigation={navigation} 
                             />
                         ) : <Text style={{fontSize: 20, margin: 20}}>No Genres Yet</Text>)
                     : (instruments.length? 
                         instruments.map((instrument, index)=> 
                             <GenreInstrumentBox  key = {index} 
-                                name={instrument.instrument_name} 
-                                picture={instrument.picture}
-                                id = {instrument._id} 
+                                name={instrument?.instrument_name} 
+                                picture={instrument?.picture}
+                                id = {instrument?._id} 
                                 navigation={navigation} 
                             />
                         ) : <Text style={{fontSize: 20, margin: 20}}>No Instruments Yet</Text>)

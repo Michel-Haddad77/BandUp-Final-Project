@@ -122,7 +122,7 @@ export default function RegisterBandScreen() {
             >
                 {   //fill dropdown list according to number of instruments
                     genres.map((genre, index)=>
-                    <Picker.Item key = {index} label={genre.genre_name} value={genre._id} />
+                    <Picker.Item key = {index} label={genre?.genre_name} value={genre._id} />
                 )}   
             </Picker>
 

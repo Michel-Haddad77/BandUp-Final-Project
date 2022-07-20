@@ -6,8 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 import colors from './constants/colors';
-import BottomTab from './navigation/BottomTab';
-import LoginStack from './navigation/LoginStack';
+import NavigationSwitcher from './navigation/NavigationSwitcher';
 import UserProvider from './context/user';
 
 
@@ -18,10 +17,10 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={colors.primary}/>
-      <LoginStack/>
+      <UserProvider>
+        <NavigationSwitcher/>
+      </UserProvider>
     </SafeAreaView>
-
-    
   );
 }
 

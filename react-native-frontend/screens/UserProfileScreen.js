@@ -1,10 +1,24 @@
 import { View, Button, StyleSheet } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../constants/colors";
 import ProfileHead from "../components/ProfileHead";
 import VideoSection from "../components/VideoSection";
 import StyledButton from "../components/StyledButton";
+import { useAuthUser } from "../context/user";
 
 export default function UserProfileScreen() {
+
+    const {setToken, setUser} = useAuthUser(); 
+
+    async function logout(){
+        try {
+            await AsyncStorage.clear();
+            setToken("");
+            setUser({});
+        } catch(error) {
+            console.log(error);
+        }
+    }
 
     return (
         <>
@@ -12,13 +26,14 @@ export default function UserProfileScreen() {
             <View style={styles.container}>
                 <StyledButton 
                     title="Edit Profile" 
-                    text_style={styles.edit_button_text} 
+                    text_style={styles.button_text} 
                     style={styles.edit_button}
                 />
                 <StyledButton 
                     title="Logout" 
-                    text_style={styles.edit_button_text} 
-                    style={styles.edit_button}
+                    text_style={styles.button_text} 
+                    style={styles.button}
+                    onPress={logout}
                 />
             </View>
             <VideoSection is_user={true}/>
@@ -33,10 +48,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
-    edit_button:{
+    button:{
         width: 100
     },
-    edit_button_text:{
+    button_text:{
         fontSize: 14,
         textAlign: 'center'
     }

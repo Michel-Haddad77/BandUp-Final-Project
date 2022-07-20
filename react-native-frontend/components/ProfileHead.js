@@ -44,7 +44,7 @@ function ProfileHead({route, is_user}) {
                     </Text>
                     <Text style={styles.subTitle}>
                         {   //if the user is musician => display instrument (and vice versa)
-                            user_type===2? instrument.instrument_name:genre.genre_name
+                            user_type===2? instrument?.instrument_name:genre?.genre_name
                         }
                     </Text>
                     <Text style={styles.subTitle}>Location</Text>
