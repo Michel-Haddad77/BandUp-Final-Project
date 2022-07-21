@@ -8,10 +8,8 @@ import RegisterBandScreen from '../screens/RegisterBandScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function LoginNavigation() {
+export default function LoginStack() {
     return (
-
-        <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/>
 
@@ -38,6 +36,5 @@ export default function LoginNavigation() {
               }}
             />
         </Stack.Navigator>
-      </NavigationContainer>
     );
 }

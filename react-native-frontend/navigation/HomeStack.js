@@ -12,7 +12,6 @@ const Stack = createNativeStackNavigator();
 
 export default function HomeStack() {
     return (
-        <UserProvider>
                 <Stack.Navigator>
                     <Stack.Screen name="HomeStack" component={HomeScreen} options={{headerShown: false}}/>
 
@@ -40,7 +39,6 @@ export default function HomeStack() {
                         })}
                     />
                 </Stack.Navigator>
-        </UserProvider>
     
     );
 }

@@ -8,7 +8,6 @@ export const UserContext = createContext()
 const UserProvider = ({children}) => {
     const [user,setUser] = useState({});
     const [token, setToken] = useState("");
-    const [is_logged_in, setIsLoggedIn] = useState(false)
     
     //get stored user and token in async storage
     async function getStoredUser(){
@@ -46,9 +45,9 @@ export default UserProvider;
 //Instead of calling useContext(UserContext)
 //call useAuthUser to get the stored values
 export const useAuthUser = () => {
-    const {user, token, setUser, setToken, is_logged_in, setIsLoggedIn} = useContext(UserContext);
+    const {user, token, setUser, setToken} = useContext(UserContext);
 
     return {
-        user, token, setUser, setToken, is_logged_in, setIsLoggedIn
+        user, token, setUser, setToken,
     }
 }

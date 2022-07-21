@@ -6,12 +6,13 @@ import VideoSection from "../components/VideoSection";
 import StyledButton from "../components/StyledButton";
 import { useAuthUser } from "../context/user";
 
-export default function UserProfileScreen() {
+export default function UserProfileScreen({navigation}) {
 
-    const {setToken, setUser} = useAuthUser(); 
+    const {token, setToken, setUser} = useAuthUser(); 
 
     async function logout(){
         try {
+            //clear async storage and update the context
             await AsyncStorage.clear();
             setToken("");
             setUser({});

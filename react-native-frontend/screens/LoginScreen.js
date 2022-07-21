@@ -12,7 +12,7 @@ function LoginScreen({navigation}) {
     const [password, setPassword] = useState("");
 
     //setToken
-    const {setToken} = useAuthUser();
+    const {setToken, setUser} = useAuthUser();
     
     //when user presses on Login button
     async function login(){
@@ -32,6 +32,7 @@ function LoginScreen({navigation}) {
                 await AsyncStorage.setItem('token', response.data.token);
                 await AsyncStorage.setItem('user_info', JSON.stringify(response.data.user_info));
                 setToken(response.data.token);
+                setUser(response.data.user_info);
             } catch(error) {
                 console.log(error);
             }

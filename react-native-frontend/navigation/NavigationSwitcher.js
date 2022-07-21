@@ -1,14 +1,23 @@
 import { useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { useAuthUser } from '../context/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import BottomTab from './BottomTab';
 import LoginStack from './LoginStack';
 
 export default function NavigationSwitcher() {
-    const {token, setToken} = useAuthUser();
-    
+    var {token, setToken} = useAuthUser();
+
     console.log('token=>' + token);
+
     return (
-        token? <BottomTab/> : <LoginStack/>
+        <NavigationContainer>
+            {token? <BottomTab/> : <LoginStack/>}
+        </NavigationContainer>
+        
     )
 }
+
+
