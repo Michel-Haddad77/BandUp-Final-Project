@@ -6,6 +6,7 @@ import colors from '../constants/colors';
 import StyledButton from '../components/StyledButton';
 import { useEffect, useState} from 'react';
 import { useAuthUser } from '../context/user';
+import NearbyUsersSection from '../components/NearbyUsersSection';
 
 export default function HomeScreen({navigation}){
     const [name,setName]  = useState("");
@@ -28,6 +29,7 @@ export default function HomeScreen({navigation}){
             <TopBar navigation={navigation}/>
             <ScrollView>
                 <GenresInstrumentsSection navigation={navigation}/>
+                <NearbyUsersSection navigation={navigation}/>
                 <NewUsersSection navigation={navigation}/>
                 <View style={styles.container}>
                     <StyledButton 

@@ -1,13 +1,13 @@
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import UserCard from './UserCard';
 import axios from 'axios';
 import url from "../constants/url";
 import colors from '../constants/colors';
 import { useAuthUser } from '../context/user';
 
-export default function NewUsersSection({navigation}){
-    const [recentUsers,setRecentUsers] = useState([]);
+export default function NearbyUsersSection({navigation}) {
+    const [nearbyUsers,setNearbyUsers] = useState([]);
 
     //get logged in user to check the user_type
     const {user} = useAuthUser();
@@ -15,9 +15,9 @@ export default function NewUsersSection({navigation}){
 
     //change api url according to user type
     if(user?.user_type === 2){
-        url2 = 'bands/recent';
+        url2 = 'bands/nearby';
     }else if (user?.user_type === 1){
-        url2 = 'musicians/recent'
+        url2 = 'musicians/nearby'
     }
 
     //get the recently registered users
@@ -25,19 +25,25 @@ export default function NewUsersSection({navigation}){
         axios({
             method: 'get',
             url: url + url2,
+            params: {
+                lat: user?.location?.lat,
+                long: user?.location?.long
+            }
         }).then(function (response) {
-            setRecentUsers(response.data);
+            setNearbyUsers(response.data);
+            console.log(response);
         }).catch(function (error){
             console.log(error);
         })
-    },[user]); //added dependancy to rerender after user variable is fetched from storage
+        console.log(nearbyUsers);
+    },[user]);
 
-    return(
-        <View style={styles.container}>
-            <Text style={styles.title}>{user?.user_type=== 2? "New Bands" : "New Musicians"}</Text>
-            {recentUsers.length? 
+  return (
+    <View style={styles.container}>
+            <Text style={styles.title}>{user?.user_type=== 2? "NearbyBands" : "Nearby Musicians"}</Text>
+            {nearbyUsers.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
-                    {recentUsers.map((displayed_user,index)=>
+                    {nearbyUsers.map((displayed_user,index)=>
                         <UserCard key={index} 
                             navigation = {navigation}
                             displayed_user={displayed_user} 
@@ -46,7 +52,7 @@ export default function NewUsersSection({navigation}){
                 </ScrollView> : <Text style={styles.placeholder}>No Users Yet</Text>
             }
         </View>
-    )
+  )
 }
 
 const styles = StyleSheet.create({
