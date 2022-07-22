@@ -8,7 +8,7 @@ import { useAuthUser } from '../context/user';
 import StyledButton from './StyledButton';
 
 export default function NearbyUsersSection({navigation}) {
-    const [nearbyUsers,setNearbyUsers] = useState([]);
+    const [nearby_users, setNearbyUsers] = useState([]);
 
     //get logged in user to check the user_type
     const {user} = useAuthUser();
@@ -37,6 +37,13 @@ export default function NearbyUsersSection({navigation}) {
         })
     },[user]);
 
+    function showOnMap(){
+        let lat = user.location.lat;
+        let long = user.location.long;
+
+        navigation.navigate('Map', {nearby_users, lat, long});
+    }
+
   return (
     <View style={styles.container}>
             <View style={styles.container2}>
@@ -45,12 +52,13 @@ export default function NearbyUsersSection({navigation}) {
                     title="Show on map"
                     style={styles.button}
                     text_style={styles.button_text}
+                    onPress= {showOnMap}
                 />
             </View>
             
-            {nearbyUsers.length? 
+            {nearby_users.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
-                    {nearbyUsers.map((displayed_user,index)=>
+                    {nearby_users.map((displayed_user,index)=>
                         <UserCard key={index} 
                             navigation = {navigation}
                             displayed_user={displayed_user} 
