@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-evenly',
+        marginBottom: 10
     },
     title: {
         fontSize: 21,
