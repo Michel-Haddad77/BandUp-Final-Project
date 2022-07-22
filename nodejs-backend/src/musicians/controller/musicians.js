@@ -110,7 +110,7 @@ async function getNearbyMusicians(req,res){
 
             //if distance is less than 5KM
             if (dist <= 5){
-                recent_musicians.musician;
+                recent_musicians.push(musician);
             }
         })
 
