@@ -81,6 +81,47 @@ async function getAllInstruments(req,res){
 
 };
 
+async function getNearbyMusicians(req,res){
+    try{
+        // lat/long of the user
+        var lat1 = req.query.lat;
+        var long1 = req.query.long;
+
+        const musicians = await Musician.find().populate('instrument');
+        var recent_musicians = [];
+
+        musicians.forEach((musician)=>{
+            var lat2 = musician.location.lat;
+            var long2 = musician.location.long;
+
+            //distance calculation in KM
+            var radlat1 = Math.PI * lat1/180;
+            var radlat2 = Math.PI * lat2/180;
+            var theta = long1-long2;
+            var radtheta = Math.PI * theta/180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180/Math.PI;
+            dist = dist * 111.2;
+
+            //if distance is less than 10KM
+            if (dist <= 10){
+                recent_musicians.musician;
+            }
+        })
+
+        console.log(recent_musicians);
+        return res.send(recent_musicians);
+
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     getAllMusicians,
     getRecentMusicians,
