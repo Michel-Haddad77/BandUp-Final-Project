@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
-export default function UserCard({navigation, displayed_user}){
+export default function UserCard({navigation, displayed_user, is_nearby}){
     let {
         name,
         last_name,
         genre,
         instrument,
+        location,
         picture
     } = displayed_user;
 
@@ -18,8 +19,13 @@ export default function UserCard({navigation, displayed_user}){
             <View>
                     <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
                     <Text style={styles.name}>{last_name? (name + " " + last_name): name}</Text>
-                    <Text>{genre? genre?.genre_name: instrument?.instrument_name}</Text>
-                    <Text></Text>
+                    {is_nearby? 
+                        //either show location of nearby users or the genre/instrument of the new users
+                        <Text style={styles.location}>{location && location.name}</Text> :
+                        <Text>{genre? genre?.genre_name: instrument?.instrument_name}</Text>
+                    }
+                    
+                    
             </View>
 
         </TouchableOpacity>
@@ -38,5 +44,8 @@ const styles = StyleSheet.create({
         height: 130,
         width: 130,
         borderRadius: 8,
+    },
+    location:{
+        fontStyle: "italic",
     }
 });

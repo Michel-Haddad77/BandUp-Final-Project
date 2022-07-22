@@ -47,6 +47,7 @@ export default function NearbyUsersSection({navigation}) {
                         <UserCard key={index} 
                             navigation = {navigation}
                             displayed_user={displayed_user} 
+                            is_nearby = {true}
                         />
                     )}
                 </ScrollView> : <Text style={styles.placeholder}>No Users Yet</Text>
