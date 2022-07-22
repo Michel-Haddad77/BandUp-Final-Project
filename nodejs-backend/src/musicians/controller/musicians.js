@@ -91,6 +91,7 @@ async function getNearbyMusicians(req,res){
         var recent_musicians = [];
 
         musicians.forEach((musician)=>{
+            // lat/long for each musician
             var lat2 = musician.location.lat;
             var long2 = musician.location.long;
 
@@ -107,8 +108,8 @@ async function getNearbyMusicians(req,res){
             dist = dist * 180/Math.PI;
             dist = dist * 111.2;
 
-            //if distance is less than 10KM
-            if (dist <= 10){
+            //if distance is less than 5KM
+            if (dist <= 5){
                 recent_musicians.musician;
             }
         })
@@ -128,4 +129,5 @@ module.exports = {
     apply,
     getByInstrument,
     getAllInstruments,
+    getNearbyMusicians,
 }
