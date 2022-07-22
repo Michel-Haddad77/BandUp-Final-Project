@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View , TextInput, Image, ToastAndroid} from 'react-native';
+import { StyleSheet, Modal, Text, View ,ScrollView, TextInput, Image, ToastAndroid} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import StyledButton from '../components/StyledButton';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import * as ImagePicker from 'expo-image-picker';
+import * as Location from 'expo-location';
 
 import url from '../constants/url';
 import colors from '../constants/colors';
@@ -21,6 +22,7 @@ export default function RegisterMusicianScreen() {
     const [name, setName] = useState("");
     const [last_name, setLastName] = useState("");
     const [picture, setPicture] = useState("");
+    const [ location, setLocation] = useState({});
 
     //fetch all instruments from server for the dropdown list
     useEffect(() => {
@@ -45,6 +47,7 @@ export default function RegisterMusicianScreen() {
             description,
             user_type: 2, //user is a musician
             picture,
+            location,
             instrument_id: instrument,
         };
 
@@ -83,9 +86,34 @@ export default function RegisterMusicianScreen() {
             setPicture(result.base64);
         }
     }
+
+    //when user wants to add location
+    async function getLocation(){
+        let { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+        }
+
+        //get location lat and long
+        let loc = await Location.getCurrentPositionAsync({});
+        
+        //get location name {country, city, street, region...}
+        let loc_name = await Location.reverseGeocodeAsync({
+            latitude:loc.coords.latitude, 
+            longitude: loc.coords.longitude
+        });
+
+        //set location object of the new user
+        setLocation({
+            lat:loc.coords.latitude, 
+            long: loc.coords.longitude,
+            name: `${loc_name[0].city}, ${loc_name[0].country}`,
+        });
+    }
     
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.label}>First Name</Text>
             <TextInput 
                 style={styles.input} 
@@ -135,7 +163,7 @@ export default function RegisterMusicianScreen() {
                 )}   
             </Picker>
 
-            <View style={styles.upload_container}>
+            <View style={styles.button_container}>
                 {picture? (<Image source={{uri: `data:image;base64,${picture}`}} style={styles.image}/>): null}
                 <StyledButton 
                     title="Upload Profile Picture" 
@@ -144,20 +172,30 @@ export default function RegisterMusicianScreen() {
                     onPress={handleUpload}
                 />
             </View>
+
+            <View style={styles.button_container}>
+                {location?.name? (<Text>{location.name}</Text>):null}
+                <StyledButton 
+                        title="Add Location" 
+                        text_style={styles.upload_button_text} 
+                        style={styles.upload_button}
+                        onPress={getLocation}
+                    />
+            </View>
             
             <StyledButton 
                 title="Sign Up" 
                 onPress={()=>{
                     onSignUp();
                 }}
-            /> 
-        </View>
+            />
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
-        marginHorizontal: 30,
+        marginHorizontal: 20,
     },
     label:{
         fontSize: 20,
@@ -169,9 +207,9 @@ const styles = StyleSheet.create({
         borderColor: 'grey',
         padding: 10,
         borderRadius: 20,
-        marginBottom: 10,
+        marginBottom: 5,
     },
-    upload_container:{
+    button_container:{
         flexDirection: 'row',
         marginBottom: 20,
         justifyContent: 'space-evenly'
@@ -182,10 +220,10 @@ const styles = StyleSheet.create({
         borderRadius: 50
     },
     upload_button:{
-        width: 130
+        width: 120,
     },
     upload_button_text:{
-        fontSize: 14,
+        fontSize: 12,
         textAlign: 'center'
     }
 })

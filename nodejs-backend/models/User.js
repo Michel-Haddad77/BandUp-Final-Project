@@ -20,17 +20,23 @@ const userSchema = new mongoose.Schema({
   },
   location:{
     lat: {
-      type: String,
-      default: "",
+      type: Number,
+      default: null,
       min: 6,
       max: 255,
     },
     long: {
+      type: Number,
+      default: null,
+      min: 6,
+      max: 255,
+    },
+    name: {
       type: String,
       default: "",
       min: 6,
       max: 255,
-    },
+    }
   },
   picture: {
     type: String,
@@ -38,6 +44,7 @@ const userSchema = new mongoose.Schema({
   },
   video: {
     type: String,
+    default: "",
   },
   user_type:{
     type: Number,

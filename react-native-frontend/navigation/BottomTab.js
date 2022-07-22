@@ -4,6 +4,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../constants/colors';
 import HomeStack from './HomeStack';
 import LoginScreen from '../screens/LoginScreen';
+import Map from '../components/Map';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ export default function BottomTab() {
                 ),
               }}
             />
-            <Tab.Screen name="Messages" component={LoginScreen} 
+            <Tab.Screen name="Messages" component={Map} 
               options={{
                 tabBarIcon: ({color}) => (
                   <Entypo name="message" size={30} color= {color}/>
