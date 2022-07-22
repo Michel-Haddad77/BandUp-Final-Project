@@ -40,7 +40,10 @@ export default function Map({route}) {
             {/* User's marker */}
             <Marker coordinate={center}>
                 <Callout>
-                    <Text>You</Text>
+                <View >
+                    <Text style={styles.callout_text}>You</Text>
+                </View>
+                    
                 </Callout>
             </Marker>
 
@@ -55,7 +58,7 @@ export default function Map({route}) {
                         pinColor= {colors.primary}
                     >
                         <Callout >
-                            <Text>{user.name}</Text>
+                            <Text style={styles.callout_text}>{user.name}</Text>
                         </Callout>
                     </Marker>
                 )}
@@ -76,4 +79,7 @@ const styles = StyleSheet.create({
       width: Dimensions.get('window').width,
       height: Dimensions.get('window').height,
     },
+    callout_text:{
+        fontSize: 14,
+    }
   });
