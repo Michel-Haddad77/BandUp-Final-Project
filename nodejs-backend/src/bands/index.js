@@ -9,7 +9,7 @@ router.get('/recent', getRecentBands);
 router.post('/requested', requestToApply);
 router.get('/bygenre', getByGenre);
 router.get('/allgenres', getAllGenres);
-router.get('/allgenres', getNearbyBands);
+router.get('/nearby', getNearbyBands);
 
 
 module.exports = router;
