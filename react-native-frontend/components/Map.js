@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { View, Text,StyleSheet, Dimensions } from 'react-native';
 import MapView, { Callout, Marker } from 'react-native-maps';
+import colors from '../constants/colors';
 import StyledButton from './StyledButton';
 
 export default function Map({route}) {
@@ -51,9 +52,9 @@ export default function Map({route}) {
                             latitude: user.location.lat,
                             longitude: user.location.long
                         }}
-                        pinColor= {'blue'}
+                        pinColor= {colors.primary}
                     >
-                        <Callout>
+                        <Callout >
                             <Text>{user.name}</Text>
                         </Callout>
                     </Marker>
