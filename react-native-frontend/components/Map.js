@@ -22,7 +22,6 @@ export default function Map({route}) {
         //get all the nearby users from route params
         let users = route.params.nearby_users;
         setNearbyUsers(users);
-        console.log(nearby_users);
     }, [])
     
 
