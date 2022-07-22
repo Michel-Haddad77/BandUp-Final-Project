@@ -49,7 +49,7 @@ function ProfileHead({route, is_user}) {
                             user_type===2? instrument?.instrument_name:genre?.genre_name
                         }
                     </Text>
-                    <Text style={styles.subTitle}>{location?.name}</Text>
+                    <Text style={styles.subTitle2}>{location?.name}</Text>
                 </View>
             </View>
             <Text style = {styles.description}> {description}</Text>
@@ -86,6 +86,12 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         fontSize: 18,
         color: colors.secondary,
+    },
+    subTitle2:{
+        marginLeft: 5,
+        fontSize: 14,
+        color: colors.secondary,
+        fontStyle: "italic",
     },
     description: {
         fontSize: 16,
