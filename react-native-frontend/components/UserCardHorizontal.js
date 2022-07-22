@@ -5,7 +5,8 @@ function UserCardHorizontal({navigation, displayed_user}) {
     let {
         name,
         last_name,
-        picture
+        picture,
+        description,
     } = displayed_user;
 
     return (
@@ -16,7 +17,11 @@ function UserCardHorizontal({navigation, displayed_user}) {
         >
             <View style={styles.container}>
                 <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
-                <Text style={styles.title}>{last_name? (name + " " + last_name): name}</Text>
+                <View>
+                    <Text style={styles.title}>{last_name? (name + " " + last_name): name}</Text>
+                    <Text style={styles.subtitle}>{description}</Text>
+                </View>
+                
             </View>
         </TouchableOpacity>
     );
@@ -43,5 +48,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '500',
         color: colors.secondary,
+    },
+    subtitle:{
+        color: 'gray',
     }
 });

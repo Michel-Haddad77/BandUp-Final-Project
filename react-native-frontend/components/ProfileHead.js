@@ -13,6 +13,7 @@ function ProfileHead({route, is_user}) {
             instrument,
             picture,
             description,
+            location,
             user_type,
         } = route.params.displayed_user;
     }else{
@@ -26,6 +27,7 @@ function ProfileHead({route, is_user}) {
             instrument, 
             picture,
             description, 
+            location,
             user_type,
         } = user;
     }
@@ -47,7 +49,7 @@ function ProfileHead({route, is_user}) {
                             user_type===2? instrument?.instrument_name:genre?.genre_name
                         }
                     </Text>
-                    <Text style={styles.subTitle}>Location</Text>
+                    <Text style={styles.subTitle}>{location?.name}</Text>
                 </View>
             </View>
             <Text style = {styles.description}> {description}</Text>
