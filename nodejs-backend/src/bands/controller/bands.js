@@ -128,5 +128,6 @@ module.exports = {
     getRecentBands,
     requestToApply,
     getByGenre,
-    getAllGenres
+    getAllGenres,
+    getNearbyBands,
 }
