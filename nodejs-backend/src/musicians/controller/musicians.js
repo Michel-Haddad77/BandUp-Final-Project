@@ -18,7 +18,7 @@ async function getAllMusicians(req,res){
 async function getRecentMusicians(req,res){
     try{
         //get the last 2 added musicians
-        const musicians = await Musician.find().sort('-date').limit(2).populate('instrument');
+        const musicians = await Musician.find().sort('-date').limit(3).populate('instrument');
         return res.send(musicians);
     } catch(error){
         console.log(error);
