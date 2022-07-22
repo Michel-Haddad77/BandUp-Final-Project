@@ -5,6 +5,7 @@ import axios from 'axios';
 import url from "../constants/url";
 import colors from '../constants/colors';
 import { useAuthUser } from '../context/user';
+import StyledButton from './StyledButton';
 
 export default function NearbyUsersSection({navigation}) {
     const [nearbyUsers,setNearbyUsers] = useState([]);
@@ -31,16 +32,22 @@ export default function NearbyUsersSection({navigation}) {
             }
         }).then(function (response) {
             setNearbyUsers(response.data);
-            console.log(response);
         }).catch(function (error){
             console.log(error);
         })
-        console.log(nearbyUsers);
     },[user]);
 
   return (
     <View style={styles.container}>
-            <Text style={styles.title}>{user?.user_type=== 2? "NearbyBands" : "Nearby Musicians"}</Text>
+            <View style={styles.container2}>
+                <Text style={styles.title}>{user?.user_type=== 2? "Nearby Bands" : "Nearby Musicians"}</Text>
+                <StyledButton 
+                    title="Show on map"
+                    style={styles.button}
+                    text_style={styles.button_text}
+                />
+            </View>
+            
             {nearbyUsers.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
                     {nearbyUsers.map((displayed_user,index)=>
@@ -61,11 +68,22 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
     },
+    container2:{
+        flexDirection: "row",
+        alignItems: 'baseline',
+        justifyContent: 'space-between',
+    },
+    button:{
+        padding: 5,
+        marginRight: 20,
+    },
+    button_text:{
+        fontSize: 14,
+    },
     title: {
         fontSize: 21,
         fontWeight: '500',
         color: colors.secondary,
-
     },
     bandContainer: {
         margin: 10,  
