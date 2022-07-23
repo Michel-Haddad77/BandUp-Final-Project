@@ -15,12 +15,12 @@ body{
 .login-container{
     display: flex;
     flex-direction: column;
-    margin-top: 7%;
+    margin-top: 5%;
     margin-left: 5%;
-    height: 60vh;
+    height: 'fit-content';
     border:1px solid grey;
     width: fit-content;
-    padding:2%;
+    padding: 2%;
     align-items: center;
     justify-content: space-around;
     border-radius: 15px;
@@ -48,4 +48,15 @@ label{
     margin: 3%;
     text-align: center;
     color: #5271FF
+}
+
+.btn{
+    width:80%;
+    height: 50px;
+    font-size: x-large;
+    margin-bottom: 2%;
+    background-color: #5271FF;
+    border-color: #5271FF;
+    color: white;
+    border-radius: 5px;
 }

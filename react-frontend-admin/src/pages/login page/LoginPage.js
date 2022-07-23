@@ -22,15 +22,13 @@ export default function LoginPage() {
           }
       }).then(function (response) {
           console.log(response.data);
-          //store user token and info in async storage
-          try {
+          //store user token and info in local storage
               localStorage.setItem('token', response.data.token);
               localStorage.setItem('user_info', JSON.stringify(response.data.user_info));
-          } catch(error) {
-              console.log(error);
-          }
+              console.log(response.data)
       }).catch(function (error){
           console.log(error);
+          alert(error.response.data);
       })
   }
 
@@ -39,7 +37,6 @@ export default function LoginPage() {
       <h1 className="brand" >Band Up</h1>
       <div className="login-container">
             <h3 className="login-h3">Welcome Admin</h3>
-            <div>
               <div>
                 <label>Email</label><br/>
                 <input 
@@ -66,8 +63,10 @@ export default function LoginPage() {
                     required
                 /><br/>
               </div>
-
-            </div>
+              <button 
+                  className='btn'
+                  onClick={login}
+              >Login</button>
       </div>
     </div>
     
