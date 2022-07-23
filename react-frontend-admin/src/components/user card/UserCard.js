@@ -1,8 +1,11 @@
 import React from 'react';
 import './styles.css';
 import { TiDelete } from "react-icons/ti";
+import url from '../../constants/url';
+import axios from 'axios';
 
-export default function UserCard({name,picture,genre_instrument}) {
+export default function UserCard({name,picture,genre_instrument, deleteUser}) {
+
   return (
     <div className='user-container'>
         <img 
@@ -11,7 +14,7 @@ export default function UserCard({name,picture,genre_instrument}) {
         />
         <h3>{name}</h3>
         <h4>{genre_instrument}</h4>
-        <TiDelete/>
+        <TiDelete className="delete-btn" onClick={deleteUser}/>
     </div>
   )
 }

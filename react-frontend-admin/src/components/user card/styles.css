@@ -11,3 +11,10 @@
     height: 70px;
     border-radius: 50%;
 }
+
+.delete-btn{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-right: 5%;
+}

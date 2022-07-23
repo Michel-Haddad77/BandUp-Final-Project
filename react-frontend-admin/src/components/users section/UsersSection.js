@@ -6,7 +6,6 @@ import axios from 'axios';
 
 export default function UsersSection({is_musician}) {
     const [users,setUsers] = useState([]);
-
     var url2 = '';
 
     if (is_musician){
@@ -26,9 +25,23 @@ export default function UsersSection({is_musician}) {
         }).catch(function (error){
             console.log(error);
         })
-    }, [])
+    }, [users])
     
-        
+     
+    //function when the admin deletes a user
+    //this function is passed down to each user card
+    function deleteUser(id){
+        axios({
+            method: 'delete',
+            url: url + 'admin/user',
+            params: { user_id: id },
+        }).then(function (response) {
+            console(response.data);
+        }).catch(function (error){
+            console.log(error);
+        })
+    }
+
     return (
         <div className='section-container'>
             <h2>{is_musician? "Musicians":"Bands"}</h2>
@@ -38,9 +51,11 @@ export default function UsersSection({is_musician}) {
                     {users.map((user,index)=>(
                         <UserCard
                             key={index}
+                            id={user._id}
                             name= {is_musician? `${user.name} ${user.last_name}` : user.name}
                             picture={user.picture}
                             genre_instrument = {is_musician? (user.instrument?.instrument_name) : (user.genre?.genre_name)}
+                            deleteUser = {()=>{deleteUser(user._id)}}
                         />
                     ))}
                 </div>
