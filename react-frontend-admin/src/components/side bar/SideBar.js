@@ -18,7 +18,7 @@ export default function SideBar() {
 
             <button 
                 className='sidebar-btn' 
-                onClick={()=>navigate('/home')}
+                onClick={()=>navigate('/genres')}
             >Genres</button>
 
             <button 
