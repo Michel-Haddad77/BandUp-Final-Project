@@ -1,0 +1,30 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 7%;
+    margin-left: 5%;
+    height: fit-content;
+    border:1px solid grey;
+    width: fit-content;
+    padding:1%;
+    align-items: center;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 1px grey;
+  }
+  
+  input{
+    width: auto;
+    font-size: 15px;
+    line-height: 2;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-h3{
+    font-size: 2em;
+    margin: 3%;
+    align-self: initial;
+  }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './styles.css';
 
 export default function LoginPage() {
   return (
@@ -7,7 +8,7 @@ export default function LoginPage() {
             <input 
                 type="text" 
                 placeholder="admin@bandup.com"
-              
+                className='input'
                 onChange={(e) => {
                     //setEmail(e.target.value);
                 }}
