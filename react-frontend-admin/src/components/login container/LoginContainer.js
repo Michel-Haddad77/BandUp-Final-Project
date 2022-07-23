@@ -1,12 +1,13 @@
-import React from 'react';
 import url from '../../constants/url';
 import axios from 'axios';
 import {useState} from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import './styles.css';
 
 export default function LoginContainer() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     //when user presses on Login button
     async function login(){
@@ -24,6 +25,8 @@ export default function LoginContainer() {
             //store user token and info in local storage
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user_info', JSON.stringify(response.data.user_info));
+
+            navigate("/home");
         }).catch(function (error){
             console.log(error);
             alert(error.response.data);
