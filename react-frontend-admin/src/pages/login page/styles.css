@@ -6,7 +6,7 @@
     height: fit-content;
     border:1px solid grey;
     width: fit-content;
-    padding:1%;
+    padding:2%;
     align-items: center;
     border-radius: 15px;
     background-color: white;
@@ -23,6 +23,11 @@
     border: 1px solid #ccc;
   }
   
+  label{
+    margin-left: 5px;
+    font-size: large;
+  }
+
   .login-h3{
     font-size: 2em;
     margin: 3%;
