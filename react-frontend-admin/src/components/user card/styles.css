@@ -1,0 +1,11 @@
+.user-container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.user-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
