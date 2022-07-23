@@ -44,7 +44,7 @@ export default function UsersSection({is_musician}) {
 
     return (
         <div className='section-container'>
-            <h2>{is_musician? "Musicians":"Bands"}</h2>
+            <h2 className='title'>{is_musician? "Musicians":"Bands"}</h2>
 
             {users?
                 <div className='scrollable'>

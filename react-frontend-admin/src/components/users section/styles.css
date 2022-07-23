@@ -5,6 +5,12 @@
     padding: 2%;
 }
 
+.title{
+    color: #5271FF;
+    font-weight: 900;
+    font-size: 1.8em;
+}
+
 .scrollable{
     height: 35vh;
     overflow: auto;
