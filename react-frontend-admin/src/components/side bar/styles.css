@@ -9,8 +9,8 @@
 }
 
 .logo{
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
 }
 
 .admin{
@@ -18,4 +18,15 @@
     font-weight: bolder;
     font-size: 2em;
     margin-right: 20px;
+}
+
+.sidebar-btn{
+    width:60%;
+    height: 50px;
+    font-size: x-large;
+    margin-bottom: 2%;
+    background-color: #5271FF;
+    border-color: #5271FF;
+    color: white;
+    border-radius: 5px;
 }
