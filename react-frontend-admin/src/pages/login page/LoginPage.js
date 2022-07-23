@@ -1,5 +1,7 @@
-import React from 'react';
+import {useState} from 'react';
 import './styles.css';
+import url from '../../constants/url';
+import axios from 'axios';
 
 export default function LoginPage() {
 
@@ -18,14 +20,12 @@ export default function LoginPage() {
               email, 
               password
           }
-      }).then(async function (response) {
+      }).then(function (response) {
           console.log(response.data);
           //store user token and info in async storage
           try {
-              await AsyncStorage.setItem('token', response.data.token);
-              await AsyncStorage.setItem('user_info', JSON.stringify(response.data.user_info));
-              setToken(response.data.token);
-              setUser(response.data.user_info);
+              localStorage.setItem('token', response.data.token);
+              localStorage.setItem('user_info', JSON.stringify(response.data.user_info));
           } catch(error) {
               console.log(error);
           }
@@ -35,7 +35,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="login-container">
+    <div className='login-body'>
+      <h1 className="brand" >Band Up</h1>
+      <div className="login-container">
             <h3 className="login-h3">Welcome Admin</h3>
             <div>
               <div>
@@ -66,6 +68,8 @@ export default function LoginPage() {
               </div>
 
             </div>
+      </div>
     </div>
+    
   )
 }
