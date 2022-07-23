@@ -2,12 +2,15 @@ import React from 'react';
 import './styles.css';
 import { TiDelete } from "react-icons/ti";
 
-export default function UserCard() {
+export default function UserCard({name,picture,genre_instrument}) {
   return (
     <div className='user-container'>
-        <img src={require('../../assets/background2.jpg')} className="user-image"/>
-        <h3>User Name</h3>
-        <h4>Genre</h4>
+        <img 
+          src={picture? `data:image;base64,${picture}`: require('../../assets/profile.png')} 
+          className="user-image"
+        />
+        <h3>{name}</h3>
+        <h4>{genre_instrument}</h4>
         <TiDelete/>
     </div>
   )
