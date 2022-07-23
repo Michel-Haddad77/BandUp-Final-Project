@@ -5,6 +5,7 @@ import './styles.css'
 export default function UsersSection() {
   return (
     <div className='section-container'>
+        <h2>Musicians</h2>
         <UserCard/>
     </div>
   )

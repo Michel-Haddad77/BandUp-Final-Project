@@ -7,7 +7,10 @@ export default function LoginPage() {
   return (
     <div className='page-container'>
       <SideBar />
-      <UsersSection/>
+      <div className='sections-container'>
+        <UsersSection/>
+        <UsersSection/>
+      </div>
     </div>
     
   )
