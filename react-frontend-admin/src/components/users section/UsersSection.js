@@ -9,14 +9,15 @@ export default function UsersSection({is_musician}) {
     var url2 = '';
     const token = localStorage.getItem('token');
 
+    //change url according to user type
     if (is_musician){
         url2 = 'musicians/all';
     }else{
         url2 = 'bands/all'
     }
 
-    useEffect(() => {
-        //get all musicians/bands
+    //get all musicians/bands
+    function getAllUsers(){
         axios({
             method: 'get',
             url: url + url2,
@@ -26,6 +27,10 @@ export default function UsersSection({is_musician}) {
         }).catch(function (error){
             console.log(error);
         })
+    }
+
+    useEffect(() => {
+        getAllUsers();
     }, [])
     
      
@@ -41,7 +46,7 @@ export default function UsersSection({is_musician}) {
             }
         }).then(function (response) {
             console.log(response.data);
-            alert(response.data.msg);
+            getAllUsers();
         }).catch(function (error){
             console.log(error);
             alert(error.response.data);
