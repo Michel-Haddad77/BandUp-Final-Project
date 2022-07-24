@@ -51,6 +51,7 @@ export default function UsersSection({is_musician}) {
                     {users.map((user,index)=>(
                         <UserCard
                             key={index}
+                            is_user={true}
                             id={user._id}
                             name= {is_musician? `${user.name} ${user.last_name}` : user.name}
                             picture={user.picture}
