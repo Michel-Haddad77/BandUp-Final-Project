@@ -1,6 +1,8 @@
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 const jwt = require('jsonwebtoken');
 
+
+//This middleware will only let the admin access his APIs
 function adminMiddleware(){
     return (req,res,next)=>{
         //get token from authorization header
