@@ -92,7 +92,7 @@ export default function AddGenreSection({is_genre}) {
             /><br/>
         </div>
         <input type ='file' onChange={uploadPicture} className='custom-file-input'/>
-        <button className='btn' onClick={addGenre}>{is_genre? "Create Genre": "Create Instrument"}</button>
+        <button className='add-btn' onClick={addGenre}>{is_genre? "Create Genre": "Create Instrument"}</button>
 
     </div>
   )
