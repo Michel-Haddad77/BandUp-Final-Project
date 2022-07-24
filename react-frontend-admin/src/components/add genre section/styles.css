@@ -9,7 +9,7 @@
 }
 
 .input-container{
-    margin: 0 10%;
+    margin: 0 7%;
 }
 
 .title{
@@ -20,18 +20,42 @@
 }
 
 .btn{
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
     padding: 5px;
     font-size: large;
     margin-bottom: 2%;
+    margin-top: 5%;
     background-color: #5271FF;
     border-color: #5271FF;
     color: white;
     border-radius: 5px;
 }
 
-.btn-container{
-    display: flex;
-    gap: 5px;
+.input{
+    width: auto;
+    font-size: 1.3em;
+    line-height: 2;
+    padding: 5px;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* For the input of type file */
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+    display: none;
+}
+
+.custom-file-input::before {
+    content: 'Upload Picture';
+    display: inline-block;
+    background: #5271FF;
+    border: 1px solid #5271FF;
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    color: white;
+    font-size: large;
 }

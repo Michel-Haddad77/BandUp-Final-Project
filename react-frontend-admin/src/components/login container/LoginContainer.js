@@ -41,6 +41,7 @@ export default function LoginContainer() {
                     <input 
                         type="text" 
                         placeholder="admin@bandup.com"
+                        className='input'
                         value={email}
                         onChange={(e) => {
                             setEmail(e.target.value);
