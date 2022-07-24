@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import url from '../../constants/url';
 import UserCard from '../user card/UserCard';
+import './styles.css';
 
 export default function GenresSection() {
     const [genres, setGenres] = useState([]);
