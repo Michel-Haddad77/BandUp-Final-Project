@@ -4,27 +4,11 @@ import url from '../../constants/url';
 import UserCard from '../user card/UserCard';
 import './styles.css';
 
-export default function GenresSection({is_genre}) {
-    const [genres_or_instruments, setGenresOrInstuments] = useState([]);
-    var url2 = ''
-
-    if(is_genre){
-        url2 = 'bands/allgenres';
-    }else{
-        url2 = 'musicians/allinstruments';
-    }
+export default function GenresSection({is_genre, getGenres, genres_or_instruments}) {
 
     useEffect(() => {
-        //get all genres/instruments
-        axios({
-            method: 'get',
-            url: url + url2,
-        }).then(function (response) {
-            console.log(response.data);
-            setGenresOrInstuments(response.data);
-        }).catch(function (error){
-            console.log(error);
-        })
+        //get all genres
+       getGenres();
     }, [])
 
   return (

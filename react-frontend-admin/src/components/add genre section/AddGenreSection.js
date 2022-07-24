@@ -4,7 +4,7 @@ import axios from 'axios';
 import url from '../../constants/url';
 import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
-export default function AddGenreSection({is_genre}) {
+export default function AddGenreSection({is_genre, getGenresInstruments}) {
     const [name, setName] = useState("");
     const [picture, setPicture] = useState("");
 
@@ -27,13 +27,13 @@ export default function AddGenreSection({is_genre}) {
                 }
             }).then(function (response) {
                 console.log(response.data);
-                alert("New Genre Added, please refresh");
+                getGenresInstruments();
             }).catch(function (error){
                 console.log(error);
-                alert(error.response.data);
+                alert(error);
             })
         }else{
-            //linking with login api
+            //linking with add instrument api
             axios({
                 method: 'post',
                 url: url + 'admin/instrument',
