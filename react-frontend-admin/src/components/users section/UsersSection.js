@@ -7,6 +7,7 @@ import axios from 'axios';
 export default function UsersSection({is_musician}) {
     const [users,setUsers] = useState([]);
     var url2 = '';
+    const token = localStorage.getItem('token');
 
     if (is_musician){
         url2 = 'musicians/all';
@@ -35,6 +36,9 @@ export default function UsersSection({is_musician}) {
             method: 'delete',
             url: url + 'admin/user',
             params: { user_id: id },
+            headers: {
+                "Authorization": token,
+            }
         }).then(function (response) {
             console.log(response.data);
             alert(response.data.msg);

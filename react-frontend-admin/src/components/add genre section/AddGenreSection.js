@@ -7,6 +7,8 @@ import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 export default function AddGenreSection({is_genre}) {
     const [name, setName] = useState("");
     const [picture, setPicture] = useState("");
+
+    const token = localStorage.getItem("token");
  
     //when user presses on create button
     function addGenre(){
@@ -19,6 +21,9 @@ export default function AddGenreSection({is_genre}) {
                 data: {
                     genre_name: name, 
                     picture
+                },
+                headers: {
+                    "Authorization": token,
                 }
             }).then(function (response) {
                 console.log(response.data);

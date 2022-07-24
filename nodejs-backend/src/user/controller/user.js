@@ -108,7 +108,7 @@ async function login(req,res){
 
         //create jwt token and send it in response
         const token = jwt.sign(
-            {_id:user._id, name: user.name, email: user.email}, TOKEN_SECRET
+            {_id:user._id, name: user.name, email: user.email, type: user.user_type}, TOKEN_SECRET
         );
 
         //populate either the genre or instrument field
