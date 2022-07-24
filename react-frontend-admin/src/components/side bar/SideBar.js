@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function SideBar() {
     const navigate = useNavigate();
+
+    //when admin logs out
+    function logout(){
+        localStorage.clear();
+        navigate('/');
+    }
     
     return (
         <div className='sidebar'>
@@ -28,7 +34,7 @@ export default function SideBar() {
 
             <button 
                 className='sidebar-btn' 
-                onClick={()=>navigate('/home')}
+                onClick={logout}
             >Logout</button>
 
 
