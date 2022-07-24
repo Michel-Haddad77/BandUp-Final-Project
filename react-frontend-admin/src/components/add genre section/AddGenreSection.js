@@ -4,29 +4,46 @@ import axios from 'axios';
 import url from '../../constants/url';
 import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
-export default function AddGenreSection() {
+export default function AddGenreSection({is_genre}) {
     const [name, setName] = useState("");
     const [picture, setPicture] = useState("");
-
+ 
     //when user presses on create button
     function addGenre(){
 
-        //linking with login api
-        axios({
-            method: 'post',
-            url: url + 'admin/genre',
-            data: {
-                genre_name: name, 
-                picture
-            }
-        }).then(function (response) {
-            console.log(response.data);
-            alert("New Genre Added, please refresh");
-            
-        }).catch(function (error){
-            console.log(error);
-            alert(error.response.data);
-        })
+        if(is_genre){
+            //linking with add genre api
+            axios({
+                method: 'post',
+                url: url + 'admin/genre',
+                data: {
+                    genre_name: name, 
+                    picture
+                }
+            }).then(function (response) {
+                console.log(response.data);
+                alert("New Genre Added, please refresh");
+            }).catch(function (error){
+                console.log(error);
+                alert(error.response.data);
+            })
+        }else{
+            //linking with login api
+            axios({
+                method: 'post',
+                url: url + 'admin/instrument',
+                data: {
+                    instrument_name: name, 
+                    picture
+                }
+            }).then(function (response) {
+                console.log(response.data);
+                alert("New Instrument Added, please refresh");   
+            }).catch(function (error){
+                console.log(error);
+                alert(error.response.data);
+            })
+        }
     }
 
     //when admin clicks on upload picture button
@@ -52,7 +69,7 @@ export default function AddGenreSection() {
     }
   return (
     <div className='add-genre-container'>
-        <h2 className='title'>Add Genre</h2>
+        <h2 className='title'>{is_genre? "Add Genre": "Add Instrument"}</h2>
         <div className='input-container'>
             <label>Name</label><br/>
             <input 
@@ -67,7 +84,7 @@ export default function AddGenreSection() {
             /><br/>
         </div>
         <input type ='file' onChange={uploadPicture} className='custom-file-input'/>
-        <button className='btn' onClick={addGenre}>Create Genre</button>
+        <button className='btn' onClick={addGenre}>{is_genre? "Create Genre": "Create Instrument"}</button>
 
     </div>
   )

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/login page/LoginPage';
 import HomePage from './pages/home page/HomePage';
 import GenresPage from './pages/genres page/GenresPage';
+ import InstrumentsPage from './pages/instruments page/InstrumentsPage';
 
 function App() {
   return (
@@ -27,6 +28,13 @@ function App() {
           path="/genres"
           element = {
             <GenresPage/>
+          }
+      />
+
+      <Route 
+          path="/instruments"
+          element = {
+            <InstrumentsPage/>
           }
       />
       </Routes>

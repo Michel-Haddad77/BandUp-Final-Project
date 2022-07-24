@@ -9,8 +9,8 @@ export default function GenresPage() {
     <div className='page-container'>
     <SideBar />
     <div className='sections-container'>
-        <GenresSection />
-        <AddGenreSection />
+        <GenresSection is_genre={false}/>
+        <AddGenreSection is_genre={false}/>
     </div>
   </div>
   )
