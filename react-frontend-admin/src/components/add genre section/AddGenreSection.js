@@ -40,6 +40,9 @@ export default function AddGenreSection({is_genre}) {
                 data: {
                     instrument_name: name, 
                     picture
+                },
+                headers: {
+                    "Authorization": token,
                 }
             }).then(function (response) {
                 console.log(response.data);

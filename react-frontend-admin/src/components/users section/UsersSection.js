@@ -44,6 +44,7 @@ export default function UsersSection({is_musician}) {
             alert(response.data.msg);
         }).catch(function (error){
             console.log(error);
+            alert(error.response.data);
         })
     }
 
