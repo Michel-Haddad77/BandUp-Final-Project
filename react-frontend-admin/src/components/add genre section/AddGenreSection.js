@@ -13,6 +13,7 @@ export default function AddGenreSection({is_genre, getGenresInstruments}) {
     //when user presses on create button
     function addGenre(){
 
+        //if the component was called from the genres page
         if(is_genre){
             //linking with add genre api
             axios({
@@ -27,12 +28,13 @@ export default function AddGenreSection({is_genre, getGenresInstruments}) {
                 }
             }).then(function (response) {
                 console.log(response.data);
+                //call the API that get all genres/instruments
                 getGenresInstruments();
             }).catch(function (error){
                 console.log(error);
                 alert(error);
             })
-        }else{
+        }else{//if the component was called from the instruments page
             //linking with add instrument api
             axios({
                 method: 'post',
@@ -46,7 +48,8 @@ export default function AddGenreSection({is_genre, getGenresInstruments}) {
                 }
             }).then(function (response) {
                 console.log(response.data);
-                alert("New Instrument Added, please refresh");   
+                //call the API that get all genres/instruments
+                getGenresInstruments();  
             }).catch(function (error){
                 console.log(error);
                 alert(error.response.data);
