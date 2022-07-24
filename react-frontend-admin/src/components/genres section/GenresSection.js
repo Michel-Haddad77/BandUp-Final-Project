@@ -28,7 +28,7 @@ export default function GenresSection({is_genre}) {
     }, [])
 
   return (
-    <div className='section-container'>
+    <div className='genres-section-container'>
             <h2 className='title'>{is_genre? "Genres" : "Instruments"}</h2>
 
             {is_genre?

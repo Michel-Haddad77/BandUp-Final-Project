@@ -25,7 +25,7 @@ export default function UsersSection({is_musician}) {
         }).catch(function (error){
             console.log(error);
         })
-    }, [users])
+    }, [])
     
      
     //function when the admin deletes a user
@@ -36,7 +36,8 @@ export default function UsersSection({is_musician}) {
             url: url + 'admin/user',
             params: { user_id: id },
         }).then(function (response) {
-            console(response.data);
+            console.log(response.data);
+            alert(response.data.msg);
         }).catch(function (error){
             console.log(error);
         })
