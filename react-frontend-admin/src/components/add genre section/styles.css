@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: fit-content;
 }
 
 .input-container{
@@ -20,7 +21,7 @@
 }
 
 .btn{
-    width: fit-content;
+    width: 65%;
     height: fit-content;
     padding: 5px;
     font-size: large;
