@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View, Image, Text, TextInput, } from "react-native";
+import { StyleSheet, View, Image, Text, TextInput, ScrollView, } from "react-native";
 import StyledButton from "../components/StyledButton";
 import axios from 'axios';
 import url from "../constants/url";
@@ -80,7 +80,7 @@ function LoginScreen({navigation}) {
     }
     
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image style={styles.image} source={require('../assets/logo.png')} />
              
             <Text style={styles.label}>Email</Text>
@@ -111,7 +111,7 @@ function LoginScreen({navigation}) {
                 style={styles.button}
                 onPress={()=>{navigation.navigate('Register')}}
             />
-        </View>
+        </ScrollView>
     );
 }
 
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     button:{
-        marginVertical: 10
+        marginVertical: 10,
     },
     label2:{
         fontSize: 20,
