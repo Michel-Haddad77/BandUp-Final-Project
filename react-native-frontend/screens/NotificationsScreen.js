@@ -5,7 +5,7 @@ import axios from 'axios'
 import url from '../constants/url'
 import { useAuthUser } from "../context/user";
 
-export default function NotificationsScreen() {
+export default function NotificationsScreen({navigation}) {
     const [notifications, setNotifications] = useState([])
 
     //get user from context to send its id to API
@@ -38,6 +38,7 @@ export default function NotificationsScreen() {
             title={item.title}
             message={item.message}
             picture={item.picture}
+            navigation={navigation}
           />
         )}
       />
