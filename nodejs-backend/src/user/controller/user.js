@@ -147,8 +147,22 @@ async function deleteExpoToken(req,res){
     }
 }
 
+//get user by id
+async function getUser(req, res) {
+    try {
+        const id = req.query.id;
+
+        const result = await User.findById(id);
+        return res.send(result);
+  
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 module.exports = {
     register,
     login,
-    deleteExpoToken
+    deleteExpoToken,
+    getUser,
   };
