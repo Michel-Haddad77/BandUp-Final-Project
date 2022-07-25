@@ -9,25 +9,45 @@ import { useEffect, useState } from "react";
 function ButtonsSection({route}) {
     const [disabled, setDisabled] = useState(false);
 
-    //type and id of the displayed user
+    //type id and expo push token of the displayed user
     const displayed_type = route.params.displayed_user.user_type;
-    const displayed_id  = route.params.displayed_user._id
+    const displayed_id  = route.params.displayed_user._id;
+    const expo_token  = route.params.displayed_user.expo_token;
 
     //get logged in user
     const {user} = useAuthUser();
 
-    //check if the user has already requested/applied to the displayed user
+    //check if the logged in user has already requested/applied to the displayed user
     //if so, disable the button
     useEffect(() => {
       if(user?.requested?.includes(displayed_id)){
         setDisabled(true);
-        console.log('llll');
       }else if (user?.applied?.includes(displayed_id)){
-        console.log('qqqq');
         setDisabled(true);
       }
     },[user])
     
+    //this function sends a notification to the device according to expo_token
+    async function sendPushNotification(message_body) {
+        const message = {
+          to: expo_token,
+          sound: 'default',
+          title: user.name,
+          body: message_body,
+          data: { someData: 'goes here' },
+        };
+      
+        await fetch('https://exp.host/--/api/v2/push/send', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Accept-encoding': 'gzip, deflate',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(message),
+        });
+      }
+
 
     //function called when musician applies to a band
     function apply(){
@@ -44,8 +64,10 @@ function ButtonsSection({route}) {
         })
         .then(function (response) {
             ToastAndroid.show('You have applied to this band!', ToastAndroid.LONG);
+            //disable the button after pressing
             setDisabled(true);
-            //TODO: Send notification
+            //send notification to the band
+            sendPushNotification('has applied to your band!');
         })
         .catch(function (error){
             console.log(error);
@@ -68,8 +90,10 @@ function ButtonsSection({route}) {
         })
         .then(function (response) {
             ToastAndroid.show('You have requested this musician to apply', ToastAndroid.LONG);
+            //disable the button after pressing
             setDisabled(true);
-            //TODO: Send notification
+            //send notification to the musician
+            sendPushNotification('has requested you to apply!');
         })
         .catch(function (error){
             console.log(error);
