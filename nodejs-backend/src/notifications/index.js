@@ -1,10 +1,9 @@
 const { Router } = require('express');
-const { addNotification } = require('./controller/notification');
+const { getNotifications, addNotification } = require('./controller/notification');
 
 const router = Router();
 
 
-router.post('/add', addNotification);
-
+router.post('/add', getNotifications);
 
 module.exports = router;

@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
+const Notification = require('../../../models/Notification');
 
 
-//register API
-async function addNotification(req,res){
+//get all notifications of the user
+async function getNotifications(req,res){
     try{
-        console.log("test")
-    }catch(error){
+        const notifications = await Notification.find(req.query.id);
+        return res.send(notifications);
 
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
     }
 }
 
 
 module.exports = {
-    addNotification,
+    getNotifications,
   };
