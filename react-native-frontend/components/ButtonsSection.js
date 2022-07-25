@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useAuthUser } from "../context/user";
 import url from "../constants/url";
 import { useEffect, useState } from "react";
+import * as Notifications from 'expo-notifications';
 
 function ButtonsSection({route}) {
     const [disabled, setDisabled] = useState(false);
@@ -25,10 +26,12 @@ function ButtonsSection({route}) {
       }else if (user?.applied?.includes(displayed_id)){
         setDisabled(true);
       }
-    },[user])
+
+    },[])
     
     //this function sends a notification to the device according to expo_token
     async function sendPushNotification(message_body) {
+
         const message = {
           to: expo_token,
           sound: 'default',
@@ -46,8 +49,27 @@ function ButtonsSection({route}) {
           },
           body: JSON.stringify(message),
         });
-      }
 
+        addNotification(message_body);
+    }
+
+    //function called to add the notification to the database
+    function addNotification(message){
+        axios({
+            method: 'post',
+            url: url + 'notifications/add',
+            data: {
+                to: displayed_id,
+                from: user._id, 
+                title: user.name,
+                message,
+            }
+        }).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error){
+            console.log(error);
+        })
+    }
 
     //function called when musician applies to a band
     function apply(){
