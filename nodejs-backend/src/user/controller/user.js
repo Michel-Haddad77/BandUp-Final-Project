@@ -160,9 +160,36 @@ async function getUser(req, res) {
     }
   }
 
+async function updateUser(req, res) {
+    try {
+        const {
+        name,
+        last_name,
+        email,
+        picture,
+        location,
+        video,
+        } = req.body;
+
+        const updated_user = await User.findByIdAndUpdate(req.query.id, {
+            name, 
+            last_name, 
+            email,
+            picture, 
+            location,
+            video
+        });
+
+        return res.send("User updated");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     register,
     login,
     deleteExpoToken,
     getUser,
+    updateUser,
   };

@@ -7,13 +7,13 @@ export default function VideoSection({is_user}) {
         <View style={styles.container}>
             <Text style={styles.title}>Demo Video</Text>
             <Text style={styles.no_video_title}>No Video Uploaded</Text>
-            {is_user? 
+            {is_user && 
                 <StyledButton 
                     title="Upload Video" 
                     text_style={styles.upload_button_text} 
                     style={styles.upload_button}
                     //onPress={handleUpload}
-                /> : null 
+                /> 
             }
             
         </View>
