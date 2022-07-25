@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../constants/colors';
 import HomeStack from './HomeStack';
-import LoginScreen from '../screens/LoginScreen';
 import Map from '../components/Map';
 import NotificationsScreen from '../screens/NotificationsScreen';
 
@@ -16,11 +15,11 @@ export default function BottomTab() {
               tabBarActiveTintColor: 'white',
               tabBarInactiveTintColor: '#FFCB9B',
               tabBarHideOnKeyboard: true,
-              headerShown: false,
             }}
           >
             <Tab.Screen name="Home" component={HomeStack} 
               options={{
+                headerShown: false,
                 tabBarIcon: ({color}) => (
                   <Entypo name="home" size={30} color= {color}/>
                 ),
@@ -35,6 +34,9 @@ export default function BottomTab() {
             />
             <Tab.Screen name="Notifications" component={NotificationsScreen} 
               options={{
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                headerTitleAlign: 'center',
                 tabBarIcon: ({color}) => (
                   <Entypo name="bell" size={30} color= {color}/>
                 ),
