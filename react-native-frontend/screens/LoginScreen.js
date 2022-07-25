@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Image, Text, TextInput, } from "react-native";
 import StyledButton from "../components/StyledButton";
 import axios from 'axios';
@@ -6,13 +6,50 @@ import url from "../constants/url";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../constants/colors";
 import { useAuthUser } from "../context/user";
+import * as Notifications from 'expo-notifications';
 
 function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [expo_token, setExpoToken] = useState("");
 
     //setToken
     const {setToken, setUser} = useAuthUser();
+
+    //get expo token of device
+    async function registerForPushNotificationsAsync() {
+        let token;
+        const { status: existingStatus } = await Notifications.getPermissionsAsync();
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+            const { status } = await Notifications.requestPermissionsAsync();
+            finalStatus = status;
+        }
+
+        if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+        }
+
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+        console.log(token);
+        
+        if (Platform.OS === 'android') {
+            Notifications.setNotificationChannelAsync('default', {
+            name: 'default',
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: '#FF231F7C',
+            });
+        }
+        
+        return token;
+    }
+
+    //set expo token to add/update it in the database
+    useEffect(()=>{
+        registerForPushNotificationsAsync().then(token => setExpoToken(token));
+    },[])
     
     //when user presses on Login button
     async function login(){
@@ -23,7 +60,8 @@ function LoginScreen({navigation}) {
             url: url + 'user/login',
             data: {
                 email, 
-                password
+                password,
+                expo_token,
             }
         }).then(async function (response) {
             console.log(response.data);
