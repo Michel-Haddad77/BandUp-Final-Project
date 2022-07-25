@@ -5,10 +5,27 @@ import ProfileHead from "../components/ProfileHead";
 import VideoSection from "../components/VideoSection";
 import StyledButton from "../components/StyledButton";
 import { useAuthUser } from "../context/user";
+import axios from "axios";
+import url from "../constants/url";
 
 export default function UserProfileScreen({navigation}) {
 
-    const {token, setToken, setUser} = useAuthUser(); 
+    const {user, setToken, setUser} = useAuthUser(); 
+
+    //this function is called to delete the user's expo token on logout
+    function deleteExpoToken(){
+        axios({
+            method: 'delete',
+            url: url + 'user/delete-token',
+            data: {
+                id: user._id,
+            }
+        }).then(function (response) {
+            console.log(response.data)
+        }).catch(function (error){
+            console.log(error);
+        })
+    }
 
     async function logout(){
         try {
@@ -16,6 +33,8 @@ export default function UserProfileScreen({navigation}) {
             await AsyncStorage.clear();
             setToken("");
             setUser({});
+            //delete user's expo token to no longer receive notifications after logout
+            deleteExpoToken();
         } catch(error) {
             console.log(error);
         }
