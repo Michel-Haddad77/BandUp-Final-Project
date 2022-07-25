@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
-export default function NotificationCard({title, message}) {
+export default function NotificationCard({title, message, picture}) {
   return (
     <View style={styles.container}>
-    <Image style={styles.image} source={require('../assets/logo.png')}/>
+    <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}/>
     <View style={styles.text_container}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.subtitle}>{message}</Text>

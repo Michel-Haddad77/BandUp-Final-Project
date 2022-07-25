@@ -36,6 +36,7 @@ export default function NotificationsScreen() {
           <NotificationCard
             title={item.title}
             message={item.message}
+            picture={item.picture}
           />
         )}
       />

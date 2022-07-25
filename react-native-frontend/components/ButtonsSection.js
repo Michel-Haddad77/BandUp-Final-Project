@@ -63,6 +63,7 @@ function ButtonsSection({route}) {
                 from: user._id, 
                 title: user.name,
                 message,
+                picture: user.picture,
             }
         }).then(function (response) {
             console.log(response.data);
