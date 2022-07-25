@@ -1,10 +1,16 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import {useState, useEffect} from 'react'
+import NotificationCard from '../components/NotificationCard'
+import axios from 'axios'
+import url from '../constants/url'
 
 export default function NotificationsScreen() {
+    
+    
   return (
     <View>
-      <Text>NotificationsScreen</Text>
+      <NotificationCard/>
+      <NotificationCard/>
     </View>
   )
 }
