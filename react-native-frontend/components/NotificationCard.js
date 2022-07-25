@@ -13,7 +13,6 @@ export default function NotificationCard({navigation, id, title, message, pictur
                 id,
             }
         }).then(function (response) {
-            console.log(response.data);
             let displayed_user = response.data;
             //send user object to profile screen
             navigation.navigate('Profile', {displayed_user})
