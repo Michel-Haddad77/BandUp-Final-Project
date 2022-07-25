@@ -20,7 +20,8 @@ async function addNotification(req,res){
             to,
             from,
             title,
-            message
+            message,
+            picture,
         } = req.body;
 
         const notification = new Notification({
@@ -28,6 +29,7 @@ async function addNotification(req,res){
             from: new mongoose.Types.ObjectId(from),
             title,
             message,
+            picture
         })
 
         //save instrument document in db
