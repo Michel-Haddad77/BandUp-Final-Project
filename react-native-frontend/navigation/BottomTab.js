@@ -5,6 +5,7 @@ import colors from '../constants/colors';
 import HomeStack from './HomeStack';
 import LoginScreen from '../screens/LoginScreen';
 import Map from '../components/Map';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ export default function BottomTab() {
                 ),
               }}
             />
-            <Tab.Screen name="Notifications" component={LoginScreen} 
+            <Tab.Screen name="Notifications" component={NotificationsScreen} 
               options={{
                 tabBarIcon: ({color}) => (
                   <Entypo name="bell" size={30} color= {color}/>
