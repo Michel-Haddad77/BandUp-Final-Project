@@ -9,6 +9,7 @@ const userRouter = require('./src/user/index');
 const bandsRouter = require('./src/bands');
 const musiciansRouter = require('./src/musicians');
 const adminRouter = require('./src/admin');
+const notificationsRouter = require('./src/notifications');
 
 //establish connection to Mongodb
 const DB_CONNECT = process.env.DB_CONNECT || "";
@@ -30,6 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/bands', bandsRouter);
 app.use('/api/musicians', musiciansRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/notification', notificationsRouter);
 
 //change port to 8080
 app.listen(8080, () => console.log('Server running on 8080'));
