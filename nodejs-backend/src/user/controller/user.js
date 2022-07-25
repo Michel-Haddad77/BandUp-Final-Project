@@ -133,7 +133,22 @@ async function login(req,res){
     }
 }
 
+//API called when user logs out to stop receiving notifications on the device
+async function deleteExpoToken(req,res){
+    try{
+        //remove expo token
+        await User.findByIdAndUpdate(req.body.id, {expo_token: ""});
+
+        return res.send("Success");
+
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+}
+
 module.exports = {
     register,
-    login
+    login,
+    deleteExpoToken
   };
