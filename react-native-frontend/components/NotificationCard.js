@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
-export default function NotificationCard() {
+export default function NotificationCard({title, message}) {
   return (
     <View style={styles.container}>
     <Image style={styles.image} source={require('../assets/logo.png')}/>
     <View style={styles.text_container}>
-        <Text style={styles.title}>Notification Title</Text>
-        <Text style={styles.subtitle}>Notification message</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{message}</Text>
     </View> 
     </View>
   )
@@ -31,7 +31,5 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 20,    
     },
-    subtitle:{
-        marginHorizontal: 10
-    }
+
 })
