@@ -118,6 +118,9 @@ async function login(req,res){
             user = await user.populate('instrument');
         }
 
+        //add or update expo token of each user (for notifications)
+        await user.updateOne({expo_token: "st123"});
+
         return res.header('auth-token',token).send({
             token: token,
             user_info: user
