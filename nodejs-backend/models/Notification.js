@@ -16,7 +16,11 @@ const notificationSchema = new mongoose.Schema({
     message:{
         type: String,
         default: "",
-    }
+    },
+    picture: {
+        type: String,
+        default: "",
+    },
 }, { strict: false });
 
 module.exports = mongoose.model('Notification', notificationSchema);
