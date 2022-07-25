@@ -95,7 +95,8 @@ async function login(req,res){
     try{
         const {
             email,
-            password
+            password,
+            expo_token
         } = req.body;
 
         //check if email exists
@@ -119,7 +120,7 @@ async function login(req,res){
         }
 
         //add or update expo push token of logged in user (for notifications)
-        await user.updateOne({expo_token: "st123"});
+        await user.updateOne({expo_token: expo_token});
 
         return res.header('auth-token',token).send({
             token: token,
