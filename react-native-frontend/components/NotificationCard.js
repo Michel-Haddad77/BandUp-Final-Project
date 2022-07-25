@@ -1,15 +1,38 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image,TouchableOpacity } from 'react-native'
 import React from 'react'
+import axios from 'axios';
+import url from '../constants/url';
 
-export default function NotificationCard({title, message, picture}) {
+export default function NotificationCard({navigation, id, title, message, picture}) {
+
+    function getUserData() {
+        axios({
+            method: 'get',
+            url: url + 'user/get-one',
+            params:{
+                id,
+            }
+        }).then(function (response) {
+            console.log(response.data);
+            let user = response.data;
+            //send user object to profile screen
+            navigation.navigate('Profile', {user})
+        }).catch(function (error){
+            console.log(error);
+        })
+    }  
+    
   return (
-    <View style={styles.container}>
-    <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}/>
-    <View style={styles.text_container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{message}</Text>
-    </View> 
-    </View>
+    <TouchableOpacity onPress={getUserData}>
+        <View style={styles.container}>
+            <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')}/>
+            <View style={styles.text_container}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.subtitle}>{message}</Text>
+            </View> 
+        </View>
+
+    </TouchableOpacity>
   )
 }
 

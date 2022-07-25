@@ -32,8 +32,9 @@ export default function NotificationsScreen() {
     <View>
       <FlatList
         data={notifications}
-        renderItem={({ item }) => (
+        renderItem={({ item }) => ( //item is an element in notifications array
           <NotificationCard
+            id= {item.from} //send the id of the user who sent the notification
             title={item.title}
             message={item.message}
             picture={item.picture}
