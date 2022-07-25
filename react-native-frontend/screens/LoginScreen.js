@@ -61,7 +61,7 @@ function LoginScreen({navigation}) {
             data: {
                 email, 
                 password,
-                expo_token,
+                expo_token, //send expo token to add/update it
             }
         }).then(async function (response) {
             console.log(response.data);
