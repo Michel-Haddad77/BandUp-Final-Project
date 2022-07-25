@@ -49,6 +49,9 @@ function LoginScreen({navigation}) {
     //set expo token to add/update it in the database
     useEffect(()=>{
         registerForPushNotificationsAsync().then(token => setExpoToken(token));
+        return () => {
+            setExpoToken(""); // Reset state to avoid warning when unmounting component
+        };
     },[])
     
     //when user presses on Login button
