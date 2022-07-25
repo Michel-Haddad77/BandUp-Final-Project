@@ -31,7 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/bands', bandsRouter);
 app.use('/api/musicians', musiciansRouter);
 app.use('/api/admin', adminRouter);
-app.use('/api/notification', notificationsRouter);
+app.use('/api/notifications', notificationsRouter);
 
 //change port to 8080
 app.listen(8080, () => console.log('Server running on 8080'));
