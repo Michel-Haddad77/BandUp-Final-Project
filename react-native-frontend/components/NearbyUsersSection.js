@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
         fontSize: 21,
         fontWeight: '500',
         color: colors.secondary,
+        marginLeft: 20
     },
     bandContainer: {
         margin: 10,  
