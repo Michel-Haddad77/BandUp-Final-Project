@@ -8,19 +8,7 @@ import { useEffect, useState} from 'react';
 import { useAuthUser } from '../context/user';
 import NearbyUsersSection from '../components/NearbyUsersSection';
 
-export default function HomeScreen({navigation}){
-    const [name,setName]  = useState("");
-
-    //get logged in user to check the user_type
-    const {user} = useAuthUser();
-    useEffect(() => {
-        //set the name for the "Show All" button and page title
-        if (user?.user_type === 2){
-            setName("Bands");
-        }else{
-            setName("Musicians");
-        }
-    }, [user])  
+export default function HomeScreen({navigation}){ 
 
     return (
         <>
@@ -30,10 +18,7 @@ export default function HomeScreen({navigation}){
                 <NearbyUsersSection navigation={navigation}/>
                 <NewUsersSection navigation={navigation}/>
                 <View style={styles.container}>
-                    <StyledButton 
-                        title={`Show All ${name}`} 
-                        onPress={() => navigation.navigate('Users', { name: `All ${name}`})}
-                    />
+                    
                 </View>
             </ScrollView>
         </>

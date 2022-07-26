@@ -84,9 +84,12 @@ const styles = StyleSheet.create({
     button:{
         padding: 5,
         marginRight: 20,
+        backgroundColor: 'rgba(0,0,0,0)', //make background color transparent by setting last value (opacity) to 0
+        elevation: 0
     },
     button_text:{
-        fontSize: 14,
+        fontSize: 15,
+        color: colors.primary,
     },
     title: {
         fontSize: 21,

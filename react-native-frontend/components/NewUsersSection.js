@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import UserCard from './UserCard';
+import StyledButton from './StyledButton';
 import axios from 'axios';
 import url from "../constants/url";
 import colors from '../constants/colors';
@@ -13,15 +14,16 @@ export default function NewUsersSection({navigation}){
     const {user} = useAuthUser();
     var url2 = '';
 
-    //change api url according to user type
-    if(user?.user_type === 2){
-        url2 = 'bands/recent';
-    }else if (user?.user_type === 1){
-        url2 = 'musicians/recent'
-    }
-
     //get the recently registered users
     useEffect(()=>{
+        //according to user type
+        if(user?.user_type === 2){
+            //change api url 
+            url2 = 'bands/recent';
+        }else if (user?.user_type === 1){
+            url2 = 'musicians/recent';
+        }
+
         axios({
             method: 'get',
             url: url + url2,
@@ -34,7 +36,17 @@ export default function NewUsersSection({navigation}){
 
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>{user?.user_type=== 2? "New Bands" : "New Musicians"}</Text>
+            <View style={styles.container2}>
+                <Text style={styles.title}>{user?.user_type=== 2? "New Bands" : "New Musicians"}</Text>
+                <StyledButton 
+                    title={"Show All"} 
+                    style={styles.button}
+                    text_style={styles.button_text}
+                    onPress={() => navigation.navigate('Users', { 
+                        name: (user?.user_type=== 2? "All Bands": "All Musicians")
+                    })}
+                />  
+            </View>
             {recentUsers.length? 
                 <ScrollView horizontal={true} style={styles.bandContainer} >
                     {recentUsers.map((displayed_user,index)=>
@@ -54,11 +66,26 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
     },
+    container2:{
+        flexDirection: "row",
+        alignItems: 'baseline',
+        justifyContent: 'space-between',
+    },
     title: {
         fontSize: 21,
         fontWeight: '500',
         color: colors.secondary,
         marginLeft: 20,
+    },
+    button:{
+        padding: 5,
+        marginRight: 25,
+        backgroundColor: 'rgba(0,0,0,0)', //make background color transparent by setting last value (opacity) to 0
+        elevation: 0
+    },
+    button_text:{
+        fontSize: 15,
+        color: colors.primary,
     },
     bandContainer: {
         margin: 10,  
