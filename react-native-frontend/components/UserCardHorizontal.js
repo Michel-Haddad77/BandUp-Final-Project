@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 function UserCardHorizontal({navigation, displayed_user}) {
     let {
@@ -16,11 +17,14 @@ function UserCardHorizontal({navigation, displayed_user}) {
                 navigation.navigate('Profile', {name, displayed_user})}
         >
             <View style={styles.container}>
-                <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
-                <View>
-                    <Text style={styles.title}>{last_name? (name + " " + last_name): name}</Text>
-                    <Text style={styles.subtitle}>{description}</Text>
+                <View style={styles.sub_container}>
+                    <Image style={styles.image} source={picture? {uri: `data:image;base64,${picture}`}: require('../assets/profile.png')} />
+                    <View>
+                        <Text style={styles.title}>{last_name? (name + " " + last_name): name}</Text>
+                        <Text style={styles.subtitle}>{description}</Text>
+                    </View>
                 </View>
+                <AntDesign name='right' size ={30} style={styles.icon}/>
                 
             </View>
         </TouchableOpacity>
@@ -33,10 +37,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
         margin: 5,
         borderRadius: 10,
         backgroundColor: 'white', 
+    },
+    sub_container: {
+        flexDirection: 'row',
     },
     image:{
         height: 70,

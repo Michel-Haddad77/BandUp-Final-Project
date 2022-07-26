@@ -64,9 +64,6 @@ const styles = StyleSheet.create({
     subtitle:{
         color: 'gray',
     },
-    icon:{
-        
-    },
     location:{
         color: 'gray',
         fontStyle: 'italic'
