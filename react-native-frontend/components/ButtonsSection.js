@@ -1,11 +1,10 @@
-import { StyleSheet, Button, View, ToastAndroid } from "react-native";
+import { StyleSheet, Button, View, ToastAndroid, Linking } from "react-native";
 import colors from "../constants/colors";
 import StyledButton from "./StyledButton";
 import axios from 'axios';
 import { useAuthUser } from "../context/user";
 import url from "../constants/url";
 import { useEffect, useState } from "react";
-import * as Notifications from 'expo-notifications';
 
 function ButtonsSection({route}) {
     const [disabled, setDisabled] = useState(false);
@@ -50,6 +49,7 @@ function ButtonsSection({route}) {
           body: JSON.stringify(message),
         });
 
+        //add notification to database
         addNotification(message_body);
     }
 
@@ -140,6 +140,7 @@ function ButtonsSection({route}) {
                 title="Message" 
                 text_style={styles.edit_button_text} 
                 style={styles.edit_button}
+                //TODO onPress={()=>{Linking.openURL(`tel: 71705330`)} }
             />
         </View>
     );
