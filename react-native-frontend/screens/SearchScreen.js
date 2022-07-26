@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import url from '../constants/url';
 import { useAuthUser } from '../context/user';
-import UserCardHorizontal from '../components/UserCardHorizontal';
+import SearchResult from '../components/SearchResult';
 
 export default function SearchScreen({navigation}) {
     const [users, setUsers] = useState([]);
@@ -33,7 +33,7 @@ export default function SearchScreen({navigation}) {
         console.log(text);
         if (text){
             setFilteredUsers(users.filter((user)=>{
-                return user.name.includes(text)
+                return user.name.includes(text) || user?.last_name.includes(text)
             }));
             return
         }
@@ -52,7 +52,7 @@ export default function SearchScreen({navigation}) {
         <ScrollView>
             {filtered_users && 
                 filtered_users.map((user, index)=> (
-                    <UserCardHorizontal  key = {index} 
+                    <SearchResult  key = {index} 
                     navigation = {navigation}
                     displayed_user = {user}
                 />
