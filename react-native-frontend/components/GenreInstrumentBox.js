@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
 
 export default function GenreInstrumentBox({navigation, name, picture, id}){
 
 
     return(
-        <TouchableHighlight style={styles.container}
+        <TouchableOpacity style={styles.container}
                 onPress={() => 
                     //sending params to bands screen 
                     navigation.navigate('Users', { name, id })}
@@ -16,7 +16,7 @@ export default function GenreInstrumentBox({navigation, name, picture, id}){
                     <Text style={styles.title}>{name}</Text>
                 </ImageBackground>
             </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
     )
 }
@@ -28,11 +28,9 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     container:{
-        flex:0.5 ,
         height: 130,
-        maxWidth: 130,
+        width: 130,
         margin: 10,
-        flexBasis: '45%',
         elevation:50
     },  
     image: {

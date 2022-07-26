@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, ScrollView} from 'react-native';
 import GenreInstrumentBox from './GenreInstrumentBox';
 import axios from 'axios';
 import { useState,useEffect } from "react";
@@ -40,7 +40,7 @@ export default function GenresInstrumentsSection({navigation}){
     return (
         <>
             <Text style={styles.title}>{user?.user_type === 2? "Band Genres": "Instruments"}</Text>
-            <View style= {styles.container}>
+            <ScrollView horizontal style= {styles.container}>
                 {user?.user_type === 2?
                     (genres.length? 
                         genres.map((genre, index)=> 
@@ -62,7 +62,7 @@ export default function GenresInstrumentsSection({navigation}){
                         ) : <Text style={{fontSize: 20, margin: 20}}>No Instruments Yet</Text>)
                 }  
                 
-            </View>
+            </ScrollView>
             
         </>
     )
@@ -70,11 +70,7 @@ export default function GenresInstrumentsSection({navigation}){
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-        marginBottom: 10
+        margin: 10
     },
     title: {
         fontSize: 21,
