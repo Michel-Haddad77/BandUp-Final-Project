@@ -24,7 +24,7 @@ function UserCardHorizontal({navigation, displayed_user}) {
                         <Text style={styles.subtitle}>{description}</Text>
                     </View>
                 </View>
-                <AntDesign name='right' size ={30} style={styles.icon}/>
+                <AntDesign name='right' size ={25} style={styles.icon}/>
                 
             </View>
         </TouchableOpacity>
@@ -51,6 +51,9 @@ const styles = StyleSheet.create({
         width: 70,
         borderRadius: 40,
         marginRight:10,
+    },
+    icon:{
+        marginRight: 10
     },
     title: {
         fontSize: 18,
