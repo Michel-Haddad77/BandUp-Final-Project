@@ -8,7 +8,15 @@ export default function TopBar({navigation}){
 
     return (
         <View style={styles.container}>
-            <TextInput style={styles.searchbar} placeholder='Search' />
+            <TouchableOpacity onPress={()=>
+                    navigation.navigate('Search')       
+                }
+                activeOpacity={1}
+            >
+                <View style={styles.searchbar}>
+                    <Text>Search</Text>
+                </View>
+            </TouchableOpacity>
             <TouchableOpacity onPress={()=>
                 navigation.navigate('UserProfile', {name: user?.name})
                 

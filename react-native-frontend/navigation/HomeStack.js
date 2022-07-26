@@ -8,6 +8,7 @@ import UsersScreen from '../screens/UsersScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import UserProfileScreen from '../screens/UserProfileScreen';
 import Map from '../components/Map';
+import SearchScreen from '../screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,13 @@ export default function HomeStack() {
                     />
 
                     <Stack.Screen name="Map" component={Map} options={({ route }) => (
+                        { 
+                        headerStyle: {backgroundColor: colors.primary},
+                        headerTintColor: '#fff',
+                        })}
+                    />
+
+                    <Stack.Screen name="Search" component={SearchScreen} options={({ route }) => (
                         { 
                         headerStyle: {backgroundColor: colors.primary},
                         headerTintColor: '#fff',
