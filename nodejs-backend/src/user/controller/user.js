@@ -186,10 +186,19 @@ async function updateUser(req, res) {
     }
 }
 
+async function uploadVideo(req,res){
+    const updated_user = await User.findByIdAndUpdate(req.query.id, {
+        video: req.file.filename 
+    });
+
+    return res.send(`Video uploaded: ${req.file.filename}`);
+}
+
 module.exports = {
     register,
     login,
     deleteExpoToken,
     getUser,
     updateUser,
+    uploadVideo
   };
