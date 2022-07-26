@@ -10,8 +10,6 @@ import LoginStack from './LoginStack';
 export default function NavigationSwitcher() {
     var {token, setToken} = useAuthUser();
 
-    console.log('token=>' + token);
-
     return (
         <NavigationContainer>
             {token? <BottomTab/> : <LoginStack/>}
