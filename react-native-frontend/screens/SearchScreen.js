@@ -29,16 +29,16 @@ export default function SearchScreen({navigation}) {
         })
     }, [])
 
+    //function for filtering the users by name or last name
     function filter(text){
-        console.log(text);
         if (text){
             setFilteredUsers(users.filter((user)=>{
-                return user.name.includes(text) || user?.last_name.includes(text)
+                return user.name.includes(text) || user?.last_name?.includes(text)
             }));
             return
         }
+        //if search text is empty , empty the filtered users array
         setFilteredUsers([])
-        console.log(filtered_users.length)
     }
     
   return (
