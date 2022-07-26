@@ -88,6 +88,7 @@ function LoginScreen({navigation}) {
              
             <Text style={styles.label}>Email</Text>
             <TextInput 
+            autoCapitalize="none"
                 style={styles.input} 
                 placeholder="jon@example.com"
                 onChangeText={email => setEmail(email)}
@@ -95,8 +96,9 @@ function LoginScreen({navigation}) {
 
             <Text style={styles.label}>Password</Text>
             <TextInput secureTextEntry={true} 
+                autoCapitalize="none"
                 style={styles.input} 
-                placeholder="password"
+                placeholder="Password"
                 onChangeText={password => setPassword(password)}
                 />
 
@@ -111,7 +113,7 @@ function LoginScreen({navigation}) {
             <StyledButton 
                 title="Sign Up" 
                 text_style={styles.button_text} 
-                style={styles.button}
+                style={[styles.button, styles.signup_button]}
                 onPress={()=>{navigation.navigate('Register')}}
             />
         </ScrollView>
@@ -145,6 +147,9 @@ const styles = StyleSheet.create({
     },
     button:{
         marginVertical: 10,
+    },
+    signup_button:{
+        backgroundColor: colors.secondary,
     },
     label2:{
         fontSize: 20,

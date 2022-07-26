@@ -131,15 +131,15 @@ function ButtonsSection({route}) {
             <StyledButton 
                 title={ //if the displayed user is a musician => Request to apply
                     displayed_type === 2? "Request to Apply": "Apply"} 
-                text_style={styles.edit_button_text} 
-                style={styles.edit_button}
+                text_style={styles.button_text} 
+                style={styles.button}
                 onPress={displayed_type === 2? requestToApply : apply}
                 disabled = {disabled}
             />
             <StyledButton 
                 title="Message" 
-                text_style={styles.edit_button_text} 
-                style={styles.edit_button}
+                text_style={styles.button_text} 
+                style={[styles.button, styles.second_button]}
                 //TODO onPress={()=>{Linking.openURL(`tel: 71705330`)} }
             />
         </View>
@@ -155,12 +155,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
-    edit_button:{
+    button:{
         width: 130
     },
-    edit_button_text:{
+    button_text:{
         fontSize: 14,
         textAlign: 'center'
+    },
+    second_button:{
+        backgroundColor: colors.secondary,
     }
 
 })
