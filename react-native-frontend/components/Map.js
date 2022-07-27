@@ -57,7 +57,9 @@ export default function Map({route}) {
                         pinColor= {colors.primary}
                     >
                         <Callout >
-                            <Text style={styles.callout_text}>{user.name}</Text>
+                            <Text style={styles.callout_text}>
+                                {user.user_type === 2? (user.name + " " + user.last_name): user.name}
+                            </Text>
                         </Callout>
                     </Marker>
                 )}
