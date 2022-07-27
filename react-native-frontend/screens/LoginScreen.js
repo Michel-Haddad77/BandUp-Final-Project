@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../constants/colors";
 import { useAuthUser } from "../context/user";
 import * as Notifications from 'expo-notifications';
+import MyTextInput from "../components/MyTextInput";
 
 function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
@@ -86,21 +87,20 @@ function LoginScreen({navigation}) {
         <ScrollView style={styles.container}>
             <Image style={styles.image} source={require('../assets/logo.png')} />
              
-            <Text style={styles.label}>Email</Text>
-            <TextInput 
-            autoCapitalize="none"
+            <MyTextInput label={"Email"}
+                autoCapitalize="none"
                 style={styles.input} 
                 placeholder="jon@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
-            <Text style={styles.label}>Password</Text>
-            <TextInput secureTextEntry={true} 
+            <MyTextInput label={"Password"}
+                secureTextEntry={true} 
                 autoCapitalize="none"
                 style={styles.input} 
                 placeholder="Password"
                 onChangeText={password => setPassword(password)}
-                />
+            />
 
             <StyledButton 
                 title="Login" 
@@ -125,19 +125,6 @@ export default LoginScreen;
 const styles = StyleSheet.create({
     container:{
         marginHorizontal: 30,
-    },
-    label:{
-        color: colors.secondary,
-        marginBottom: 5
-    },
-    input:{
-        borderWidth: 1,
-        borderColor: 'grey',
-        padding: 10,
-        borderRadius: 10,
-        marginBottom: 10,
-        fontSize: 20,
-        backgroundColor: 'white'
     },
     image:{
         width: 250,
