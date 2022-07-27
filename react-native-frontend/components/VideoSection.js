@@ -7,14 +7,15 @@ import url from "../constants/url";
 import { useAuthUser } from "../context/user";
 import { Video, AVPlaybackStatus } from 'expo-av';
 
-export default function VideoSection({is_user}) {
+export default function VideoSection({route,is_user}) {
 
+    //from context
     const {user,setUser} = useAuthUser();
-
-    //function called when the user wants to upload an image
+    
+    //function called when the user wants to upload a video
     async function handleUpload(){
-        // No permissions request is necessary for launching the image library
-        //result= { cancelled: false, type: 'image', uri, width, height, base64 }
+
+        //result= { cancelled: false, duration, rotation, type: 'video', uri, width, height}
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Videos,
             allowsEditing: true,
@@ -25,14 +26,17 @@ export default function VideoSection({is_user}) {
         console.log(result);
 
         if (!result.cancelled) {
+
             let form_data = new FormData();
             
+            //add the video to the form data 
             form_data.append("video", {
                 name: `${user._id}.mp4`,
                 uri: result.uri,
                 type: 'video/mp4'
             });
 
+            //upload video
             axios({
                 method: 'post',
                 url: url + 'user/upload',
@@ -41,16 +45,14 @@ export default function VideoSection({is_user}) {
                     id: user._id
                 },
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'multipart/form-data', //must be included for uploading files
                 },
             }).then(function (response) {
+                //The video was uploaded and stored successfully
                 console.log(response.data);
-                //update the user in context directly
-                setUser({...user, video:{
-                    name: `${user._id}.mp4`,
-                    uri: result.uri,
-                    type: 'video/mp4'
-                }});
+                //after upload, update the user in context directly with the video name
+                setUser({...user, video:`${user._id}.mp4`});
+                console.log(user.video)
             }).catch(function (error){
                 console.log(error);
             })
@@ -60,17 +62,20 @@ export default function VideoSection({is_user}) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Demo Video</Text>
-            <Text style={styles.no_video_title}>No Video Uploaded</Text>
-            <Video
-                style={styles.video}
-                source={{uri: `http://192.168.1.75:8080/display?id=62d486e137615c7517525f56`}}
-                useNativeControls
-                resizeMode="contain"
-                isLooping   
-            />
+            {user.video? 
+                <Video
+                    style={styles.video}
+                    source={{uri: `http://192.168.1.75:8080/display?id=62d486e137615c7517525f56`}}
+                    useNativeControls
+                    resizeMode="contain"
+                    isLooping   
+                /> : <Text style={styles.no_video_title}>No Video Uploaded</Text>
+            }
+            
+            
             {is_user && 
                 <StyledButton 
-                    title="Upload Video" 
+                    title={user.video? "Delete Video" : "Upload Video"} 
                     text_style={styles.upload_button_text} 
                     style={styles.upload_button}
                     onPress={handleUpload}
@@ -93,7 +98,8 @@ const styles = StyleSheet.create({
     video:{
         width: 300,
         height: 200,
-        alignSelf: "center"
+        alignSelf: "center",
+        margin: 10
     },
     no_video_title:{
         fontSize: 20,
