@@ -156,7 +156,11 @@ export default function RegisterMusicianScreen() {
             >
                 {   //fill dropdown list according to number of instruments
                     instruments.map((inst, index)=>
-                    <Picker.Item style={styles.picker} key = {index} label={inst.instrument_name} value={inst._id} />
+                    <Picker.Item style={styles.picker} 
+                        key = {index} 
+                        label={inst.instrument_name} 
+                        value={inst._id} 
+                    />
                 )}   
             </Picker>
 

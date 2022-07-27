@@ -9,6 +9,7 @@ import * as Location from 'expo-location';
 
 import url from '../constants/url';
 import colors from '../constants/colors';
+import MyTextInput from '../components/MyTextInput';
 
 export default function RegisterBandScreen() {
     const navigation = useNavigation();
@@ -112,31 +113,28 @@ export default function RegisterBandScreen() {
     
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>Band Name</Text>
-            <TextInput 
+            <MyTextInput label={"Band Name"} 
                 style={styles.input} 
                 placeholder="Metallica"
                 onChangeText={name => setName(name)}
             />
 
-            <Text style={styles.label}>Email</Text>
-            <TextInput 
+            <MyTextInput label={"Email"}
                 style={styles.input} 
                 placeholder="metallica@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
-            <Text style={styles.label}>Password</Text>
-            <TextInput secureTextEntry={true} 
+            <MyTextInput label={"Password"}
+                secureTextEntry={true} 
                 style={styles.input} 
                 placeholder="password"
                 onChangeText={password => setPassword(password)}
                 />
 
-            <Text style={styles.label}>Description</Text>
-            <TextInput 
+            <MyTextInput label={"Description"}
                 style={styles.input} 
-                placeholder="a small bio"
+                placeholder="A small bio"
                 onChangeText={description => setDescription(description)}
             />
 
@@ -150,7 +148,11 @@ export default function RegisterBandScreen() {
             >
                 {   //fill dropdown list according to number of instruments
                     genres.map((genre, index)=>
-                    <Picker.Item key = {index} label={genre?.genre_name} value={genre._id} />
+                    <Picker.Item style={styles.picker}
+                        key = {index} 
+                        label={genre?.genre_name} 
+                        value={genre._id} 
+                    />
                 )}   
             </Picker>
 
@@ -189,9 +191,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 30,
     },
     label:{
-        fontSize: 20,
-        marginLeft: 10,
         color: colors.secondary,
+        marginBottom: 5
     },
     input:{
         borderWidth: 1,
@@ -199,6 +200,10 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 20,
         marginBottom: 10,
+    },
+    picker:{
+        fontSize:20, 
+        color:'grey',
     },
     button_container:{
         flexDirection: 'row',
