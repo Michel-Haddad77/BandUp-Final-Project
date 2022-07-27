@@ -3,8 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const multer = require('multer');
-
+const fs = require("fs");
 
 const userRouter = require('./src/user/index');
 const bandsRouter = require('./src/bands');
@@ -35,20 +34,13 @@ app.use('/api/musicians', musiciansRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/notifications', notificationsRouter);
 
+//endpoint to display the video directly in the cideo player in frontend (this was the only way that worked)
+app.get('/display', (req, res) => {
+    //redirect to another video according to the user id
+    var filepath = __dirname + `/uploads/${req.query.id}.mp4`;
+    var file = fs.readFileSync(filepath);
+    res.send(file);
+});
+
 //change port to 8080
 app.listen(8080, () => console.log('Server running on 8080'));
-
-
-//Multer configuration to handle uploading videos
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'assets')
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname)
-    }
-  })
-   
-var upload = multer({ storage: storage });
-
-module.exports = upload;
