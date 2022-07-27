@@ -34,12 +34,17 @@ app.use('/api/musicians', musiciansRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/notifications', notificationsRouter);
 
-//endpoint to display the video directly in the cideo player in frontend (this was the only way that worked)
+//endpoint to display the video directly in the video player in frontend (this was the only way that worked)
 app.get('/display', (req, res) => {
-    //redirect to another video according to the user id
-    var filepath = __dirname + `/uploads/${req.query.id}.mp4`;
-    var file = fs.readFileSync(filepath);
-    res.send(file);
+    try{
+        //redirect to another video according to the user id
+        var filepath = __dirname + `/uploads/${req.query.id}.mp4`;
+        var file = fs.readFileSync(filepath);
+        res.send(file);
+    }catch(error){
+        console.log("This user doesn't have a video")
+    }
+    
 });
 
 //change port to 8080
