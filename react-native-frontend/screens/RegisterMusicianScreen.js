@@ -9,6 +9,7 @@ import * as Location from 'expo-location';
 
 import url from '../constants/url';
 import colors from '../constants/colors';
+import MyTextInput from '../components/MyTextInput';
 
 export default function RegisterMusicianScreen() {
     const navigation = useNavigation();
@@ -114,36 +115,32 @@ export default function RegisterMusicianScreen() {
     
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.label}>First Name</Text>
-            <TextInput 
+            <MyTextInput label={"FirstName"}
                 style={styles.input} 
                 placeholder="Jon"
                 onChangeText={name => setName(name)}
             />
 
-            <Text style={styles.label}>Last Name</Text>
-            <TextInput 
+            <MyTextInput label={"Last Name"} 
                 style={styles.input} 
                 placeholder="Doe"
                 onChangeText={last_name => setLastName(last_name)}
             />
 
-            <Text style={styles.label}>Email</Text>
-            <TextInput 
+            <MyTextInput label={"Email"}
                 style={styles.input} 
                 placeholder="jon@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
-            <Text style={styles.label}>Password</Text>
-            <TextInput secureTextEntry={true} 
+            <MyTextInput label={"Password"}
+                secureTextEntry={true} 
                 style={styles.input} 
-                placeholder="password"
+                placeholder="Password"
                 onChangeText={password => setPassword(password)}
                 />
 
-            <Text style={styles.label}>Description</Text>
-            <TextInput 
+            <MyTextInput label={"Description"} 
                 style={styles.input} 
                 placeholder="a small bio"
                 onChangeText={description => setDescription(description)}
@@ -159,7 +156,7 @@ export default function RegisterMusicianScreen() {
             >
                 {   //fill dropdown list according to number of instruments
                     instruments.map((inst, index)=>
-                    <Picker.Item key = {index} label={inst.instrument_name} value={inst._id} />
+                    <Picker.Item style={styles.picker} key = {index} label={inst.instrument_name} value={inst._id} />
                 )}   
             </Picker>
 
@@ -198,16 +195,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
     },
     label:{
-        fontSize: 20,
-        marginLeft: 10,
         color: colors.secondary,
+        marginBottom: 5
     },
-    input:{
-        borderWidth: 1,
-        borderColor: 'grey',
-        padding: 10,
-        borderRadius: 20,
-        marginBottom: 5,
+    picker:{
+        fontSize:20, 
+        color:'grey',
     },
     button_container:{
         flexDirection: 'row',
