@@ -14,47 +14,47 @@ const Stack = createNativeStackNavigator();
 
 export default function HomeStack() {
     return (
-                <Stack.Navigator>
-                    <Stack.Screen name="HomeStack" component={HomeScreen} options={{headerShown: false}}/>
+        <Stack.Navigator>
+            <Stack.Screen name="HomeStack" component={HomeScreen} options={{headerShown: false}}/>
 
-                    <Stack.Screen name="Users" component={UsersScreen} options={({ route }) => (
-                        { 
-                        title: route.params.name ,
-                        headerStyle: {backgroundColor: colors.primary},
-                        headerTintColor: '#fff',
-                        })}
-                    />
+            <Stack.Screen name="Users" component={UsersScreen} options={({ route }) => (
+                { 
+                title: route.params.name ,
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
 
-                    <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => (
-                        { 
-                        title: route.params.name,
-                        headerStyle: {backgroundColor: colors.primary},
-                        headerTintColor: '#fff',
-                        })}
-                    />
+            <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => (
+                { 
+                title: route.params.name,
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
 
-                    <Stack.Screen name="UserProfile" component={UserProfileScreen} options={({ route }) => (
-                        { 
-                        title: route.params.name,
-                        headerStyle: {backgroundColor: colors.primary},
-                        headerTintColor: '#fff',
-                        })}
-                    />
+            <Stack.Screen name="UserProfile" component={UserProfileScreen} options={({ route }) => (
+                { 
+                title: route.params.name,
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
 
-                    <Stack.Screen name="Map" component={Map} options={({ route }) => (
-                        { 
-                        headerStyle: {backgroundColor: colors.primary},
-                        headerTintColor: '#fff',
-                        })}
-                    />
+            <Stack.Screen name="Map" component={Map} options={({ route }) => (
+                { 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
 
-                    <Stack.Screen name="Search" component={SearchScreen} options={({ route }) => (
-                        { 
-                        headerStyle: {backgroundColor: colors.primary},
-                        headerTintColor: '#fff',
-                        })}
-                    />
-                </Stack.Navigator>
-    
+            <Stack.Screen name="Search" component={SearchScreen} options={({ route }) => (
+                { 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
+        </Stack.Navigator>
+
     );
 }

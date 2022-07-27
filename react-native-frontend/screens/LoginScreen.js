@@ -68,7 +68,6 @@ function LoginScreen({navigation}) {
                 expo_token, //send expo token to add/update it
             }
         }).then(async function (response) {
-            console.log(response.data);
             //store user token and info in async storage
             try {
                 await AsyncStorage.setItem('token', response.data.token);

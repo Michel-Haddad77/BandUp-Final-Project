@@ -10,39 +10,39 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTab() {
   return (
-          <Tab.Navigator screenOptions={{
-              tabBarStyle: styles.tab_bar,
-              tabBarActiveTintColor: 'white',
-              tabBarInactiveTintColor: '#FFCB9B',
-              tabBarHideOnKeyboard: true,
-            }}
-          >
-            <Tab.Screen name="Home" component={HomeStack} 
-              options={{
-                headerShown: false,
-                tabBarIcon: ({color}) => (
-                  <Entypo name="home" size={30} color= {color}/>
-                ),
-              }}
-            />
-            <Tab.Screen name="Messages" component={Map} 
-              options={{
-                tabBarIcon: ({color}) => (
-                  <Entypo name="message" size={30} color= {color}/>
-                ),
-              }}
-            />
-            <Tab.Screen name="Notifications" component={NotificationsScreen} 
-              options={{
-                headerStyle: {backgroundColor: colors.primary},
-                headerTintColor: '#fff',
-                headerTitleAlign: 'center',
-                tabBarIcon: ({color}) => (
-                  <Entypo name="bell" size={30} color= {color}/>
-                ),
-              }}
-            />
-          </Tab.Navigator>
+    <Tab.Navigator screenOptions={{
+        tabBarStyle: styles.tab_bar,
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: '#FFCB9B',
+        tabBarHideOnKeyboard: true,
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeStack} 
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color}) => (
+            <Entypo name="home" size={30} color= {color}/>
+          ),
+        }}
+      />
+      <Tab.Screen name="Messages" component={Map} 
+        options={{
+          tabBarIcon: ({color}) => (
+            <Entypo name="message" size={30} color= {color}/>
+          ),
+        }}
+      />
+      <Tab.Screen name="Notifications" component={NotificationsScreen} 
+        options={{
+          headerStyle: {backgroundColor: colors.primary},
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center',
+          tabBarIcon: ({color}) => (
+            <Entypo name="bell" size={30} color= {color}/>
+          ),
+        }}
+      />
+    </Tab.Navigator>
   )
 }
 

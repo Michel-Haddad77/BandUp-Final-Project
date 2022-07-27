@@ -6,27 +6,25 @@ import url from '../constants/url'
 import { useAuthUser } from "../context/user";
 
 export default function NotificationsScreen({navigation}) {
-    const [notifications, setNotifications] = useState([])
+  const [notifications, setNotifications] = useState([])
 
-    //get user from context to send its id to API
-    const {user} = useAuthUser();
+  //get user from context to send its id to API
+  const {user} = useAuthUser();
 
-    //get all the user's notifications
-    useEffect(() => {
-        axios({
-            method: 'get',
-            url: url + 'notifications/all',
-            params:{
-                id: user._id,
-            }
-        }).then(function (response) {
-            console.log(response.data);
-            setNotifications(response.data);
-        }).catch(function (error){
-            console.log(error);
-        })
-    
-    }, [])
+  //get all the user's notifications
+  useEffect(() => {
+      axios({
+          method: 'get',
+          url: url + 'notifications/all',
+          params:{
+              id: user._id,
+          }
+      }).then(function (response) {
+          setNotifications(response.data);
+      }).catch(function (error){
+          console.log(error);
+      })
+  }, [])
     
   return (
     <View>

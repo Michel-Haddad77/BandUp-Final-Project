@@ -1,4 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import colors from '../constants/colors';
 import LoginScreen from '../screens/LoginScreen';
