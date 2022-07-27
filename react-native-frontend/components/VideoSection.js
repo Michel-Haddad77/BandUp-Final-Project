@@ -25,18 +25,32 @@ export default function VideoSection({is_user}) {
         console.log(result);
 
         if (!result.cancelled) {
+            let form_data = new FormData();
+            
+            form_data.append("video", {
+                name: `${user._id}.mp4`,
+                uri: result.uri,
+                type: 'video/mp4'
+            });
+
             axios({
-                method: 'put',
-                url: url + 'user/update',
-                data: {
-                    video: result.uri,
-                },
+                method: 'post',
+                url: url + 'user/upload',
+                data: form_data,
                 params:{
                     id: user._id
-                }
+                },
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             }).then(function (response) {
                 console.log(response.data);
-                setUser({...user, video:result.uri});
+                //update the user in context directly
+                setUser({...user, video:{
+                    name: `${user._id}.mp4`,
+                    uri: result.uri,
+                    type: 'video/mp4'
+                }});
             }).catch(function (error){
                 console.log(error);
             })
@@ -49,7 +63,7 @@ export default function VideoSection({is_user}) {
             <Text style={styles.no_video_title}>No Video Uploaded</Text>
             <Video
                 style={styles.video}
-                source={{uri: user.video}}
+                source={{uri: `http://192.168.1.75:8080/display?id=62d486e137615c7517525f56`}}
                 useNativeControls
                 resizeMode="contain"
                 isLooping   
