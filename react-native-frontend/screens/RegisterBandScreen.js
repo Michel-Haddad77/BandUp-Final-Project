@@ -39,6 +39,7 @@ export default function RegisterBandScreen() {
 
     //function called when user signs up
     function onSignUp(){
+
         let data = {
             name,
             email,
@@ -57,7 +58,6 @@ export default function RegisterBandScreen() {
             data: data,
         })
         .then(function (response) {
-            //console.log(response.data);
             ToastAndroid.show('Welcome To The Party! Please Login', ToastAndroid.LONG);
             navigation.navigate('Login');
         })

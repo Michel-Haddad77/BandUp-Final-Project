@@ -19,7 +19,6 @@ export default function RegisterScreen({navigation}) {
             onPress={()=>{navigation.navigate('RegisterBand')}}
         />
       </View>
-      
     </View>
   )
 }
@@ -28,7 +27,6 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         justifyContent: 'center',
-        //alignItems: 'center',
     },
     title:{
         alignSelf: 'center',

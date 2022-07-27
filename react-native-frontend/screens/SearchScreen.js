@@ -12,7 +12,7 @@ export default function SearchScreen({navigation}) {
     const {user} = useAuthUser();
 
     useEffect(() => {
-
+        //if the user is a band, get all musicians
         if (user?.user_type === 1){
             var url2 = 'musicians/all';
         }else if(user?.user_type === 2){
@@ -37,7 +37,7 @@ export default function SearchScreen({navigation}) {
             }));
             return
         }
-        //if search text is empty , empty the filtered users array
+        //if search text is empty, empty the filtered users array
         setFilteredUsers([])
     }
     

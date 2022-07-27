@@ -22,10 +22,11 @@ export default function UsersScreen({navigation, route}) {
                 axios({
                     method: 'get',
                     url: url + 'bands/bygenre',
-                    params: { genre_id: route.params.id},
+                    params: { 
+                        genre_id: route.params.id
+                    },
                 }).then(function (response) {
                     setDisplayedUsers(response.data);
-                    console.log(displayed_users);
                 }).catch(function (error){
                     console.log(error);
                 }) 
@@ -33,16 +34,17 @@ export default function UsersScreen({navigation, route}) {
                 axios({
                     method: 'get',
                     url: url + 'musicians/byinstrument',
-                    params: { instrument_id: route.params.id},
+                    params: { 
+                        instrument_id: route.params.id
+                    },
                 }).then(function (response) {
                     setDisplayedUsers(response.data);
-                    console.log(displayed_users);
                 }).catch(function (error){
                     console.log(error);
                 }) 
             }
             
-        }else{ //if users page was called by pressing on the show all button
+        }else{ //if users screen was called by pressing on the show all button
             if (user?.user_type === 1){
                 var url2 = 'musicians/all';
             }else if(user?.user_type === 2){
@@ -53,7 +55,6 @@ export default function UsersScreen({navigation, route}) {
                 url: url + url2,
             }).then(function (response) {
                 setDisplayedUsers(response.data);
-                console.log(displayed_users);
             }).catch(function (error){
                 console.log(error);
             })

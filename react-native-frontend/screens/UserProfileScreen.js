@@ -27,6 +27,7 @@ export default function UserProfileScreen({navigation}) {
         })
     }
 
+    //function called when the user logs out
     async function logout(){
         try {
             //clear async storage and update the context

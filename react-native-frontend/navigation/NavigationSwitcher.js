@@ -5,7 +5,7 @@ import BottomTab from './BottomTab';
 import LoginStack from './LoginStack';
 
 export default function NavigationSwitcher() {
-    var {token, setToken} = useAuthUser();
+    var {token} = useAuthUser();
 
     return (
         <NavigationContainer>
