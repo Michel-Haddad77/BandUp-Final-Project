@@ -1,10 +1,8 @@
 const colors = {
     //sunset orange
-    primary: '#FE9738', //#5271FF
+    primary: '#FE9738',
     //grey
     secondary: '#545454',
-    //very light orange
-    background: 'FAF4EE',
 }
 
 export default colors;
