@@ -2,7 +2,7 @@ import { View, Button, StyleSheet } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from "../constants/colors";
 import ProfileHead from "../components/ProfileHead";
-import VideoSection from "../components/VideoSection";
+import UserVideoSection from "../components/UserVideoSection";
 import StyledButton from "../components/StyledButton";
 import { useAuthUser } from "../context/user";
 import axios from "axios";
@@ -56,7 +56,7 @@ export default function UserProfileScreen({navigation}) {
                     onPress={logout}
                 />
             </View>
-            <VideoSection is_user={true}/>
+            <UserVideoSection/>
         </>
     );
 }
