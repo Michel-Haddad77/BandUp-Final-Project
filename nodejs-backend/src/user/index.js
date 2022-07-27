@@ -5,7 +5,7 @@ const fs = require("fs");
 
 const router = Router();
 
-//Multer configuration to handle uploading videos
+//Multer configuration to handle uploaded videos and store them in the uploads folder
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'uploads')
@@ -23,9 +23,6 @@ router.delete('/delete-token', deleteExpoToken);
 router.get('/get-one', getUser);
 router.put('/update', updateUser);
 //multer is used as a middleware
-router.post('/upload',upload.single('video') ,  (req, res) => {
-    console.log(req.file)
-
-});
+router.post('/upload',upload.single('video') , uploadVideo);
 
 module.exports = router;

@@ -187,6 +187,7 @@ async function updateUser(req, res) {
 }
 
 async function uploadVideo(req,res){
+    //update the  user's video field in the database
     const updated_user = await User.findByIdAndUpdate(req.query.id, {
         video: req.file.filename 
     });
