@@ -187,12 +187,18 @@ async function updateUser(req, res) {
 }
 
 async function uploadVideo(req,res){
-    //update the  user's video field in the database
-    const updated_user = await User.findByIdAndUpdate(req.query.id, {
-        video: req.file.filename 
-    });
+    try{
+        //update the  user's video field in the database
+        const updated_user = await User.findByIdAndUpdate(req.query.id, {
+            video: req.file.filename 
+        });
 
-    return res.send(`Video uploaded: ${req.file.filename}`);
+        return res.send(`Video uploaded: ${req.file.filename}`);
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
 }
 
 module.exports = {
