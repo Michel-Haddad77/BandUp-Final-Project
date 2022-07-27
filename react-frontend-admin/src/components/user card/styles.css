@@ -12,6 +12,13 @@
     border-radius: 50%;
 }
 
+.name{
+    color: var(--secondary);
+    font-size: 1.2em;
+}
+.genre{
+    color: var(--secondary);
+}
 .delete-btn{
     cursor: pointer;
     height: 20px;

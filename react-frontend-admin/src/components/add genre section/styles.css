@@ -1,5 +1,5 @@
 .add-genre-container{
-    border:2px solid #5271FF;
+    border:2px solid var(--secondary);
     border-radius: 10px;
     width: 30vw; 
     padding: 2%;
@@ -13,24 +13,25 @@
     margin: 0 7%;
 }
 
-.title{
-    color: #5271FF;
+.title2{
+    color: var(--secondary);
     font-weight: 900;
     font-size: 1.8em;
     align-self: flex-start;
 }
 
 .add-btn{
-    width: 65%;
+    width: 60%;
     height: fit-content;
     padding: 5px;
     font-size: large;
     margin-bottom: 2%;
     margin-top: 5%;
-    background-color: #5271FF;
-    border-color: #5271FF;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .input{
@@ -52,8 +53,8 @@
 .custom-file-input::before {
     content: 'Upload Picture';
     display: inline-block;
-    background: #5271FF;
-    border: 1px solid #5271FF;
+    background: var(--secondary);
+    border: 1px solid var(--secondary);
     border-radius: 5px;
     padding: 5px 8px;
     cursor: pointer;

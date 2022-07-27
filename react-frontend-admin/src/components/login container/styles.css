@@ -33,7 +33,7 @@ label{
     font-size: 3em;
     margin: 3%;
     text-align: center;
-    color: #5271FF
+    color: var(--primary);
 }
 
 .btn{
@@ -41,8 +41,9 @@ label{
     height: 50px;
     font-size: x-large;
     margin-bottom: 2%;
-    background-color: #5271FF;
-    border-color: #5271FF;
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }

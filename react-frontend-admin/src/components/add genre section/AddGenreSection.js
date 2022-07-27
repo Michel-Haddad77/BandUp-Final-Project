@@ -80,7 +80,7 @@ export default function AddGenreSection({is_genre, getGenresInstruments}) {
     }
   return (
     <div className='add-genre-container'>
-        <h2 className='title'>{is_genre? "Add Genre": "Add Instrument"}</h2>
+        <h2 className='title2'>{is_genre? "Add Genre": "Add Instrument"}</h2>
         <div className='input-container'>
             <label>Name</label><br/>
             <input 

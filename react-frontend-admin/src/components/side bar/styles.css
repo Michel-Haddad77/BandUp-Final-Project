@@ -16,7 +16,7 @@
 }
 
 .admin{
-    color: #5271FF;
+    color: var(--primary);
     font-weight: bolder;
     font-size: 2em;
     margin-right: 20px;
@@ -28,8 +28,9 @@
     min-width: fit-content;
     font-size: x-large;
     margin-bottom: 2%;
-    background-color: #5271FF;
-    border-color: #5271FF;
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }

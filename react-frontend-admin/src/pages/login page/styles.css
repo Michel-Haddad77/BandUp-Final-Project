@@ -7,7 +7,7 @@
 }
 
 .brand{
-    color: #5271FF;
+    color: var(--primary);
     font-family: Brasika;
     margin-left: 2%;
 }
