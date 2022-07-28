@@ -54,7 +54,7 @@ const genres = [
 //Instruments to seed
 const instruments = [
     {
-        instrument_name: "Guiter",
+        instrument_name: "Guitar",
         picture: guitar_pic
     },
     {
