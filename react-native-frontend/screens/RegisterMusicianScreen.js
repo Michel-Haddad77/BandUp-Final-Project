@@ -117,31 +117,32 @@ export default function RegisterMusicianScreen() {
     
     return (
         <ScrollView style={styles.container}>
-            <MyTextInput label={"FirstName"}
+            <MyTextInput label="FirstName"
                 style={styles.input} 
                 placeholder="Jon"
                 onChangeText={name => setName(name)}
             />
 
-            <MyTextInput label={"Last Name"} 
+            <MyTextInput label="Last Name"
                 style={styles.input} 
                 placeholder="Doe"
                 onChangeText={last_name => setLastName(last_name)}
             />
 
-            <MyTextInput label={"Mobile"} 
-                keyboardType={"phone-pad"}
+            <MyTextInput label="Mobile"
+                keyboardType="phone-pad"
                 placeholder="70123456"
                 onChangeText={mobile => setMobile(mobile)}
             />
 
-            <MyTextInput label={"Email"}
+            <MyTextInput label="Email"
+                keyboardType="email-address"
                 style={styles.input} 
                 placeholder="jon@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
-            <MyTextInput label={"Password"}
+            <MyTextInput label="Password"
                 secureTextEntry={true} 
                 style={styles.input} 
                 placeholder="Password"

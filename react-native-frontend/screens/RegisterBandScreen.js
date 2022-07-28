@@ -49,6 +49,7 @@ export default function RegisterBandScreen() {
             user_type: 1, //user is a band
             picture,
             location,
+            mobile,
             genre_id: genre,
         };
 
@@ -114,7 +115,7 @@ export default function RegisterBandScreen() {
     
     return (
         <View style={styles.container}>
-            <MyTextInput label={"Band Name"} 
+            <MyTextInput label="Band Name" 
                 style={styles.input} 
                 placeholder="Metallica"
                 onChangeText={name => setName(name)}
@@ -126,20 +127,21 @@ export default function RegisterBandScreen() {
                 onChangeText={mobile => setMobile(mobile)}
             />
 
-            <MyTextInput label={"Email"}
+            <MyTextInput label="Email"
+                keyboardType="email-address"
                 style={styles.input} 
                 placeholder="metallica@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
-            <MyTextInput label={"Password"}
+            <MyTextInput label="Password"
                 secureTextEntry={true} 
                 style={styles.input} 
-                placeholder="password"
+                placeholder="Password"
                 onChangeText={password => setPassword(password)}
                 />
 
-            <MyTextInput label={"Description"}
+            <MyTextInput label="Description"
                 style={styles.input} 
                 placeholder="A small bio"
                 onChangeText={description => setDescription(description)}
