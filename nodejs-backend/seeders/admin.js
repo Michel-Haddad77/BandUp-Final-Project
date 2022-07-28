@@ -26,10 +26,10 @@ async function seedDB(){
         const hash_password = await bcrypt.hash('123123', salt);
 
        var admin = await User({
-        name: "Admin",
-        email: 'admin@bandup.com',
-        password: hash_password,
-        user_type: 0
+            name: "Admin",
+            email: 'admin@bandup.com',
+            password: hash_password,
+            user_type: 0
     });
        await admin.save();
     }catch(error){

@@ -6,6 +6,7 @@ const fs = require("fs");
 const router = Router();
 
 //Multer configuration to handle uploaded videos and store them in the uploads folder
+//Uploads folder was added to .gitignore
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'uploads')
