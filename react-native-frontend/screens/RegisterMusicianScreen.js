@@ -24,6 +24,7 @@ export default function RegisterMusicianScreen() {
     const [last_name, setLastName] = useState("");
     const [picture, setPicture] = useState("");
     const [ location, setLocation] = useState({});
+    const [mobile, setMobile] = useState("")
 
     //fetch all instruments from server for the dropdown list
     useEffect(() => {
@@ -49,6 +50,7 @@ export default function RegisterMusicianScreen() {
             user_type: 2, //user is a musician
             picture,
             location,
+            mobile,
             instrument_id: instrument,
         };
 
@@ -125,6 +127,12 @@ export default function RegisterMusicianScreen() {
                 style={styles.input} 
                 placeholder="Doe"
                 onChangeText={last_name => setLastName(last_name)}
+            />
+
+            <MyTextInput label={"Mobile"} 
+                keyboardType={"phone-pad"}
+                placeholder="70123456"
+                onChangeText={mobile => setLastName(mobile)}
             />
 
             <MyTextInput label={"Email"}

@@ -1,11 +1,12 @@
 import { TextInput, Text, StyleSheet } from 'react-native'
 import colors from '../constants/colors'
 
-export default function MyTextInput({label, secureTextEntry, autoCapitalize, placeholder, onChangeText}) {
+export default function MyTextInput({label, secureTextEntry, autoCapitalize, placeholder, onChangeText, keyboardType}) {
   return (
     <>
         <Text style={styles.label}>{label}</Text>
         <TextInput secureTextEntry={secureTextEntry} 
+          keyboardType={keyboardType}
             autoCapitalize={autoCapitalize}
             style={styles.input} 
             placeholder={placeholder}
