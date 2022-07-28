@@ -1,4 +1,9 @@
-//Terminal Command: npm run seed
+/*  This file will add admin data to the database
+    email: admin@bandup.com
+    password: 123123
+
+    Terminal Command: npm run seed
+*/
 
 require("dotenv").config();
 const mongoose = require('mongoose');

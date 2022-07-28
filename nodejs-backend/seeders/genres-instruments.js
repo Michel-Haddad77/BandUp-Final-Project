@@ -1,5 +1,9 @@
-//Terminal Command: npm run seed-genres
+/*  This file will add 4 genres and 4 instruments along with pictures to the database
+    Genres: Rock, Hard Rock, Metal, Jazz
+    Instruments: Guitar, Singer, Drums, Bass
 
+    Terminal Command: npm run seed-genres
+*/
 require("dotenv").config();
 const mongoose = require('mongoose');
 const Genre = require('../models/Genre');
