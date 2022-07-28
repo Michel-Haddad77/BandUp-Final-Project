@@ -40,6 +40,7 @@ app.get('/display', (req, res) => {
         //redirect to another video according to the user id
         var filepath = __dirname + `/uploads/${req.query.id}.mp4`;
         var file = fs.readFileSync(filepath);
+        //send the video file to be played in the video player
         res.send(file);
     }catch(error){
         console.log("This user doesn't have a video")
