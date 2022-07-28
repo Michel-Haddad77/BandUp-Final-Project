@@ -1,3 +1,5 @@
+//Terminal Command: npm run seed-genres
+
 require("dotenv").config();
 const mongoose = require('mongoose');
 const Genre = require('../models/Genre');
@@ -25,6 +27,7 @@ var singer_pic = fs.readFileSync( __dirname + '/assets/singer.jpg', 'base64');
 var drums_pic = fs.readFileSync( __dirname + '/assets/drummer.jpg', 'base64');
 var bass_pic = fs.readFileSync( __dirname + '/assets/bass.jpg', 'base64');
 
+//Genres to seed
 const genres = [
     {
         genre_name: "Hard Rock",
@@ -44,6 +47,7 @@ const genres = [
     },
 ]
 
+//Instruments to seed
 const instruments = [
     {
         instrument_name: "Guiter",
