@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../constants/colors';
 import HomeStack from './HomeStack';
-import Map from '../components/Map';
 import NotificationsScreen from '../screens/NotificationsScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,10 +25,10 @@ export default function BottomTab() {
           ),
         }}
       />
-      <Tab.Screen name="Messages" component={Map} 
+      <Tab.Screen name="Search" component={SearchScreen} 
         options={{
           tabBarIcon: ({color}) => (
-            <Entypo name="message" size={30} color= {color}/>
+            <Entypo name="magnifying-glass" size={30} color= {color}/>
           ),
         }}
       />
