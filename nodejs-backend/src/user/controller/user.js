@@ -18,6 +18,7 @@ async function register(req,res){
             //get name and email from request body
             const {
                 name,
+                mobile,
                 email,
                 description,
                 user_type,
@@ -35,6 +36,7 @@ async function register(req,res){
             //create new user document from mongoose model
             var user = new Band({
                 name,
+                mobile,
                 email,
                 password: hashPassword,
                 description,
@@ -50,6 +52,7 @@ async function register(req,res){
             const {
                 name,
                 last_name,
+                mobile,
                 email,
                 description,
                 user_type,
@@ -68,6 +71,7 @@ async function register(req,res){
             var user = new Musician({
                 name,
                 last_name,
+                mobile,
                 email,
                 description,
                 password: hashPassword,
@@ -163,12 +167,13 @@ async function getUser(req, res) {
 async function updateUser(req, res) {
     try {
         const {
-        name,
-        last_name,
-        email,
-        picture,
-        location,
-        video,
+            name,
+            last_name,
+            mobile,
+            email,
+            picture,
+            location,
+            video,
         } = req.body;
 
         const updated_user = await User.findByIdAndUpdate(req.query.id, {
