@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "seed": "node seeders/admin.js"
+    "seed": "node seeders/admin.js",
+    "seed-genres": "node seeders/genres-instruments.js"
   },
   "keywords": [],
   "author": "",
