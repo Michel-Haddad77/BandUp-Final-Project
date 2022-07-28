@@ -48,12 +48,12 @@ export default function UserProfileScreen({navigation}) {
                 <StyledButton 
                     title="Edit Profile" 
                     text_style={styles.button_text} 
-                    style={styles.edit_button}
+                    style={styles.button}
                 />
                 <StyledButton 
                     title="Logout" 
                     text_style={styles.button_text} 
-                    style={styles.button}
+                    style={[styles.button, styles.second_button]}
                     onPress={logout}
                 />
             </View>
@@ -70,10 +70,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button:{
-        width: 100
+        flexBasis: '40%',
     },
     button_text:{
         fontSize: 14,
         textAlign: 'center'
+    },
+    second_button:{
+        backgroundColor: colors.secondary,
     }
 })

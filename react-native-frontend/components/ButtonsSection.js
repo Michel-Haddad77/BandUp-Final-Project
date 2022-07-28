@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button:{
-        width: 130
+        flexBasis: '40%',
     },
     button_text:{
         fontSize: 14,

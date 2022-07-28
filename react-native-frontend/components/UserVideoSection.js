@@ -90,7 +90,9 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 21,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: colors.secondary,
+        marginLeft: 15,
     },
     video:{
         width: 300,
