@@ -132,7 +132,7 @@ export default function RegisterMusicianScreen() {
             <MyTextInput label={"Mobile"} 
                 keyboardType={"phone-pad"}
                 placeholder="70123456"
-                onChangeText={mobile => setLastName(mobile)}
+                onChangeText={mobile => setMobile(mobile)}
             />
 
             <MyTextInput label={"Email"}

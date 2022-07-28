@@ -23,6 +23,7 @@ export default function RegisterBandScreen() {
     const [name, setName] = useState("");
     const [picture, setPicture] = useState("");
     const [ location, setLocation] = useState({});
+    const [mobile, setMobile] = useState("")
 
     //fetch all genres from server for the dropdown list
     useEffect(() => {
@@ -117,6 +118,12 @@ export default function RegisterBandScreen() {
                 style={styles.input} 
                 placeholder="Metallica"
                 onChangeText={name => setName(name)}
+            />
+
+            <MyTextInput label="Mobile"
+                keyboardType="phone-pad"
+                placeholder="70123456"
+                onChangeText={mobile => setMobile(mobile)}
             />
 
             <MyTextInput label={"Email"}
