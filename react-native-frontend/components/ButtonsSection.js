@@ -9,10 +9,11 @@ import { useEffect, useState } from "react";
 function ButtonsSection({route}) {
     const [disabled, setDisabled] = useState(false);
 
-    //type id and expo push token of the displayed user
-    const displayed_type = route.params.displayed_user.user_type;
-    const displayed_id  = route.params.displayed_user._id;
-    const expo_token  = route.params.displayed_user.expo_token;
+    //info about the displayed user that are used on this page 
+    const displayed_type = route.params.displayed_user?.user_type;
+    const displayed_id  = route.params.displayed_user?._id;
+    const mobile = route.params.displayed_user?.mobile;
+    const expo_token  = route.params.displayed_user?.expo_token;
 
     //get logged in user
     const {user} = useAuthUser();
@@ -137,10 +138,11 @@ function ButtonsSection({route}) {
                 disabled = {disabled}
             />
             <StyledButton 
-                title="Message" 
+                title="Make a Call" 
                 text_style={styles.button_text} 
                 style={[styles.button, styles.second_button]}
-                //TODO onPress={()=>{Linking.openURL(`tel: 71705330`)} }
+                //when user presses on call, open the dial pad
+                onPress={()=>{Linking.openURL(`tel: ${mobile}`)} }
             />
         </View>
     );
