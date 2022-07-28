@@ -164,6 +164,7 @@ async function getUser(req, res) {
     }
   }
 
+//API for updating user info
 async function updateUser(req, res) {
     try {
         const {
@@ -191,6 +192,7 @@ async function updateUser(req, res) {
     }
 }
 
+//API called when user wants to upload a video
 async function uploadVideo(req,res){
     try{
         //update the  user's video field in the database
