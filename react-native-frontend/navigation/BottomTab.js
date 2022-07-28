@@ -27,6 +27,8 @@ export default function BottomTab() {
       />
       <Tab.Screen name="Search" component={SearchScreen} 
         options={{
+          headerStyle: {backgroundColor: colors.primary},
+          headerTintColor: '#fff',
           tabBarIcon: ({color}) => (
             <Entypo name="magnifying-glass" size={30} color= {color}/>
           ),
