@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View , TextInput, Image, ToastAndroid} from 'react-native';
+import { StyleSheet, Text, View , TextInput, Image, ToastAndroid, ScrollView} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import StyledButton from '../components/StyledButton';
@@ -114,9 +114,8 @@ export default function RegisterBandScreen() {
     }
     
     return (
-        <View style={styles.container}>
-            <MyTextInput label="Band Name" 
-                style={styles.input} 
+        <ScrollView style={styles.container}>
+            <MyTextInput label="Band Name"  
                 placeholder="Metallica"
                 onChangeText={name => setName(name)}
             />
@@ -129,20 +128,18 @@ export default function RegisterBandScreen() {
 
             <MyTextInput label="Email"
                 keyboardType="email-address"
-                style={styles.input} 
+                autoCapitalize="none"
                 placeholder="metallica@example.com"
                 onChangeText={email => setEmail(email)}
             />
 
             <MyTextInput label="Password"
                 secureTextEntry={true} 
-                style={styles.input} 
                 placeholder="Password"
                 onChangeText={password => setPassword(password)}
                 />
 
             <MyTextInput label="Description"
-                style={styles.input} 
                 placeholder="A small bio"
                 onChangeText={description => setDescription(description)}
             />
@@ -191,7 +188,7 @@ export default function RegisterBandScreen() {
                     onSignUp();
                 }}
             /> 
-        </View>
+        </ScrollView>
     )
 }
 

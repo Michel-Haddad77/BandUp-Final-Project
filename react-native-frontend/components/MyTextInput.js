@@ -6,7 +6,7 @@ export default function MyTextInput({label, secureTextEntry, autoCapitalize, pla
     <>
         <Text style={styles.label}>{label}</Text>
         <TextInput secureTextEntry={secureTextEntry} 
-          keyboardType={keyboardType}
+            keyboardType={keyboardType}
             autoCapitalize={autoCapitalize}
             style={styles.input} 
             placeholder={placeholder}
