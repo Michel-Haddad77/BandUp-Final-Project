@@ -9,8 +9,9 @@ import axios from 'axios';
 import url from '../constants/url';
 import StyledButton from '../components/StyledButton';
 import * as ImagePicker from 'expo-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function EditMusicianProfileScreen() {
+export default function EditMusicianProfileScreen({navigation}) {
 
   const {user, setUser} = useAuthUser();
 
@@ -53,6 +54,34 @@ export default function EditMusicianProfileScreen() {
     if (!result.cancelled) {
         setPicture(result.base64);
     }
+  }
+
+  function saveChanges(){
+    let data = {
+      name,
+      last_name,
+      description,
+      picture,
+      location,
+      mobile,
+      instrument_id: instrument,
+    };
+
+    axios({
+      method: 'put',
+      url: url + 'user/update',
+      params: {
+        id: user._id,
+      },
+      data: data,
+    }).then(async function (response) {
+        console.log(response.data);
+        setUser({...user, data});
+        await AsyncStorage.setItem('user_info', JSON.stringify({...user, data}));
+        navigation.navigate('UserProfile', {name: name});
+    }).catch(function (error){
+        console.log(error);
+    })
   }
 
   return (
@@ -107,8 +136,12 @@ export default function EditMusicianProfileScreen() {
               />
             )}   
         </Picker>
-
       </View>
+
+      <StyledButton 
+        title="Save"
+        onPress= {saveChanges}
+      />
     </ScrollView>
   )
 }
@@ -116,6 +149,7 @@ export default function EditMusicianProfileScreen() {
 const styles = StyleSheet.create({
   container:{
     marginHorizontal: 20,
+    marginBottom: 10
   },
   label:{
     color: colors.secondary,
@@ -131,7 +165,6 @@ const styles = StyleSheet.create({
   button:{
     backgroundColor: 'rgba(0,0,0,0)',
     elevation: 0,
-    
   },
   button_text:{
     fontSize: 15,
@@ -141,6 +174,7 @@ const styles = StyleSheet.create({
   picker_container:{
     borderBottomWidth:2,
     borderColor: colors.primary,
+    marginBottom: 20
   },
   picker:{
     fontSize:20,
