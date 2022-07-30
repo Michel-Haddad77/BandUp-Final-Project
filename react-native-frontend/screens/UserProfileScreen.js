@@ -47,8 +47,7 @@ export default function UserProfileScreen({navigation}) {
             <View style={styles.container}>
                 <StyledButton 
                     title="Edit Profile" 
-                    onPress={()=> {navigation.navigate('Edit Musician Profile');
-                    console.log("testt")}}
+                    onPress={()=> navigation.navigate('Edit Musician Profile')}
                     text_style={styles.button_text} 
                     style={styles.button}
                 />

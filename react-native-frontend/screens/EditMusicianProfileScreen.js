@@ -1,9 +1,12 @@
 import { StyleSheet, ScrollView, Text } from 'react-native'
 import { useState } from 'react';
 import React from 'react'
-import MyTextInput from '../components/MyTextInput';
+import ProfileTextInput from '../components/ProfileTextInput';
+import { useAuthUser } from "../context/user";
 
 export default function EditMusicianProfileScreen() {
+
+  const {user, setUser} = useAuthUser();
 
   //states
   const [instrument, setInstrument] = useState("");
@@ -17,8 +20,8 @@ export default function EditMusicianProfileScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <MyTextInput label="FirstName"
-          placeholder="Jon"
+      <ProfileTextInput label="FirstName"
+          value={user.name}
           onChangeText={name => setName(name)}
       />
     </ScrollView>
