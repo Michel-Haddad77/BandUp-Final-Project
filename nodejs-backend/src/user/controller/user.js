@@ -180,6 +180,7 @@ async function updateUser(req, res) {
         const updated_user = await User.findByIdAndUpdate(req.query.id, {
             name, 
             last_name, 
+            mobile,
             email,
             picture, 
             location,
