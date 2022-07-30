@@ -21,10 +21,11 @@ export default function ProfileTextInput({label, secureTextEntry, autoCapitalize
 const styles = StyleSheet.create({
     label:{
         color: colors.secondary,
+        marginTop: 10,
     },
     input:{
         borderBottomWidth: 2,
-        borderColor: 'grey',
+        borderColor: colors.primary,
         padding: 5,
         marginBottom: 10,
         fontSize: 20,
