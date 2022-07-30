@@ -4,8 +4,6 @@ import React from 'react'
 export default function EditMusicianProfileScreen() {
 
   //states
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [instrument, setInstrument] = useState("");
   const [description, setDescription] = useState("");
   const [instruments, setInstruments] = useState([]);
@@ -14,7 +12,7 @@ export default function EditMusicianProfileScreen() {
   const [picture, setPicture] = useState("");
   const [ location, setLocation] = useState({});
   const [mobile, setMobile] = useState("")
-  
+
   return (
     <ScrollView style={styles.container}>
       <MyTextInput label="FirstName"
