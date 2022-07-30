@@ -1,5 +1,7 @@
-import { ScrollView, Text } from 'react-native'
+import { StyleSheet, ScrollView, Text } from 'react-native'
+import { useState } from 'react';
 import React from 'react'
+import MyTextInput from '../components/MyTextInput';
 
 export default function EditMusicianProfileScreen() {
 
@@ -22,3 +24,9 @@ export default function EditMusicianProfileScreen() {
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container:{
+    marginHorizontal: 20,
+  },
+})
