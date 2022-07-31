@@ -47,7 +47,7 @@ export default function UserProfileScreen({navigation}) {
             <View style={styles.container}>
                 <StyledButton 
                     title="Edit Profile" 
-                    onPress={user.instrument?
+                    onPress={user.instrument? //if the user has an instrument field => user is a musician
                         ()=> navigation.navigate('Edit Musician Profile'):
                         ()=> navigation.navigate('Edit Band Profile')}
                     text_style={styles.button_text} 
