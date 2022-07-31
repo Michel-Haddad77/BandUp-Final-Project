@@ -177,19 +177,35 @@ async function updateUser(req, res) {
             location,
             video,
             instrument,
+            genre
         } = req.body;
 
-        const updated_user = await User.findByIdAndUpdate(req.query.id, {
-            name, 
-            last_name, 
-            mobile,
-            description,
-            email,
-            picture, 
-            location,
-            video,
-            instrument: new mongoose.Types.ObjectId(instrument)
-        },{new: true}).populate('instrument');
+        //if the data from frontend contains an instrument field => user is a musician
+        if(instrument){
+            var updated_user = await User.findByIdAndUpdate(req.query.id, {
+                name, 
+                last_name, 
+                mobile,
+                description,
+                email,
+                picture, 
+                location,
+                video,
+                instrument: new mongoose.Types.ObjectId(instrument)
+            },{new: true}).populate('instrument');
+
+        }else{
+            var updated_user = await User.findByIdAndUpdate(req.query.id, {
+                name,  
+                mobile,
+                description,
+                email,
+                picture, 
+                location,
+                video,
+                genre: new mongoose.Types.ObjectId(genre)
+            },{new: true}).populate('genre');
+        }
 
         return res.send({
             msg: "User updated",
