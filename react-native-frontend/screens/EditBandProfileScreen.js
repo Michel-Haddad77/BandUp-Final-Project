@@ -12,12 +12,12 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function EditMusicianProfileScreen({navigation}) {
+export default function EditBandProfileScreen({navigation}) {
 
   const {user, setUser} = useAuthUser();
 
-  //Initiate the states with the user's info
-  const [genre, setGenre] = useState(user.instrument._id);
+  //Initiate the states with the band's info
+  const [genre, setGenre] = useState(user.genre._id);
   const [description, setDescription] = useState(user.description);
   const [genres, setGenres] = useState([]);
   const [name, setName] = useState(user.name);
@@ -84,12 +84,11 @@ export default function EditMusicianProfileScreen({navigation}) {
   function saveChanges(){
     let data = {
       name,
-      last_name,
       description,
       picture,
       location,
       mobile,
-      instrument,
+      genre,
     };
 
     axios({
@@ -122,7 +121,7 @@ export default function EditMusicianProfileScreen({navigation}) {
       onPress= {handleUpload}
     />
 
-      <ProfileTextInput label="First Name"
+      <ProfileTextInput label="Band Name"
         value={name}
         onChangeText={name => setName(name)}
       />
@@ -142,16 +141,16 @@ export default function EditMusicianProfileScreen({navigation}) {
       <View style={styles.picker_container}>
         <Picker
             style={styles.input}
-            selectedValue={instrument}
+            selectedValue={genre}
             onValueChange={(value,index) =>
                 setGenre(value)
             }
         >
-            { //fill dropdown list according to number of instruments
+            { //fill dropdown list according to number of genres
               genres.map((genre, index)=>
               <Picker.Item style={styles.picker} 
                   key = {index} 
-                  label={genre.instrument_name} 
+                  label={genre.genre_name} 
                   value={genre._id} 
               />
             )}   

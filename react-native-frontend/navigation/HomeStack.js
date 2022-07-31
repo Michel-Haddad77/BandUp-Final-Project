@@ -10,6 +10,7 @@ import UserProfileScreen from '../screens/UserProfileScreen';
 import Map from '../components/Map';
 import SearchScreen from '../screens/SearchScreen';
 import EditMusicianProfileScreen from '../screens/EditMusicianProfileScreen';
+import EditBandProfileScreen from '../screens/EditBandProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,13 @@ export default function HomeStack() {
             />
 
             <Stack.Screen name="Edit Musician Profile" component={EditMusicianProfileScreen} options={({ route }) => (
+                { 
+                headerStyle: {backgroundColor: colors.primary},
+                headerTintColor: '#fff',
+                })}
+            />
+
+            <Stack.Screen name="Edit Band Profile" component={EditBandProfileScreen} options={({ route }) => (
                 { 
                 headerStyle: {backgroundColor: colors.primary},
                 headerTintColor: '#fff',
