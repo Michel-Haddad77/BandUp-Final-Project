@@ -171,23 +171,30 @@ async function updateUser(req, res) {
             name,
             last_name,
             mobile,
+            description,
             email,
             picture,
             location,
             video,
+            instrument,
         } = req.body;
 
         const updated_user = await User.findByIdAndUpdate(req.query.id, {
             name, 
             last_name, 
             mobile,
+            description,
             email,
             picture, 
             location,
-            video
-        });
+            video,
+            instrument: new mongoose.Types.ObjectId(instrument)
+        },{new: true}).populate('instrument');
 
-        return res.send("User updated");
+        return res.send({
+            msg: "User updated",
+            user: updated_user
+        });
     } catch (error) {
         console.log(error);
     }
