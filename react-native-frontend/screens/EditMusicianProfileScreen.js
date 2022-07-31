@@ -22,7 +22,7 @@ export default function EditMusicianProfileScreen({navigation}) {
   const [name, setName] = useState(user.name);
   const [last_name, setLastName] = useState(user.last_name);
   const [picture, setPicture] = useState(user.picture);
-  const [ location, setLocation] = useState({});
+  const [ location, setLocation] = useState(user.location);
   const [mobile, setMobile] = useState(user?.mobile)
 
   //fetch all instruments from server for the dropdown list
@@ -64,7 +64,7 @@ export default function EditMusicianProfileScreen({navigation}) {
       picture,
       location,
       mobile,
-      instrument_id: instrument,
+      instrument,
     };
 
     axios({
@@ -74,10 +74,10 @@ export default function EditMusicianProfileScreen({navigation}) {
         id: user._id,
       },
       data: data,
-    }).then(async function (response) {
-        console.log(response.data);
-        setUser({...user, data});
-        await AsyncStorage.setItem('user_info', JSON.stringify({...user, data}));
+    }).then(async function (response){
+        //update user in context and storage
+        setUser(response.data.user);
+        await AsyncStorage.setItem('user_info', JSON.stringify(response.data.user));
         navigation.navigate('UserProfile', {name: name});
     }).catch(function (error){
         console.log(error);
