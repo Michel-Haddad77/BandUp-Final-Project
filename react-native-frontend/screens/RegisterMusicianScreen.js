@@ -170,13 +170,17 @@ export default function RegisterMusicianScreen() {
             </Picker>
 
             <View style={styles.button_container}>
-                {picture? (<Image source={{uri: `data:image;base64,${picture}`}} style={styles.image}/>): null}
+                
+                {picture? 
+                    (<View style={styles.image_container}>
+                        <Image source={{uri: `data:image;base64,${picture}`}} style={styles.image}/>
+                    </View>): null}
                 <StyledButton 
                     title="Upload Profile Picture" 
                     text_style={styles.upload_button_text} 
                     style={styles.upload_button}
                     onPress={handleUpload}
-                />
+                />  
             </View>
 
             <View style={styles.button_container}>
@@ -214,7 +218,12 @@ const styles = StyleSheet.create({
     button_container:{
         flexDirection: 'row',
         marginBottom: 20,
+        marginHorizontal: 20,
         justifyContent: 'space-evenly'
+    },
+    image_container:{
+      alignItems: 'center', 
+      flexBasis: '50%' 
     },
     image:{
         height: 60,
@@ -223,6 +232,7 @@ const styles = StyleSheet.create({
     },
     upload_button:{
         width: 120,
+        alignSelf: 'center'
     },
     upload_button_text:{
         fontSize: 12,
