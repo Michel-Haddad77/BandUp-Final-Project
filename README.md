@@ -76,7 +76,6 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 ### Prerequisites
 
 - Download and install [Node.js](https://nodejs.org/en/)
-- Download and in
 
 - npm
   ```sh
@@ -87,10 +86,6 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
   npm install --global expo-cli
   ```
 - Download Expo Go mobile app from the app store
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 ### Installation
 
