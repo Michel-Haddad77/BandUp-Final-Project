@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
     },
     subtitle:{
         color: 'gray',
+        maxWidth: 200
     }
 });
