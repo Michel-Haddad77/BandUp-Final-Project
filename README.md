@@ -56,13 +56,13 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 > Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Login Screen                       | Register Screen                        | Register as a Band Screen                      | Register as a Musician                             |
+| Login Screen                       | Register Screen                        | Register as a Band Screen                      | Register as a Musician Screen                      |
 | ---------------------------------- | -------------------------------------- | ---------------------------------------------- | -------------------------------------------------- |
 | <img src='/readme/app/Login.jpg'/> | <img src="./readme/app/Register.jpg"/> | <img src="./readme/app/Register as Band.jpg"/> | <img src="./readme/app/Register as Musician.jpg"/> |
 
-| Band Home Screen                              | Musician Home Screen                               | Profile Screen                             | Profile Screen with video                        |
-| --------------------------------------------- | -------------------------------------------------- | ------------------------------------------ | ------------------------------------------------ |
-| <img src='/readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Page.jpg"/> | <img src="./readme/app/Profile Page video.jpg"/> |
+| Band Home Screen                              | Musician Home Screen                               | Profile Screen                               | Profile Screen with video                          |
+| --------------------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
+| <img src='/readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
 
 | Band Profile                              | Musician Profile                               |
 | ----------------------------------------- | ---------------------------------------------- |
