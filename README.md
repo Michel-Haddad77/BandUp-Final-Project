@@ -20,7 +20,7 @@
 ### User Stories
 
 - As a musician, I want to browse bands, so that I can watch their video, apply by sending them a push notification, and call them.
-- As a band, I want to browse musicians, so that I can watch tehir videos, show interest in their profile by sending a push notification, and call them
+- As a band, I want to browse musicians, so that I can watch their video, show interest in their profile by sending a push notification, and call them
 - As the admin, I want to see all the users, and delete one in case of misconduct. I also want to browse and add new genres and instruments.
 
 <br><br>
@@ -34,9 +34,9 @@
 | ----------------------------------- | --------------------------------------------------------- |
 | <img src='./readme/Home Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> |
 
-| User's Profile                                            | Notifications                              |
-| --------------------------------------------------------- | ------------------------------------------ |
-| <img src='./readme/Band Profile Page (as musician).png'/> | <img src='./readme/Notifications Page.png' |
+| User's Profile                              | Notifications                              |
+| ------------------------------------------- | ------------------------------------------ |
+| <img src='./readme/Edit Profile Page.png'/> | <img src='./readme/Notifications Page.png' |
 
 <br><br>
 
