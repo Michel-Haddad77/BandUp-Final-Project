@@ -34,9 +34,9 @@
 | ----------------------------------- | --------------------------------------------------------- |
 | <img src='./readme/Home Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> |
 
-| User's Profile                              | Notifications                              |
-| ------------------------------------------- | ------------------------------------------ |
-| <img src='./readme/Edit Profile Page.png'/> | <img src='./readme/Notifications Page.png' |
+| User's Profile                              | Notifications                                |
+| ------------------------------------------- | -------------------------------------------- |
+| <img src='./readme/Edit Profile Page.png'/> | <img src='./readme/Notifications Page.png'/> |
 
 <br><br>
 
