@@ -113,11 +113,11 @@ function ButtonsSection({route}) {
             data: data,
         })
         .then(function (response) {
-            ToastAndroid.show('You have requested this musician to apply', ToastAndroid.LONG);
+            ToastAndroid.show("You have notified the musician of your interest in his profile", ToastAndroid.LONG);
             //disable the button after pressing
             setDisabled(true);
             //send notification to the musician
-            sendPushNotification('has requested you to apply!');
+            sendPushNotification('is interested in your profile!');
         })
         .catch(function (error){
             console.log(error);
@@ -131,7 +131,7 @@ function ButtonsSection({route}) {
 
             <StyledButton 
                 title={ //if the displayed user is a musician => Request to apply
-                    displayed_type === 2? "Request to Apply": "Apply"} 
+                    displayed_type === 2? "I'm Interested": "Apply"} 
                 text_style={styles.button_text} 
                 style={styles.button}
                 onPress={displayed_type === 2? requestToApply : apply}
