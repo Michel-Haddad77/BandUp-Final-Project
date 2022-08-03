@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View, Image, Text, TextInput, ScrollView, } from "react-native";
+import {  ToastAndroid, StyleSheet, View, Image, Text, TextInput, ScrollView, } from "react-native";
 import StyledButton from "../components/StyledButton";
 import axios from 'axios';
 import url from "../constants/url";
@@ -78,7 +78,8 @@ function LoginScreen({navigation}) {
                 console.log(error);
             }
         }).catch(function (error){
-            console.log(error);
+            console.log(error.response.data);
+            ToastAndroid.show(error.response.data, ToastAndroid.SHORT);
         })
     }
     
