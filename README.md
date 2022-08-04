@@ -4,7 +4,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.
 
-**[PROJECT PHILOSOPHY](https://github.com/Michel-Haddad77/BandUp-Final-Project#-project-philosophy) • [WIREFRAMES](https://github.com/Michel-Haddad77/BandUp-Final-Project#-wireframes) • [TECH STACK](https://github.com/Michel-Haddad77/BandUp-Final-Project#-tech-stack) • [IMPLEMENTATION](https://github.com/Michel-Haddad77/BandUp-Final-Project#-implementation) • [HOW TO RUN?](https://github.com/Michel-Haddad77/BandUp-Final-Project#-how-to-run)**
+**[PROJECT PHILOSOPHY](#project-philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#tech-stack) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#how-to-run)**
 
 </div>
 
@@ -19,9 +19,24 @@
 
 ### User Stories
 
-- As a musician, I want to browse bands, so that I can watch their video, apply by sending them a push notification, and call them.
-- As a band, I want to browse musicians, so that I can watch their video, show interest in their profile by sending a push notification, and call them
-- As the admin, I want to see all the users, and delete one in case of misconduct. I also want to browse and add new genres and instruments.
+#### Musician
+
+- As a musician, I want to browse bands, so that I can watch their demo video.
+- As a musician, I want to locate nearby bands.
+- As a musician, I want to call a band.
+- As a musician, I want to apply to bands by sending them a push notification.
+
+#### Band
+
+- As a band, I want to browse musicians, so that I can watch their demo video.
+- As a band, I want to locate nearby musicians.
+- As a band, I want to call a musician.
+- As a band, I want to show my interest in musicians by sending them a push notification.
+
+#### Admin
+
+- As the admin, I want to browse all the users, so that I can remove a user from the app.
+- As the admin, I want to browse and add new genres and instruments.
 
 <br><br>
 
@@ -30,43 +45,62 @@
 > This design was planned before on paper, then moved to the Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all was done from scratch and using pure css modules.
 
-| Home                                | Profile                                                   |
-| ----------------------------------- | --------------------------------------------------------- |
-| <img src='./readme/Home Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> |
+| Login                           | Register                          | Register as a Band                     | Register as a Musician                     |
+| ------------------------------- | --------------------------------- | -------------------------------------- | ------------------------------------------ |
+| <img src='./readme/Login.png'/> | <img src='./readme/Sign up.png'/> | <img src='./readme/Band Sign Up.png'/> | <img src='./readme/Musician Sign up.png'/> |
+
+| Home                                | Users List                           | Band Profile                                              | Musician Profile                                          |
+| ----------------------------------- | ------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- |
+| <img src='./readme/Home Page.png'/> | <img src='./readme/Users Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> | <img src='./readme/Musician Profile Page (as Band).png'/> |
 
 | User's Profile                              | Notifications                                |
 | ------------------------------------------- | -------------------------------------------- |
 | <img src='./readme/Edit Profile Page.png'/> | <img src='./readme/Notifications Page.png'/> |
 
+#### Admin
+
+| Users                           | Genres/Instruments                  |
+| ------------------------------- | ----------------------------------- |
+| <img src='./readme/Admin.png'/> | <img src='./readme/Add Genre.png'/> |
+
 <br><br>
 
 <img src="./readme/title4.svg"/>
 
-The app
 Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 - This project was developed using [React Native](https://reactnative.dev/) and [Expo](https://docs.expo.dev/) Cross-Platform Mobile Development tools. Expo is a framework to build React Native apps. It is a set with tools and services built for React Native.
 - The backend of the app uses [Express](https://expressjs.com/), the [Node.js](https://nodejs.org/) web application framework. Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - For persistent storage (database), the app uses [MongoDB](https://www.mongodb.com/), a noSQL database which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
-- For displaying maps and the users' location, the app uses React Native Maps which is a component system for maps that ships with platform-native code that needs to be compiled together with React Native.
+- For displaying maps and users' location, the app uses React Native Maps which is a component system for maps that ships with platform-native code that needs to be compiled together with React Native.
 - To send push notifications, the app uses [expo-notifications](https://docs.expo.dev/push-notifications/overview/) package which supports Android, and iOS.
 
 <br><br>
 <img src="./readme/title5.svg"/>
 
-> Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are screenshots from the real app
+> Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are animations from the real app
 
-| Login Screen                       | Register Screen                        | Register as a Band Screen                      | Register as a Musician Screen                      |
-| ---------------------------------- | -------------------------------------- | ---------------------------------------------- | -------------------------------------------------- |
-| <img src='/readme/app/Login.jpg'/> | <img src="./readme/app/Register.jpg"/> | <img src="./readme/app/Register as Band.jpg"/> | <img src="./readme/app/Register as Musician.jpg"/> |
+| Register                                   | Band Home Screen                             | Musician Home Screen                             | Edit Profile                                    |
+| ------------------------------------------ | -------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| <img src='./readme/app/gifs/Sign Up.gif'/> | <img src="./readme/app/gifs/Band Home.gif"/> | <img src="./readme/app/gifs/Musician Home.gif"/> | <img src="./readme/app/gifs/Edit Profile.gif"/> |
 
-| Band Home Screen                              | Musician Home Screen                               | Profile Screen                               | Profile Screen with video                          |
-| --------------------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
-| <img src='/readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
+| Nearby Users                         | Upload Video                                  | Search                                    | Make a Call                                    |
+| ------------------------------------ | --------------------------------------------- | ----------------------------------------- | ---------------------------------------------- |
+| <img src='readme/app/gifs/Map.gif'/> | <img src='readme/app/gifs/Upload Video.gif'/> | <img src="./readme/app/gifs/Search.gif"/> | <img src="./readme/app/gifs/Make a Call.gif"/> |
 
-| Band Profile                              | Musician Profile                               |
-| ----------------------------------------- | ---------------------------------------------- |
-| <img src='/readme/app/Band Profile.jpg'/> | <img src="./readme/app/Musician Profile.jpg"/> |
+| Sending/Receiving Notifications                                                         |
+| --------------------------------------------------------------------------------------- |
+| <img src="./readme/app/gifs/sending.gif"/> <img src="./readme/app/gifs/receiving.gif"/> |
+
+> Below are some screenshots
+
+| Band Home Screen                               | Musician Home Screen                               | Profile Screen                               | Profile Screen with video                          |
+| ---------------------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
+| <img src='./readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
+
+| Band Profile                               | Musician Profile                               |
+| ------------------------------------------ | ---------------------------------------------- |
+| <img src='./readme/app/Band Profile.jpg'/> | <img src="./readme/app/Musician Profile.jpg"/> |
 
 <br><br>
 <img src="./readme/title6.svg"/>
@@ -86,6 +120,8 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
   npm install --global expo-cli
   ```
 - Download Expo Go mobile app from the app store
+  > Android
+  > IOS
 
 ### Installation
 
