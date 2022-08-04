@@ -77,6 +77,7 @@
 Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 - This project was developed using [React Native](https://reactnative.dev/) and [Expo](https://docs.expo.dev/) Cross-Platform Mobile Development tools. Expo is a framework to build React Native apps. It is a set with tools and services built for React Native.
+- The admin web app was developed using [React](https://reactjs.org/). React is an open-source front-end JavaScript library for building user interfaces based on UI components.
 - The backend of the app uses [Express](https://expressjs.com/), the [Node.js](https://nodejs.org/) web application framework. Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - For persistent storage (database), the app uses [MongoDB ](https://www.mongodb.com/), a flexible and scalable noSQL database that stores data in JSON-like documents.
 - For displaying maps and users' location, the app uses [React Native Maps](https://github.com/react-native-maps/react-native-maps) which is a component system for maps that ships with platform-native code that needs to be compiled together with React Native.
