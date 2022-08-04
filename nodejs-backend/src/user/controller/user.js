@@ -194,7 +194,7 @@ async function updateUser(req, res) {
                 instrument: new mongoose.Types.ObjectId(instrument)
             },{new: true}).populate('instrument');
 
-        }else{
+        }else if(genre){
             var updated_user = await User.findByIdAndUpdate(req.query.id, {
                 name,  
                 mobile,
@@ -232,11 +232,27 @@ async function uploadVideo(req,res){
     
 }
 
+//API called when user wants to delete the uploaded a video
+async function deleteVideo(req,res){
+    try{
+        //remove the video reference from the user's document
+        const updated_user = await User.findByIdAndUpdate(req.query.id, {
+            video: "" 
+        });
+
+        return res.send(`Video delete successfully`);
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }  
+}
+
 module.exports = {
     register,
     login,
     deleteExpoToken,
     getUser,
     updateUser,
-    uploadVideo
+    uploadVideo,
+    deleteVideo
   };
