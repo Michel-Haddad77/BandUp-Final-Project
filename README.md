@@ -10,7 +10,7 @@
 
 <br><br>
 
-<img src="./readme/title2.svg"/>
+<img id="project-philosophy" src="./readme/title2.svg"/>
 
 > Band Up is an app that helps musicians and bands discover and connect with each other.
 > Musicians can browse bands by their genre, and bands can browse musicians by their instruments.
@@ -40,7 +40,7 @@
 
 <br><br>
 
-<img src="./readme/title3.svg"/>
+<img id="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to the Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all was done from scratch and using pure css modules.
@@ -65,7 +65,7 @@
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+<img id="tech-stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the Band Up app uses:
 
@@ -76,7 +76,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 - To send push notifications, the app uses [expo-notifications](https://docs.expo.dev/push-notifications/overview/) package which supports Android, and iOS.
 
 <br><br>
-<img src="./readme/title5.svg"/>
+<img id="implementation" src="./readme/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are animations from the real app
 
@@ -103,7 +103,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 | <img src='./readme/app/Band Profile.jpg'/> | <img src="./readme/app/Musician Profile.jpg"/> |
 
 <br><br>
-<img src="./readme/title6.svg"/>
+<img id="how-to-run" src="./readme/title6.svg"/>
 
 > To get a local copy up and running follow these simple example steps.
 
