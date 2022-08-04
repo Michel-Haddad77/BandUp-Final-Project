@@ -58,9 +58,7 @@
 | ----------------------------------- | ------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
 | <img src='./readme/Home Page.png'/> | <img src='./readme/Users Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> | <img src='./readme/Edit Profile Page.png'/> |
 
-<br>
-
-## Admin
+### Admin
 
 | Users                           | Genres/Instruments                  |
 | ------------------------------- | ----------------------------------- |
