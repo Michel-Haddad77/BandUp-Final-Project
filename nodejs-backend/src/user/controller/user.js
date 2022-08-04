@@ -240,7 +240,7 @@ async function deleteVideo(req,res){
             video: "" 
         });
 
-        return res.send(`Video delete successfully`);
+        return res.send(`Video deleted successfully`);
     }catch(error){
         console.log(error);
         res.status(500).send(error);
