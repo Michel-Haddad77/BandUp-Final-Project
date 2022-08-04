@@ -113,7 +113,9 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 </center>
 
-### Admin
+<br>
+
+## Admin
 
 > These are animations from the admin web app.
 
