@@ -14,6 +14,7 @@ async function getNotifications(req,res){
     }
 }
 
+//Add the notification to the db after it gets sent to the user
 async function addNotification(req,res){
     try{
         const {
