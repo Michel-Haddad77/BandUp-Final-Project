@@ -78,7 +78,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 <br><br>
 <img id="implementation" src="./readme/title5.svg"/>
 
-> Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are animations from the real app
+> Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are animations from the real app.
 
 | Register                                   | Band Home Screen                             | Musician Home Screen                             | Edit Profile                                    |
 | ------------------------------------------ | -------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
@@ -88,19 +88,45 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 | ------------------------------------ | --------------------------------------------- | ----------------------------------------- | ---------------------------------------------- |
 | <img src='readme/app/gifs/Map.gif'/> | <img src='readme/app/gifs/Upload Video.gif'/> | <img src="./readme/app/gifs/Search.gif"/> | <img src="./readme/app/gifs/Make a Call.gif"/> |
 
+<center>
+
 | Sending/Receiving Notifications                                                         |
 | --------------------------------------------------------------------------------------- |
 | <img src="./readme/app/gifs/sending.gif"/> <img src="./readme/app/gifs/receiving.gif"/> |
 
-> Below are some screenshots
+</center>
+
+### Admin
+
+<center>
+
+| Delete User                         |
+| ----------------------------------- |
+| <img src='./readme/app/users.gif'/> |
+
+| Add Genre                               |
+| --------------------------------------- |
+| <img src='./readme/app/add genre.gif'/> |
+
+| Add Instrument                               |
+| -------------------------------------------- |
+| <img src='./readme/app/add instrument.gif'/> |
+
+| Unauthorized user                          |
+| ------------------------------------------ |
+| <img src="./readme/app/unauthorized.gif"/> |
+
+</center>
+
+> Below are some screenshots.
 
 | Band Home Screen                               | Musician Home Screen                               | Profile Screen                               | Profile Screen with video                          |
 | ---------------------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
 | <img src='./readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
 
-| Band Profile                               | Musician Profile                               |
-| ------------------------------------------ | ---------------------------------------------- |
-| <img src='./readme/app/Band Profile.jpg'/> | <img src="./readme/app/Musician Profile.jpg"/> |
+| Musician Profile                               | Band Profile                               | Map Screen                        | Notifications                               |
+| ---------------------------------------------- | ------------------------------------------ | --------------------------------- | ------------------------------------------- |
+| <img src='./readme/app/Musician Profile.jpg'/> | <img src="./readme/app/Band Profile.jpg"/> | <img src="./readme/app/Map.jpg"/> | <img src="./readme/app/Notifications.jpg"/> |
 
 <br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
@@ -163,7 +189,16 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
    npm run seed-genres
    ```
 
-5. To start, run the command
+5. Create your own .env file with the following variables
+
+   ```sh
+   DB_CONNECT =
+   TOKEN_SECRET  =
+   ```
+
+6. Create a file with the name "uploads" to store the uploaded videos
+
+7. To start, run the command
    ```sh
    npm start
    ```
