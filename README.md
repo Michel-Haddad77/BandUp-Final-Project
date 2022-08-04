@@ -164,6 +164,8 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 - Download and install [Node.js](https://nodejs.org/en/)
 
+- Download and install [MongoDB](https://www.mongodb.com/docs/manual/installation/)
+
 - npm
   ```sh
   npm install npm@latest -g
@@ -172,7 +174,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
   ```sh
   npm install --global expo-cli
   ```
-- Download the Expo Go mobile app from the app store
+- Download the [Expo Go](https://expo.dev/client) mobile app from the app store
 
 ### Installation
 
