@@ -12,15 +12,13 @@
 
 <img id="project-philosophy" src="./readme/title2.svg"/>
 
-> Band Up is an app that helps musicians and bands discover and connect with each other.
-> Musicians can browse bands by their genre, and bands can browse musicians by their instruments.
-> Musicians can discover nearby bands (up to a 5KM radius), and vice versa.
-> Users can catch each other's attention by uploading videos showcasing their skills, and showing their interest in each other via push notifications.
+> Band Up is an app that helps musicians and bands discover and connect with each other. The app's purpose is to help musicians further their musical career by finding and joining the right band. Bands can also find the right musical talent according to their needs
 
 ### User Stories
 
 #### Musician
 
+- As a musician, I want to upload a video to showcase my skills.
 - As a musician, I want to browse bands, so that I can watch their demo video.
 - As a musician, I want to locate nearby bands.
 - As a musician, I want to call a band.
@@ -28,6 +26,7 @@
 
 #### Band
 
+- As a band, I want to upload a video to demonstrate our musical style.
 - As a band, I want to browse musicians, so that I can watch their demo video.
 - As a band, I want to locate nearby musicians.
 - As a band, I want to call a musician.
@@ -72,7 +71,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 - This project was developed using [React Native](https://reactnative.dev/) and [Expo](https://docs.expo.dev/) Cross-Platform Mobile Development tools. Expo is a framework to build React Native apps. It is a set with tools and services built for React Native.
 - The backend of the app uses [Express](https://expressjs.com/), the [Node.js](https://nodejs.org/) web application framework. Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - For persistent storage (database), the app uses [MongoDB](https://www.mongodb.com/), a noSQL database which allows storing data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time.
-- For displaying maps and users' location, the app uses React Native Maps which is a component system for maps that ships with platform-native code that needs to be compiled together with React Native.
+- For displaying maps and users' location, the app uses [React Native Maps](https://github.com/react-native-maps/react-native-maps) which is a component system for maps that ships with platform-native code that needs to be compiled together with React Native.
 - To send push notifications, the app uses [expo-notifications](https://docs.expo.dev/push-notifications/overview/) package which supports Android, and iOS.
 
 <br><br>
