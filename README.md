@@ -54,15 +54,13 @@
 | ------------------------------- | --------------------------------- | -------------------------------------- | ------------------------------------------ |
 | <img src='./readme/Login.png'/> | <img src='./readme/Sign up.png'/> | <img src='./readme/Band Sign Up.png'/> | <img src='./readme/Musician Sign up.png'/> |
 
-| Home                                | Users List                           | Band Profile                                              | Musician Profile                                          |
-| ----------------------------------- | ------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- |
-| <img src='./readme/Home Page.png'/> | <img src='./readme/Users Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> | <img src='./readme/Musician Profile Page (as Band).png'/> |
+| Home                                | Users List                           | Profile                                                   | User's Profile                              |
+| ----------------------------------- | ------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| <img src='./readme/Home Page.png'/> | <img src='./readme/Users Page.png'/> | <img src='./readme/Band Profile Page (as musician).png'/> | <img src='./readme/Edit Profile Page.png'/> |
 
-| User's Profile                              | Notifications                                |
-| ------------------------------------------- | -------------------------------------------- |
-| <img src='./readme/Edit Profile Page.png'/> | <img src='./readme/Notifications Page.png'/> |
+<br>
 
-#### Admin
+## Admin
 
 | Users                           | Genres/Instruments                  |
 | ------------------------------- | ----------------------------------- |
