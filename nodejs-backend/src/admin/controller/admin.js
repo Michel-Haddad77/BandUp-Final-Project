@@ -1,6 +1,5 @@
 const Instrument = require('../../../models/Instrument');
 const Genre = require('../../../models/Genre');
-const Musician = require('../../../models/Musician');
 const User = require('../../../models/User');
 
 //API when admin adds a new genre

@@ -55,7 +55,7 @@ async function apply(req,res){
     }
 }
 
-//API that gets all the bands of the same genre
+//API that gets all the musicians with the same instrument
 //expected request contains instrument_id
 async function getByInstrument(req,res){
     try{
