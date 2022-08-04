@@ -100,21 +100,21 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 <center>
 
-| Delete User                         |
-| ----------------------------------- |
-| <img src='./readme/app/users.gif'/> |
+| Delete User                              |
+| ---------------------------------------- |
+| <img src='./readme/app/gifs/users.gif'/> |
 
-| Add Genre                               |
-| --------------------------------------- |
-| <img src='./readme/app/add genre.gif'/> |
+| Unauthorized user                               |
+| ----------------------------------------------- |
+| <img src="./readme/app/gifs/unauthorized.gif"/> |
 
-| Add Instrument                               |
+| Add Genre                                    |
 | -------------------------------------------- |
-| <img src='./readme/app/add instrument.gif'/> |
+| <img src='./readme/app/gifs/add genre.gif'/> |
 
-| Unauthorized user                          |
-| ------------------------------------------ |
-| <img src="./readme/app/unauthorized.gif"/> |
+| Add Instrument                                    |
+| ------------------------------------------------- |
+| <img src='./readme/app/gifs/add instrument.gif'/> |
 
 </center>
 
