@@ -1,4 +1,4 @@
-<img src="./readme/title1.svg"/>
+<img id="top" src="./readme/title1.svg"/>
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 
 <img id="project-philosophy" src="./readme/title2.svg"/>
 
-> Band Up is an app that helps musicians and bands discover and connect with each other. The app's purpose is to help musicians further their musical career by finding and joining the right band. Bands can also find the right musical talent according to their needs
+> Band Up is a mobile app that helps musicians and bands discover and connect with each other. The app's purpose is to help musicians further their musical career by finding and joining the right band. Bands can also find the right musical talent according to their needs.
 
 ### User Stories
 
@@ -39,6 +39,12 @@
 
 <br><br>
 
+<center>
+
+**[BACK TO TOP](#top)**
+
+</center>
+
 <img id="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to the Figma app for the fine details.
@@ -64,6 +70,12 @@
 
 <br><br>
 
+<center>
+
+**[BACK TO TOP](#top)**
+
+</center>
+
 <img id="tech-stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the Band Up app uses:
@@ -75,6 +87,12 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 - To send push notifications, the app uses [expo-notifications](https://docs.expo.dev/push-notifications/overview/) package which supports Android, and iOS.
 
 <br><br>
+
+<center>
+
+**[BACK TO TOP](#top)**
+
+</center>
 <img id="implementation" src="./readme/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes built with Figma from the user stories we have, the implementation of the app is shown as below, these are animations from the real app.
@@ -97,6 +115,8 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 ### Admin
 
+> These are animations from the admin web app.
+
 <center>
 
 | Delete User                              |
@@ -117,17 +137,27 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
 
 </center>
 
-> Below are some screenshots.
+> Below are some screenshots from the app.
 
-| Band Home Screen                               | Musician Home Screen                               | Profile Screen                               | Profile Screen with video                          |
-| ---------------------------------------------- | -------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
-| <img src='./readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
+| Band Home Screen                               | Musician Home Screen                               | All users screen                        |
+| ---------------------------------------------- | -------------------------------------------------- | --------------------------------------- |
+| <img src='./readme/app/Band Home Screen.jpg'/> | <img src="./readme/app/Musician Home Screen.jpg"/> | <img src="./readme/app/All users.jpg"/> |
 
-| Musician Profile                               | Band Profile                               | Map Screen                        | Notifications                               |
-| ---------------------------------------------- | ------------------------------------------ | --------------------------------- | ------------------------------------------- |
-| <img src='./readme/app/Musician Profile.jpg'/> | <img src="./readme/app/Band Profile.jpg"/> | <img src="./readme/app/Map.jpg"/> | <img src="./readme/app/Notifications.jpg"/> |
+| Musician Profile                               | Band Profile                               | Map Screen                        |
+| ---------------------------------------------- | ------------------------------------------ | --------------------------------- |
+| <img src='./readme/app/Musician Profile.jpg'/> | <img src="./readme/app/Band Profile.jpg"/> | <img src="./readme/app/Map.jpg"/> |
+
+| Notifications                               | Profile Screen                               | Profile Screen with video                          |
+| ------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
+| <img src="./readme/app/Notifications.jpg"/> | <img src="./readme/app/Profile Screen.jpg"/> | <img src="./readme/app/Profile Screen video.jpg"/> |
 
 <br><br>
+
+<center>
+
+**[BACK TO TOP](#top)**
+
+</center>
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > To get a local copy up and running follow these simple example steps.
@@ -144,9 +174,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
   ```sh
   npm install --global expo-cli
   ```
-- Download Expo Go mobile app from the app store
-  > Android
-  > IOS
+- Download the Expo Go mobile app from the app store
 
 ### Installation
 
@@ -156,16 +184,18 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
    ```sh
    git clone https://github.com/Michel-Haddad77/BandUp-Final-Project
    ```
-2. Navigate to the Frontend folder and install dependencies
+2. Navigate to the frontend folder and install dependencies
    ```sh
    cd BandUp-final-project/react-native-frontend
    npm install
    ```
-3. Run the start up command
+3. Navigate to the "url" file in the constants folder and change the ip address to your own
+
+4. Run the start up command
    ```sh
    expo start
    ```
-4. Scan the generated QR code with your camera (ios) or through the Expo Go application (android).
+5. Scan the generated QR code with your camera (ios) or through the Expo Go application (android).
 
 #### Node.js:
 
