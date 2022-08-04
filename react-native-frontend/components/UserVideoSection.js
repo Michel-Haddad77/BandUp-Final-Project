@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ToastAndroid } from "react-native";
 import colors from "../constants/colors";
 import StyledButton from "./StyledButton";
 import * as ImagePicker from 'expo-image-picker';
@@ -59,6 +59,27 @@ export default function UserVideoSection() {
         }
     }
 
+    //function called when the user wants to delete the uploaded video
+    function deleteVideo(){
+
+        axios({
+            method: 'put',
+            url: url + 'user/delete-video',
+            params:{
+                id: user._id
+            },
+        }).then(function (response) {
+            
+            console.log(response.data);
+            //update the user from context
+            setUser({...user, video:""});
+            //video deleted successfully
+            ToastAndroid.show(response.data, ToastAndroid.SHORT);
+        }).catch(function (error){
+            console.log(error);
+        })
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Demo Video</Text>
@@ -76,7 +97,7 @@ export default function UserVideoSection() {
                     title={user.video? "Delete Video" : "Upload Video"} 
                     text_style={styles.upload_button_text} 
                     style={styles.upload_button}
-                    onPress={handleUpload}
+                    onPress={user.video? deleteVideo : handleUpload}
                 />
             
         </View>
