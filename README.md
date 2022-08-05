@@ -226,7 +226,7 @@ Here's a brief high-level overview of the tech stack the Band Up app uses:
    TOKEN_SECRET  =
    ```
 
-6. Create a file with the name "uploads" to store the uploaded videos
+6. Create a folder with the name "uploads" to store the uploaded videos
 
 7. To start, run the command
    ```sh
